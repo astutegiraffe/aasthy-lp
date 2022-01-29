@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		.row {
+			margin: auto;
+		}
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+			/* or 125% */
+		}
+
+		.large-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
+		}
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-even-section {
+			background: #3F2B96;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.top-left-wave {
+			display: none;
+		}
+
+		.top-right-wave {
+			display: none;
+		}
+
+		#section-2-bottom-left-wave {
+			display: block;
+			position: absolute;
+			width: 141.00%;
+			margin-top: 4.65%;
+			aspect-ratio: 1015.66/936;
+			content: url("/lp/bottom-left-wave.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-2-image-1 {
+			width: 80.83%;
+			margin-top: 22.81%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 12.22%;
+			aspect-ratio: 582/667;
+			content: url("/lp/section-2-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-2-large-text {
+			width: 63.19%;
+			margin-top: 42.63%;
+			margin-left: 9.30%;
+			color: #FFFFFF;
+		}
+
+		#section-2-small-text {
+			width: 66.66%;
+			margin-top: 5.55%;
+			margin-left: 9.30%;
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 24px;
+			}
+		}
+
+		@media all and (max-width: 767px) {
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			.top-left-wave {
+				display: block;
+				position: absolute;
+				width: 75.84%;
+				aspect-ratio: 314/289.37;
+				content: url("/lp/top-left-wave.png");
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			#section-2-bottom-left-wave {
+				display: none;
+			}
+
+			#section-2-image-1 {
+				width: 90.34%;
+				aspect-ratio: 374/428;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 6.28%;
+			}
+
+			#section-2-small-text {
+				width: 75.94%;
+			}
+
+			#section-2-large-text {
+				width: 46.13%;
+				margin-top: 23.19%;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+	function loadingEvent() {
+		console.log(document.body.scrollHeight);
+	}
+</script>
+
+<body onload="loadingEvent()">
+	<div style="overflow: hidden;">
+		<section class="landing-page-even-section">
+			<div class="container-fluid p-0 landing-page-section">
+				<div class="row">
+					<div class="col-md-6 p-0" style="position: relative;">
+						<div class="top-left-wave"></div>
+						<div id="section-2-bottom-left-wave"></div>
+						<div id="section-2-large-text">
+							<span class="large-text">
+								Why invest in real estate?
+							</span>
+						</div>
+						<div id="section-2-small-text">
+							<span class="small-text" style="color: #FFFFFF;">
+								Well, we did the math. Here’s what we found:
+								real estate has the highest annual return rate when compared with other forms of
+								investment!
+							</span>
+						</div>
+					</div>
+					<div class="col-md-6 p-0">
+						<img id="section-2-image-1" class="landing-page-img" alt="Annualised return rates bar graph" />
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

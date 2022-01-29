@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		.row {
+			margin: auto;
+		}
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+			/* or 125% */
+		}
+
+		.large-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
+		}
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-even-section {
+			background: #3F2B96;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.top-left-wave {
+			display: none;
+		}
+
+		.top-right-wave {
+			display: none;
+		}
+
+		#section-4-image-1 {
+			width: 100%;
+			margin-top: 0%;
+			margin-left: 0%;
+			aspect-ratio: 640/477;
+			content: url("./section-4-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-4-image-2 {
+			width: 100%;
+			margin-top: 0%;
+			margin-left: 9.30%;
+			aspect-ratio: 640/477;
+			content: url("./section-4-image-2.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-4-large-text-1 {
+			width: 87.22%;
+			margin-top: 19.86%;
+			margin-left: 9.30%;
+			color: #FFFFFF;
+		}
+
+		#section-4-large-text-2 {
+			width: 85.00%;
+			margin-top: 20.00%;
+			margin-left: 2.63%;
+			color: #FFFFFF;
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 24px;
+			}
+
+		}
+
+		@media all and (max-width: 767px) {
+
+			.alternate-color .row:nth-of-type(even) {
+				background: #3F2B96;
+			}
+
+			.alternate-color .row:nth-of-type(odd) {
+				background: #FFFFFF;
+			}
+
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			#section-4-large-text-1 {
+				color: #000000;
+			}
+
+			.top-left-wave {
+				display: block;
+				position: absolute;
+				width: 75.84%;
+				aspect-ratio: 314/289.37;
+				content: url("./top-left-wave.png");
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			.top-right-wave {
+				display: block;
+				position: absolute;
+				width: 61.59%;
+				margin-left: 38.40%;
+				aspect-ratio: 255/235;
+				content: url("./top-right-wave.png");
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			#section-4-image-1,
+			#section-4-image-2 {
+				width: 100%;
+				margin-top: 20.77%;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			#section-4-large-text-1 {
+				width: 80.43%;
+				margin-top: 23.19%;
+			}
+
+			#section-4-large-text-2 {
+				width: 66.18%;
+				margin-top: 23.19%;
+				margin-left: 9.30%;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+	function loadingEvent() {
+		console.log(document.body.scrollHeight);
+	}
+</script>
+
+<body onload="loadingEvent()">
+	<div style="overflow: hidden;">
+		<section class="landing-page-even-section">
+			<div class="container-fluid p-0 landing-page-section alternate-color">
+				<div class="row">
+					<div class="col-md-6 p-0" style="position: relative;">
+						<div class="top-right-wave"></div>
+						<div id="section-4-large-text-1">
+							<span class="large-text">
+								Each property has its own discussion.
+								<span style="color: #FFCE00;">Join the conversation!</span>
+							</span>
+						</div>
+					</div>
+					<div class="col-md-6 p-0 ">
+						<img id="section-4-image-1" class="landing-page-img" alt="Discussions" />
+					</div>
+				</div>
+				<hr class="line-desktop" style="width: 90.50%; margin: 0px auto; border-color: #FFFFFF;" />
+				<div class="row">
+					<div class="col-md-6 p-0 order-last order-md-first">
+						<img id="section-4-image-2" class="landing-page-img" alt="Discussion and Reactions" />
+					</div>
+					<div class="col-md-6 p-0  order-first order-md-last">
+						<div class="top-left-wave"></div>
+						<div id="section-4-large-text-2">
+							<span class="large-text">
+								See what others think about investing in a property.
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		.row {
+			margin: auto;
+		}
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+			/* or 125% */
+		}
+
+		.large-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
+		}
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-odd-section {
+			background: #FFFFFF;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.top-right-wave {
+			display: none;
+		}
+
+		#section-3-image-1 {
+			width: 100%;
+			margin-top: 0%;
+			margin-left: 0%;
+			aspect-ratio: 640/477;
+			content: url("/lp/section-3-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-3-image-2 {
+			width: 100%;
+			margin-top: 0%;
+			margin-left: 9.30%;
+			aspect-ratio: 640/477;
+			content: url("/lp/section-3-image-2.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-3-large-text-1 {
+			width: 88.89%;
+			margin-top: 19.86%;
+			margin-left: 9.30%;
+			color: #000000;
+		}
+
+		#section-3-large-text-2 {
+			width: 79.16%;
+			margin-top: 20%;
+			margin-left: 12.63%;
+			color: #000000;
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 24px;
+			}
+		}
+
+		@media all and (max-width: 767px) {
+
+			.alternate-color .row:nth-of-type(even) {
+				background: #3F2B96;
+			}
+
+			.alternate-color .row:nth-of-type(odd) {
+				background: #FFFFFF;
+			}
+
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			#section-3-large-text-2 {
+				color: #FFFFFF;
+			}
+
+			.top-left-wave {
+				display: block;
+				position: absolute;
+				width: 75.84%;
+				aspect-ratio: 314/289.37;
+				content: url("/lp/top-left-wave.png");
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			.top-right-wave {
+				display: block;
+				position: absolute;
+				width: 61.59%;
+				margin-left: 38.40%;
+				aspect-ratio: 255/235;
+				content: url("/lp/top-right-wave.png");
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			#section-3-image-1,
+			#section-3-image-2 {
+				width: 100%;
+				margin-top: 20.77%;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			#section-3-image-2 {
+				content: url("/lp/section-3-image-2-mobile.png")
+			}
+
+			#section-3-large-text-1 {
+				width: 82.61%;
+				margin-top: 23.19%;
+			}
+
+			#section-3-large-text-2 {
+				width: 58.6%;
+				margin-top: 23.19%;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+	function loadingEvent() {
+		console.log(document.body.scrollHeight);
+	}
+</script>
+
+<body onload="loadingEvent()">
+	<div style="overflow: hidden;">
+		<section class="landing-page-odd-section">
+			<div class="container-fluid p-0 landing-page-section alternate-color">
+				<div class="row">
+					<div class="col-md-6 p-0">
+						<div class="top-right-wave"></div>
+						<div id="section-3-large-text-1">
+							<span class="large-text">
+								Easily discover & compare investment hotspots.
+							</span>
+						</div>
+					</div>
+					<div class="col-md-6 p-0">
+						<img id="section-3-image-1" class="landing-page-img"
+							alt="Easily discover & compare investment hotspots." />
+					</div>
+				</div>
+				<hr class="line-desktop" style="width: 90.50%; margin: 0px auto; border-color: #000000;" />
+				<div class="row">
+					<div class="col-md-6 p-0 order-last order-md-first">
+						<img id="section-3-image-2" class="landing-page-img" alt="Apprecation chart" />
+					</div>
+					<div class="col-md-6 p-0 order-first order-md-last">
+						<div class="top-left-wave"></div>
+						<div id="section-3-large-text-2">
+							<span class="large-text">
+								Get investment insights backed by real data.
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

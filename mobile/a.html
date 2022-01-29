@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		.row {
+			margin: auto;
+		}
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+			/* or 125% */
+		}
+
+		.large-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
+		}
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-odd-section {
+			background: #FFFFFF;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.btn-get-started {
+			margin-top: 13.33%;
+			margin-left: 9.30%;
+			background: #4E0668;
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			border-radius: 6px;
+			border: 0px;
+			font-size: 1vw;
+			font-family: Poppins;
+			font-weight: 600;
+			color: #FFFFFF;
+			white-space: nowrap;
+			padding: 2%;
+		}
+
+		#section-1-image-1 {
+			width: 93.2%;
+			margin-top: 18.19%;
+			margin-left: 0%;
+			aspect-ratio: 671/736;
+			content: url("./section-1-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-1-large-text {
+			width: 81.38%;
+			margin-top: 24.30%;
+			margin-left: 9.30%;
+			color: #000000;
+		}
+
+		#section-1-small-text {
+			width: 70.00%;
+			margin-top: 5.00%;
+			margin-left: 9.30%;
+		}
+
+		.section-1-text-align {
+			text-align: start;
+		}
+
+		@media all and (max-width: 767px) {
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			#section-1-large-text span {
+				font-size: 8.69vw;
+			}
+
+			#section-1-image-1 {
+				width: 82.68%;
+				aspect-ratio: 342.3/404;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-small-text {
+				width: 81.15%;
+				margin-top: 11.11%;
+				margin-left: auto;
+				margin-right: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-large-text {
+				width: 79.71%;
+				margin-top: 10.87%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.section-1-text-align {
+				text-align: center;
+			}
+
+			.btn-get-started {
+				height: 13.28%;
+				margin-top: 18.84%;
+				margin-left: auto;
+				margin-right: auto;
+				font-size: 100%;
+				font-style: normal;
+				font-family: Poppins;
+				font-weight: 600;
+				color: #FFFFFF;
+			}
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 24px;
+			}
+
+			.btn-get-started {
+				font-size: 16px;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+	function loadingEvent() {
+		console.log(document.body.scrollHeight);
+	}
+</script>
+
+<body onload="loadingEvent()">
+	<div style="overflow: hidden;">
+		<section class="landing-page-odd-section">
+			<div class="container-fluid p-0 landing-page-section">
+				<div class="row">
+					<div class="col-md-6 p-0">
+						<div class="section-1-text-align">
+							<div id="section-1-large-text">
+								<span class="large-text">
+									Real Estate investments made real easy.
+								</span>
+							</div>
+							<div id="section-1-small-text">
+								<span class="small-text">
+									Meet Aasthy, your personal real estate investment advisor. Discover insights and
+									opportunities like never before.
+								</span>
+							</div>
+							<button class='btn-get-started' onclick="window.parent.postMessage('showLoginModal')">
+								View Properties
+							</button>
+						</div>
+					</div>
+					<div class="col-md-6 p-0">
+						<img id="section-1-image-1" class="landing-page-img"
+							alt="Apprecation , Yeilds and Discussions" />
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

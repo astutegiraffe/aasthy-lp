@@ -1,0 +1,234 @@
+<html>
+
+<head>
+	<style>
+		@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: fit-content;
+			/* height: 100vw; */
+		}
+
+		body {
+			display: flex;
+			font-family: 'DM Sans', sans-serif;
+			transition: .4s ease-in;
+		}
+
+		input[type=radio] {
+			width: 2vw;
+			height: 2vw;
+			z-index: 10;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			color: white;
+			border-radius: 100px;
+			border: 1px solid #7E7E7E;
+		}
+
+		input[type=radio]:checked {
+			color: #7E7E7E;
+			background-color: #7E7E7E;
+		}
+
+		.card {
+			position: absolute;
+			width: 60%;
+			height: auto;
+			left: 0;
+			right: 0;
+			margin: auto;
+			transition: transform .4s ease;
+			cursor: pointer;
+		}
+
+		.main-container {
+			position: relative;
+			width: 100%;
+			/* background:url(./images/Background-Mobile.png) no-repeat center;
+			background-size: cover; */
+			/* max-height:1500px; */
+			max-height: 900px;
+			transform-style: preserve-3d;
+			display: flex;
+			justify-content: center;
+			flex-direction: column-reverse;
+			align-items: center;
+		}
+
+		.cards {
+			margin-left: 10px;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			margin-bottom: 20px;
+			margin-top: 30px;
+		}
+
+		img {
+			width: 100%;
+			border-radius: 10px;
+		}
+
+		#card1:checked~.cards #card-3,
+		#card2:checked~.cards #card-1,
+		#card3:checked~.cards #card-2 {
+			transform: translatex(-40%) scale(.8);
+			opacity: 1;
+			z-index: 0;
+		}
+
+		#card1:checked~.cards #card-2,
+		#card2:checked~.cards #card-3,
+		#card3:checked~.cards #card-1 {
+			transform: translatex(40%) scale(.8);
+			opacity: 1;
+			z-index: 0;
+		}
+
+		#card1:checked~.cards #card-1,
+		#card2:checked~.cards #card-2,
+		#card3:checked~.cards #card-3 {
+			transform: translatex(0) scale(1);
+			opacity: 1;
+			z-index: 1;
+		}
+
+		#card1 {
+			position: absolute;
+			margin-top: 85%;
+			left:calc(45%);
+			/* margin-left: -5vw; */
+		}
+
+		#card2 {
+			position: absolute;
+			margin-top: 85%;
+			left:calc(50%);
+			/* margin-left: 5vw; */
+		}
+
+		#card3 {
+			position: absolute;
+			margin-top: 85%;
+			left:calc(55%);
+			/* margin-left: 15vw; */
+		}
+
+		body:after {
+			content: "";
+			position: fixed;
+			max-height:900px;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+			display: block;
+			background: url(./images/Background_Mobile.png) no-repeat 50% 50%;
+			background-size: cover;
+		}
+	</style>
+</head>
+
+<body >
+	<div class="main-container" ontouchstart='startTouch(event)' ontouchmove='drag(event)' ontouchend='endTouch(event)'>
+		<input class="input-check" type="radio" name="slider" value='card1' id="card1" checked>
+		<input class="input-check" type="radio" name="slider" value='card2' id="card2">
+		<input class="input-check" type="radio" name="slider" value='card3' id="card3">
+		<div class="cards">
+			<label class="card" for="card1" id="card-1">
+				<img src="./images/Learn_Mobile.png" alt="card">
+			</label>
+			<label class="card" for="card2" id="card-2">
+				<img src="./images/Discover_Mobile.png" alt="card">
+			</label>
+			<label class="card" for="card3" id="card-3">
+				<img src="./images/Invest_Mobile.png" alt="card">
+			</label>
+		</div>
+	</div>
+	<script>
+		var flag = false;
+		var startX = null;
+		var startY = null;
+		var endX = null;
+		var endY = null;
+		function startTouch(e) {
+			startX = e.changedTouches[0].clientX;
+			startY = e.changedTouches[0].clientY;
+			console.log('StartX:', startX);
+			console.log('StartY:', startY);
+		}
+
+		function drag(e) {
+			flag = true;
+		}
+
+		function endTouch(e) {
+			if (flag) {
+				console.log('true');
+				console.log(e);
+				endX = e.changedTouches[0].clientX;
+				endY = e.changedTouches[0].clientY;
+				console.log('endX:', endX);
+				console.log('endY:', endY);
+				xDiff = endX - startX;
+				yDiff = endY - startY;
+				if (Math.abs(xDiff) > Math.abs(yDiff)) {
+					if (xDiff < 0) { //leftswipe
+						var selectedCard = document.querySelector('input[name="slider"]:checked').value
+						if (selectedCard == 'card1') {
+							document.getElementById('card1').checked = false;
+							document.getElementById('card3').checked = false;
+							document.getElementById('card2').checked = true;
+						}
+						else if (selectedCard == 'card2') {
+							document.getElementById('card1').checked = false;
+							document.getElementById('card3').checked = true;
+							document.getElementById('card2').checked = false;
+						}
+						else {
+							document.getElementById('card1').checked = true;
+							document.getElementById('card3').checked = false;
+							document.getElementById('card2').checked = false;
+						}
+					}
+					else {
+						var selectedCard = document.querySelector('input[name="slider"]:checked').value
+						if (selectedCard == 'card1') {
+							document.getElementById('card1').checked = false;
+							document.getElementById('card3').checked = true;
+							document.getElementById('card2').checked = false;
+						}
+						else if (selectedCard == 'card2') {
+							document.getElementById('card1').checked = true;
+							document.getElementById('card3').checked = false;
+							document.getElementById('card2').checked = false;
+						}
+						else {
+							document.getElementById('card1').checked = false;
+							document.getElementById('card3').checked = false;
+							document.getElementById('card2').checked = true;
+						}
+					}
+				}
+				else {
+
+				}
+			}
+			flag = false
+		}
+	</script>
+</body>
+
+</html>

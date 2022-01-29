@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		.row {
+			margin: auto;
+		}
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+		}
+
+		.large-text-investment {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 120%;
+		}
+
+		.large-text {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
+		}
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-odd-section {
+			background: #FFFFFF;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.btn-get-started {
+			margin-top: 13.33%;
+			margin-left: 9.30%;
+			background: #4E0668;
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			border-radius: 6px;
+			border: 0px;
+			font-size: 1vw;
+			font-family: Poppins;
+			font-weight: 600;
+			color: #FFFFFF;
+			white-space: nowrap;
+			padding: 2%;
+		}
+
+		#section-1-image-1 {
+			width: 82.6%;
+			float: right;
+			content: url("./section-h-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+			margin-top: -9%;
+			margin-right: 7%;
+		}
+
+		#section-1-large-text-investment {
+			letter-spacing: 0.01vw;
+			width: 81.38%;
+			margin-top: 5.00%;
+			margin-left: 3.00%;
+			color: #000000;
+		}
+
+		#section-1-large-text {
+			width: 81.38%;
+			margin-top: 10%;
+			margin-left: 13%;
+			color: #000000;
+		}
+
+		#section-1-small-text {
+			width: 70.00%;
+			margin-top: 5.00%;
+			margin-left: 13%;
+		}
+
+		.section-1-text-align {
+			margin-top: 9%;
+			margin-left: 11%;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+			line-height: 2.08vw;
+			align-items: center;
+			color: #2F363F;
+		}
+
+		.asset-investment-card {
+			max-width: 350px;
+			width: 30%;
+			height: fit-content;
+			box-shadow: 0px 0px 3px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+			border-radius: 10px;
+			background: #FFFFFF;
+			margin: auto;
+		}
+
+		.asset-investment-card-image {
+			margin: 10px;
+			border-radius: 10px;
+			width: calc(100% - 20px);
+			object-fit: cover;
+			aspect-ratio: 354/155;
+		}
+
+		.asset-investment-card-content {
+			padding: 10px 20px;
+			width: 100%;
+			margin: 3%;
+			padding-left: 1%;
+			padding-right: 6%;
+			padding-top: 2%;
+			padding-bottom: 2%;
+		}
+
+		.asset-investment-card-title {
+			margin: 0;
+			margin-bottom: 5px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 1.10vw;
+			line-height: 150%;
+			letter-spacing: 0.02em;
+			color: #27272E;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.asset-investment-card-location {
+			margin: 0;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 0.83vw;
+			line-height: 150%;
+			letter-spacing: 0.01em;
+			color: #3B3B3B;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.asset-investment-card-metrics-countainer {
+			display: flex;
+		}
+
+		.asset-investment-card-metrics {
+			/* margin: 10px 20px 10px 0px; */
+			display: block;
+			margin-top: 2%;
+			margin-bottom: 2%;
+			margin-left: 1%;
+			margin-right: 5%;
+		}
+
+		.asset-investment-card-metrics-name {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 0.69vw;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #835494;
+			white-space: nowrap;
+		}
+
+		.asset-investment-card-days-left {
+			margin-top: 5px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 0.69vw;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #835494;
+			white-space: nowrap;
+		}
+
+		.asset-investment-card-metrics-value {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 0.83vw;
+			line-height: 150%;
+			letter-spacing: 0.01em;
+			color: #2F363F;
+		}
+
+		.asset-investment-card-progress-bar {
+			width: 100%;
+			height: 5px;
+			border-radius: 5px;
+			overflow: hidden;
+			background: #F7F7F7;
+		}
+
+		.asset-investment-card-progress {
+			height: 5px;
+			background: #F7BF02;
+		}
+
+		.asset-investment-card-progress-text {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 0.69vw;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #6F6F6F;
+			width: 100%;
+		}
+
+		.asset-investment-card-save-info {
+			float: right;
+			margin-left: 10px;
+			margin-top: 3px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 0.83vw;
+			line-height: 160%;
+			display: flex;
+			align-items: center;
+			letter-spacing: 0.05em;
+			text-transform: capitalize;
+			color: #81878C;
+		}
+
+		.asset-investment-card-comment-info {
+			float: right;
+			margin-left: 10px;
+			margin-top: 3px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 0.83vw;
+			line-height: 160%;
+			display: flex;
+			align-items: center;
+			letter-spacing: 0.05em;
+			text-transform: capitalize;
+			color: #81878C;
+		}
+
+		.asset-investment-card-price-info {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 1.10vw;
+			line-height: 150%;
+			letter-spacing: 0.04em;
+			color: #3B3B3B;
+		}
+
+		.asset-investment-card-invest-now {
+			width: calc(100% - 40px);
+			height: 40px;
+			background: #4E0668;
+			border: 1px solid #4E0668;
+			box-sizing: border-box;
+			border-radius: 6px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 16px;
+			color: #FAF8FB;
+			z-index: 50;
+			margin-left: 20px;
+			margin-top: -10px;
+		}
+
+		.asset-investment-card-invest-now-disabled {
+			font-family: "Poppins";
+			font-style: normal;
+			font-size: 10px;
+			line-height: 18px;
+			line-height: 16px;
+			color: #4E0668;
+			margin: 0 20px;
+			z-index: 50;
+		}
+
+		.asset-investment-card-tooltip-builder {
+			position: relative;
+			display: inline-block;
+		}
+
+		.asset-investment-card-extended-deadline {
+			background: #F7F7F7;
+			border: 1px dashed #E1E1E1;
+			border-radius: 4px;
+			text-decoration: line-through;
+			width: fit-content;
+			margin-bottom: 10px;
+		}
+
+		.asset-investment-card-extended-deadline-label {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: bold;
+			font-size: 10px;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			text-decoration-line: line-through;
+			color: #9399A6;
+			margin: 0 10px;
+			padding-bottom: 5px;
+		}
+
+		.asset-investment-card-investment-deadline {
+			background: #E5F5F2;
+			border: 1px dashed #AFDDD2;
+			border-radius: 4px;
+			width: fit-content;
+			margin-bottom: 10px;
+		}
+
+		.asset-investment-card-investment-deadline-label {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: bold;
+			font-size: 10px;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #74AC20;
+			margin: 0 10px;
+			padding-bottom: 5px;
+		}
+
+		.like {
+			content: url("./images/Heart.png");
+			padding: 5px;
+		}
+
+		.comment {
+			content: url("./images/Comment.png");
+			padding: 5px;
+		}
+
+		#shared-investments-content {
+			display: flex;
+			width: fit-content;
+			padding: 20px;
+		}
+
+		.asset-investment-card-fully-funded {
+			width: fit-content;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 1.10vw;
+			line-height: 150%;
+			letter-spacing: 0.04em;
+			color: #74AC20;
+		}
+
+		#investments-sign-up {
+			border: 0px;
+			padding: 6px 10px;
+			background: #4E0668;
+			border: 1px solid #4E0668;
+			box-sizing: border-box;
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			border-radius: 6px;
+			margin: 32px 4.8%;
+			color: #FFFFFF;
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: 600;
+			white-space: nowrap;
+			float: right;
+			font-size: 16px;
+		}
+
+		.add-margin {
+			margin: 20px;
+		}
+
+		#investment-assets {
+			display: flex;
+			margin-top: 2px;
+		}
+
+		.asset-investment-card-tooltip-builder-text {
+			visibility: hidden;
+			background: #222;
+			border: 1px transparent;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 0.75vw;
+			line-height: 100% !important;
+			letter-spacing: 0.01em;
+			color: #FFFFFF;
+			text-overflow: ellipsis;
+			padding: 5px;
+			text-align: center;
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			width: 20vw;
+			height: fit-content;
+			word-wrap: break-word;
+			white-space: normal;
+			opacity: 0.9;
+			top: 100%;
+			left: 50%;
+			margin-left: -80px;
+		}
+
+		.asset-investment-card-tooltip-builder:hover .asset-investment-card-tooltip-builder-text {
+			visibility: visible;
+		}
+
+		.small-text-item {
+			margin-bottom: 2vw;
+			display: flex;
+		}
+
+		.small-text-image {
+			width: 1.3vw;
+			height: 1.3vw;
+			margin-right: 1.38vw;
+			margin-top: 1.3vw;
+		}
+
+		@media all and (max-width: 767px) {
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			#section-1-large-text span {
+				font-size: 8.69vw;
+			}
+
+			#section-1-image-1 {
+				width: 82.91%;
+				float: none;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-small-text {
+				width: 81.15%;
+				margin-top: 11.11%;
+				margin-left: auto;
+				margin-right: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-large-text {
+				width: 79.71%;
+				margin-top: 10.87%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.section-1-text-align {
+				text-align: center;
+			}
+
+			.btn-get-started {
+				height: 13.28%;
+				margin-top: 18.84%;
+				margin-left: auto;
+				margin-right: auto;
+				font-size: 100%;
+				font-style: normal;
+				font-family: Poppins;
+				font-weight: 600;
+				color: #FFFFFF;
+			}
+		}
+
+		@media (max-width: 1200px) {
+			#investments-sign-up {
+				font-size: 1.66vw;
+			}
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.large-text-investment {
+				font-size: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 30px;
+			}
+
+			.btn-get-started {
+				font-size: 16px;
+			}
+
+			.asset-investment-card-title {
+				font-size: 16px;
+			}
+
+			.asset-investment-card-location {
+				font-size: 12px;
+			}
+
+			.asset-investment-card-metrics-name {
+				font-size: 10px;
+			}
+
+			.asset-investment-card-metrics-value {
+				font-size: 12px;
+			}
+
+			.asset-investment-card-progress-text {
+				font-size: 10px;
+			}
+
+			.asset-investment-card-price-info {
+				font-size: 16px;
+			}
+
+			.asset-investment-card-comment-info {
+				font-size: 12px;
+			}
+
+			.asset-investment-card-save-info {
+				font-size: 12px;
+			}
+
+			.asset-investment-card-fully-funded {
+				font-size: 16px;
+			}
+
+			#investments-sign-up {
+				font-size: 16px;
+			}
+
+			.small-text-image {
+				width: 20px;
+				height: 20px;
+				margin-right: 28px;
+				margin-top: 10px;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+	function loadingEvent() {
+		console.log(document.body.scrollHeight);
+	}
+</script>
+
+<body onload="loadingEvent()">
+	<div style="overflow: hidden;">
+		<section class="landing-page-odd-section">
+			<div class="container-fluid p-0 landing-page-section">
+				<div id="section-1-large-text-investment">
+					<span class="large-text-investment">
+						Investments
+					</span>
+				</div>
+				<div class="row">
+					<div class="col-md-6 p-0">
+						<div class="section-1-text-align">
+							<div class="small-text-item">
+								<img class="small-text-image" src="./images/BarGraph.png" alt="Bar Graph">
+								<span class="small-text">Make smart real estate investment digitally and transparently</span>
+							</div>
+							<div class="small-text-item">
+								<img class="small-text-image" src="./images/GrowthGraph.png" alt="Growth Graph">
+								<span class="small-text">Invest in real estate using demand & supply mapping</span>
+							</div>
+							<div class="small-text-item">
+								<img class="small-text-image" src="./images/PieChart.png" alt="Pie Chart">
+								<span class="small-text">Start investing in Fractional investment as low as  <br>₹ 10,000</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 p-0">
+						<img id="section-1-image-1" class="landing-page-img"
+							alt="Appreciation , Yeilds and Discussions" />
+					</div>
+				</div>
+				<div id="investment-assets">
+					<div class="asset-investment-card">
+						<a>
+							<img class="asset-investment-card-image" src="./images/Asset-image-3.png" />
+						</a>
+						<div class="asset-investment-card-content">
+							<a>
+								<p class="asset-investment-card-title">Aasthy Fractional Investment Opportunity, Whitefield</p>
+								<p class="asset-investment-card-location">Whitefield, Bengaluru, Karnataka</p>
+							</a>
+							<div class="asset-investment-card-metrics-countainer">
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
+									<div class="asset-investment-card-metrics-value">1768</div>
+								</div>
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
+									<div class="asset-investment-card-metrics-value">₹5599.55</div>
+								</div>
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">
+										Return(CAGR)
+										<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+											style="margin-left: '5.56px';">
+											<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on a guaranteed buyback from the builder at the end of the investment period</span>
+										</i>
+									</div>
+									<div class="asset-investment-card-metrics-value">15.72%</div>
+								</div>
+							</div>
+							<div>
+								<div class="asset-investment-card-fully-funded">SHOW INTEREST</div>
+								<span class="asset-investment-card-save-info"><i class="like"
+										style="font-weight: '200'; color: '#2F363F';"></i>4</span>
+								<span class="asset-investment-card-comment-info"><i class="comment"
+										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
+								<span class="asset-investment-card-price-info">Min Investment ₹50K</span>
+							</div>
+						</div>
+					</div>
+					<div class="asset-investment-card">
+						<a>
+							<img class="asset-investment-card-image" src="./images/Asset-image-2.png" />
+						</a>
+						<div class="asset-investment-card-content">
+							<a>
+								<p class="asset-investment-card-title">Aasthy Grade 'A' Residential Apartment 1</p>
+								<p class="asset-investment-card-location">Thanisandra, Bengaluru, Karnataka</p>
+							</a>
+							<div class="asset-investment-card-metrics-countainer">
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
+									<div class="asset-investment-card-metrics-value">1280</div>
+								</div>
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
+									<div class="asset-investment-card-metrics-value">₹6245</div>
+								</div>
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">
+										Return(CAGR)
+										<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+											style="margin-left: '5.56px';">
+											<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+										</i>
+									</div>
+									<div class="asset-investment-card-metrics-value">8.91%</div>
+								</div>
+							</div>
+							<div>
+								<div class="asset-investment-card-fully-funded">SHOW INTEREST</div>
+								<span class="asset-investment-card-save-info"><i class="like"
+										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
+								<span class="asset-investment-card-comment-info"><i class="comment"
+										style="font-weight: '200'; color: '#2F363F';"></i>1</span>
+								<span class="asset-investment-card-price-info">Min Investment ₹50K</span>
+							</div>
+						</div>
+					</div>
+					<div class="asset-investment-card">
+						<a>
+							<img class="asset-investment-card-image" src="./images/Aasthy-Asset-1.png" />
+						</a>
+						<div class="asset-investment-card-content">
+							<a>
+								<p class="asset-investment-card-title">Aasthy Fractional Investment Opportunity, Sarjapur Road</p>
+								<p class="asset-investment-card-location">Sarjarpur, Bengaluru, Karnataka</p>
+							</a>
+							<div class="asset-investment-card-metrics-countainer">
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
+									<div class="asset-investment-card-metrics-value">979</div>
+								</div>
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
+									<div class="asset-investment-card-metrics-value">₹5670</div>
+								</div>
+								<div class="asset-investment-card-metrics">
+									<div class="asset-investment-card-metrics-name">
+										Return(CAGR)
+										<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+											style="margin-left: '5.56px';">
+											<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+										</i>
+									</div>
+									<div class="asset-investment-card-metrics-value">12%</div>
+								</div>
+							</div>
+							<div>
+								<div class="asset-investment-card-fully-funded">COMING SOON</div>
+								<span class="asset-investment-card-save-info"><i class="like"
+										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
+								<span class="asset-investment-card-comment-info"><i class="comment"
+										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
+								<span class="asset-investment-card-price-info">Min Investment ₹30K</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button id="investments-sign-up" onclick="window.parent.postMessage('showLoginModal')">Sign In to see
+					more<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png"
+						id="alert-card-kyc-btn-img"></img></button>
+		</section>
+	</div>
+</body>
+
+</html>

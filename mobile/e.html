@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		.row {
+			margin: auto;
+		}
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+			/* or 125% */
+		}
+
+		.large-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
+		}
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-odd-section {
+			background: #FFFFFF;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.btn-sign-up {
+			margin: auto;
+			border-radius: 6px;
+			border: 0px;
+			color: #3F2B96;
+			font-size: 100%;
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: 600;
+			white-space: nowrap;
+			padding: 2%;
+			background-color: #FFFFFF;
+		}
+
+		#section-5-text-container {
+			display: flex;
+			width: 90.50%;
+			margin-top: 4%;
+			margin-left: auto;
+			margin-right: auto;
+			background: #3F2B96;
+			border-radius: 16px;
+			padding: 3%;
+		}
+
+		.top-right-wave {
+			display: none;
+		}
+
+		#section-5-image-1 {
+			width: 100%;
+			margin-top: 0%;
+			margin-left: 0%;
+			aspect-ratio: 640/477;
+			content: url("./section-5-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		.section-5-row-container {
+			margin-bottom: 3.5%;
+		}
+
+		#section-5-main-text {
+			padding: 5%;
+			margin: auto;
+		}
+
+		#section-5-large-text-1 {
+			width: 77.91%;
+			margin-top: 19.86%;
+			margin-left: 9.30%;
+			color: #000000;
+		}
+
+		#section-5-large-text-2 .large-text {
+			margin: auto;
+			color: #FFFFFF;
+		}
+
+		#section-5-large-text-3 .large-text {
+			margin: auto;
+			color: #FFFFFF;
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 24px;
+			}
+
+		}
+
+		@media all and (max-width: 767px) {
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			.top-right-wave {
+				display: block;
+				position: absolute;
+				width: 61.59%;
+				margin-left: 38.40%;
+				aspect-ratio: 255/235;
+				content: url("./top-right-wave.png");
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			#section-5-image-1 {
+				width: 100%;
+				margin-top: 20.77%;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			#section-5-large-text-1 {
+				width: 80.43%;
+				margin-top: 23.19%;
+			}
+
+			#section-5-main-text {
+				padding: 0;
+			}
+
+			#section-5-large-text-2 .large-text {
+				line-height: 1;
+				text-align: center;
+			}
+
+			#section-5-large-text-3 {
+				text-align: center;
+			}
+
+			#section-5-large-text-3 .large-text {
+				line-height: 1;
+			}
+
+			#section-5-text-container {
+				flex-direction: column;
+				margin-bottom: 7.5%;
+			}
+
+			.btn-sign-up {
+				margin-top: 3%;
+				padding-left: 10%;
+				padding-right: 10%;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+	function loadingEvent() {
+		console.log(document.body.scrollHeight);
+	}
+</script>
+
+<body onload="loadingEvent()">
+	<div style="overflow: hidden;">
+		<section class="landing-page-odd-section">
+			<div class="container-fluid p-0 landing-page-section">
+				<div class="row">
+					<div class="col-md-6 p-0">
+						<div class="top-right-wave"></div>
+						<div id="section-5-large-text-1">
+							<span class="large-text">
+								Discuss several properties at once.
+							</span>
+						</div>
+					</div>
+					<div class="col-md-6 p-0">
+						<img id="section-5-image-1" class="landing-page-img" alt="View properties" />
+					</div>
+				</div>
+				<hr style="width: 90.50%; margin: 0px auto; border-color: #000000;" />
+				<div class="row section-5-row-container">
+					<div class="col-md-12 p-0">
+						<div id="section-5-text-container">
+							<div id="section-5-main-text">
+								<div id="section-5-large-text-2">
+									<span class="large-text">
+										Become a better informed
+									</span>
+								</div>
+								<div id="section-5-large-text-3">
+									<span class="large-text">
+										real estate investor.
+									</span>
+								</div>
+							</div>
+							<button class="btn-sign-up" onclick="window.parent.postMessage('showLoginModal')">
+								View Properties
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

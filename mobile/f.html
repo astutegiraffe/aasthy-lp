@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aasthy | Real Estate investments made real easy</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .lghContainer {
+        width: 100%;
+        background-color: #fff;
+      }
+      .lghPriceBar {
+        text-align: left;
+        padding-left: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        color: black;
+        background-color: #f7bf02;
+      }
+
+      /* The actual timeline (the vertical ruler) */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* The actual timeline (the vertical ruler) */
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: #4f46e5;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+
+      /* Container around content */
+      .container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+
+      /* The circles on the timeline */
+      .container::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -12px;
+        background-color: white;
+        border: 4px solid #4f46e5;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      /* Place the container to the left */
+      .left {
+        left: 0;
+      }
+
+      /* Place the container to the right */
+      .right {
+        left: 50%;
+      }
+
+      /* Add arrows to the left container (pointing right) */
+      .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid white;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+      }
+
+      /* Add arrows to the right container (pointing left) */
+      .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Fix the circle for containers on the right side */
+      .right::after {
+        left: -14px;
+      }
+
+      /* The actual content */
+      .content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+        border: 2px solid #4f46e5;
+      }
+
+      /* Media queries - Responsive timeline on screens less than 600px wide */
+      @media screen and (max-width: 600px) {
+        /* Place the timelime to the left */
+        .timeline::after {
+          left: 31px;
+        }
+
+        /* Full-width containers */
+        .container {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        /* Make sure that all arrows are pointing leftwards */
+        .container::before {
+          left: 60px;
+          border: medium solid white;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent white transparent transparent;
+        }
+
+        /* Make sure all circles are at the same spot */
+        .left::after,
+        .right::after {
+          left: 17px;
+        }
+
+        /* Make all right containers behave like the left ones */
+        .right {
+          left: 0%;
+        }
+      }
+
+      html {
+        font-family: "Poppins", sans-serif;
+      }
+      /* Tab content - closed */
+      .tab-content {
+        max-height: 0;
+        -webkit-transition: max-height 0.35s;
+        -o-transition: max-height 0.35s;
+        transition: max-height 0.35s;
+      }
+      /* :checked - resize to full height */
+      .tab input:checked ~ .tab-content {
+        max-height: 100vh;
+      }
+      /* Label formatting when open */
+      .tab input:checked + label {
+        /*@apply text-xl p-5 border-l-2 border-indigo-500 bg-gray-100 text-indigo*/
+        font-size: 1.25rem; /*.text-xl*/
+        padding: 1.25rem; /*.p-5*/
+        border-left-width: 2px; /*.border-l-2*/
+        border-color: rgba(99, 102, 241, 5); /*.border-indigo*/
+        background-color: #f8fafc; /*.bg-gray-100 */
+        color: rgba(99, 102, 241, 5); /*.text-indigo*/
+      }
+    </style>
+  </head>
+
+  <body>
+<!--     <header class="sticky top-0 z-50">
+      <div class="relative bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div
+            class="
+              flex
+              justify-between
+              items-center
+              border-b-2 border-gray-100
+              py-6
+              md:justify-start md:space-x-10
+            "
+          >
+            <div class="flex justify-start lg:w-0 lg:flex-1">
+              <a href="#">
+                <img
+                  class="hidden h-8 w-auto sm:block"
+                  src="./images/aasthy-logo.png"
+                  alt=""
+                />
+                <img
+                  class="h-8 w-auto sm:hidden"
+                  src="./images/aasthy-icon.png"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="md:flex items-center justify-end md:flex-1 lg:w-0">
+              <a
+                id="invest-header"
+                class="
+                  ml-8
+                  whitespace-nowrap
+                  inline-flex
+                  items-center
+                  justify-center
+                  px-4
+                  py-2
+                  border border-transparent
+                  rounded-md
+                  shadow-sm
+                  text-base
+                  font-medium
+                  text-white
+                  cursor-pointer
+                "
+                style="background-color: #4e0668"
+                onmouseover="this.style.backgroundColor='#350546'"
+                onmouseout="this.style.backgroundColor='#4e0668'"
+              >
+                Invest now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header> -->
+
+    <main>
+      <div
+        id="modal"
+        style="display: none"
+        class="fixed z-50 inset-0 overflow-y-auto"
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div
+          class="
+            flex
+            items-end
+            justify-center
+            min-h-screen
+            pt-4
+            px-4
+            pb-20
+            text-center
+            sm:block sm:p-0
+          "
+        >
+          <div
+            class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            aria-hidden="true"
+          ></div>
+          <span
+            class="hidden sm:inline-block sm:align-middle sm:h-screen"
+            aria-hidden="true"
+            >&#8203;</span
+          >
+          <div
+            class="
+              inline-block
+              align-bottom
+              bg-white
+              rounded-lg
+              text-left
+              overflow-hidden
+              shadow-xl
+              transform
+              transition-all
+              sm:my-8 sm:align-middle sm:max-w-lg sm:w-full
+            "
+          >
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <div
+                  class="
+                    mx-auto
+                    flex-shrink-0 flex
+                    items-center
+                    justify-center
+                    h-12
+                    w-12
+                    rounded-full
+                    bg-indigo-500
+                    sm:mx-0 sm:h-10 sm:w-10
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="white"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                    />
+                  </svg>
+                </div>
+                <div class="mt-3 text-left sm:mt-0 sm:ml-4">
+                  <h3
+                    class="text-lg leading-6 font-medium text-gray-900"
+                    id="modal-title"
+                  >
+                    Invest in Grade 'A' property
+                  </h3>
+                  <div class="flex flex-row">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 inline"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <div
+                      class="text-xs inline leading-4 font-light text-gray-900"
+                    >
+                      Pay only 1% of the investment amount to book
+                    </div>
+                  </div>
+                  <div class="mt-2">
+                    <form>
+                      <label class="text-sm text-gray-500" for="fname"
+                        >Name</label
+                      ><br />
+                      <input
+                        class="
+                          rounded-md
+                          border border-gray-500
+                          h-10
+                          p-2
+                          w-full
+                        "
+                        type="text"
+                        pattern="\d*"
+                        id="fname"
+                        name="fname"
+                      /><br /><br />
+                      <label class="text-sm text-gray-500" for="phone"
+                        >Phone Number</label
+                      ><br />
+                      <input
+                        class="
+                          rounded-md
+                          border border-gray-500
+                          h-10
+                          p-2
+                          w-full
+                        "
+                        type="text"
+                        id="phone"
+                        name="phone"
+                      /><br /><br />
+                      <label class="text-sm text-gray-500" for="ticketsize"
+                        >Investment Amount (₹ <span id="invamt"></span>)</label
+                      ><br />
+                      <input
+                        type="range"
+                        id="ticketsize"
+                        min="50000"
+                        max="1500000"
+                        step="50000"
+                        value="50000"
+                      />
+                    </form>
+                    <!-- <p class="text-sm text-gray-500 w-full">
+                      <sup>*</sup>The amount you're willing to invest
+                    </p> -->
+                    <br />
+                    <hr />
+                    <br />
+                    <p class="text-sm text-gray-500 w-full">
+                      Expected return (in 3y 4m): ₹
+                      <span id="approxreturn"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+            >
+              <button
+                type="button"
+                id="pay"
+                class="
+                  w-full
+                  inline-flex
+                  justify-center
+                  rounded-md
+                  border border-transparent
+                  shadow-sm
+                  px-4
+                  py-2
+                  text-base
+                  font-medium
+                  text-white
+                  sm:ml-3 sm:w-auto sm:text-sm
+                "
+                style="background-color: #4e0668"
+                onmouseover="this.style.backgroundColor='#350546'"
+                onmouseout="this.style.backgroundColor='#4e0668'"
+              >
+                Pay ₹&nbsp;<span id="paynow"></span>
+              </button>
+              <button
+                type="button"
+                id="cancel"
+                class="
+                  mt-3
+                  w-full
+                  inline-flex
+                  justify-center
+                  rounded-md
+                  border border-gray-300
+                  shadow-sm
+                  px-4
+                  py-2
+                  bg-white
+                  text-base
+                  font-medium
+                  text-gray-700
+                  hover:bg-gray-50
+                  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
+                "
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+          <div
+            class="
+              relative
+              z-10
+              pb-8
+              bg-white
+              sm:pb-16
+              md:pb-20
+              lg:max-w-2xl lg:w-full lg:pb-28
+              xl:pb-32
+            "
+          >
+            <main
+              class="
+                mt-10
+                mx-auto
+                max-w-7xl
+                px-4
+                sm:mt-12 sm:px-6
+                md:mt-16
+                lg:mt-20 lg:px-8
+                xl:mt-28
+              "
+            >
+              <div class="text-center lg:text-left">
+                <h1
+                  class="
+                    text-2xl
+                    tracking-tight
+                    font-medium
+                    text-gray-900
+                    sm:text-5xl
+                    md:text-6xl
+                  "
+                >
+                  <span class="block xl:inline">Aasthy</span>
+                  <div class="hidden xl:inline"><br /></div>
+                  <span class="block text-indigo-600 xl:inline"
+                    >Fractional Investment Opportunity</span
+                  >
+                </h1>
+                <p
+                  class="
+                    mt-3
+                    text-sm text-gray-500
+                    sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto
+                    md:mt-5 md:text-xl
+                    lg:mx-0
+                  "
+                >
+                  Grade ‘A’ Premium Residential Apartment in Thanisandra,
+                  Bangalore
+                </p>
+                <div
+                  class="
+                    mt-5
+                    sm:mt-8 sm:flex sm:justify-center
+                    lg:justify-start
+                  "
+                >
+                  <div class="rounded-md shadow">
+                    <a
+                      id="invest-hero"
+                      class="
+                        w-full
+                        flex
+                        items-center
+                        justify-center
+                        px-8
+                        py-3
+                        border border-transparent
+                        text-base
+                        font-medium
+                        rounded-md
+                        text-white
+                        md:py-4 md:text-lg md:px-10
+                        cursor-pointer
+                      "
+                      style="background-color: #4e0668"
+                      onmouseover="this.style.backgroundColor='#350546'"
+                      onmouseout="this.style.backgroundColor='#4e0668'"
+                    >
+                      Invest now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+          <img
+            class="
+              hidden
+              md:block
+              h-56
+              w-full
+              object-cover
+              sm:h-72
+              md:h-96
+              lg:w-full lg:h-full
+            "
+            src="./images/FracInv.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="lg:text-center px-8">
+        <h2 class="text-base text-indigo-600 font-semibold tracking-wide">
+          Asset Details
+        </h2>
+      </div>
+      <div class="py-6 md:py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="py-0 w-full grid grid-rows-1 md:grid-cols-2">
+            <img
+              class="pr-2 rounded-lg md:pr-4 px-2 md:pl-0"
+              src="./images/assetImg.jpeg"
+            />
+            <div class="px-2 md:pl-0 flex flex-col justify-between">
+              <!-- asset highlights -->
+              <img
+                class="block md:hidden w-full h-auto"
+                src="./images/assetDetails-m.png"
+              />
+              <div class="mt-10 hidden md:block">
+                <dl
+                  class="
+                    space-y-10
+                    md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10
+                  "
+                >
+                  <div class="relative">
+                    <dt>
+                      <div
+                        class="
+                          absolute
+                          flex
+                          items-center
+                          justify-center
+                          h-12
+                          w-12
+                          rounded-md
+                          text-white
+                          bg-indigo-500
+                        "
+                      >
+                        <img class="rounded-md" src="./images/attr1.png" />
+                      </div>
+                      <p
+                        class="
+                          ml-16
+                          text-lg
+                          leading-6
+                          font-medium
+                          text-gray-900
+                        "
+                      >
+                        Holding Period
+                      </p>
+                    </dt>
+                    <dd class="mt-2 ml-16 text-base text-gray-500">
+                      3 years & 4 months
+                    </dd>
+                  </div>
+
+                  <div class="relative">
+                    <dt>
+                      <div
+                        class="
+                          absolute
+                          flex
+                          items-center
+                          justify-center
+                          h-12
+                          w-12
+                          rounded-md
+                          text-white
+                        "
+                      >
+                        <img class="rounded-md" src="./images/attr2.png" />
+                      </div>
+                      <p
+                        class="
+                          ml-16
+                          text-lg
+                          leading-6
+                          font-medium
+                          text-gray-900
+                        "
+                      >
+                        Expected return (CAGR)
+                      </p>
+                    </dt>
+                    <dd class="mt-2 ml-16 text-base text-gray-500">8.91%</dd>
+                  </div>
+
+                  <div class="relative">
+                    <dt>
+                      <div
+                        class="
+                          absolute
+                          flex
+                          items-center
+                          justify-center
+                          h-12
+                          w-12
+                          rounded-md
+                          text-white
+                          bg-indigo-500
+                        "
+                      >
+                        <img class="rounded-md" src="./images/attr3.png" />
+                      </div>
+                      <p
+                        class="
+                          ml-16
+                          text-lg
+                          leading-6
+                          font-medium
+                          text-gray-900
+                        "
+                      >
+                        Quality
+                      </p>
+                    </dt>
+                    <dd class="mt-2 ml-16 text-base text-gray-500">
+                      Grade 'A' apartment
+                    </dd>
+                  </div>
+
+                  <div class="relative">
+                    <dt>
+                      <div
+                        class="
+                          absolute
+                          flex
+                          items-center
+                          justify-center
+                          h-12
+                          w-12
+                          rounded-md
+                          text-white
+                          bg-indigo-500
+                        "
+                      >
+                        <img class="rounded-md" src="./images/attr4.png" />
+                      </div>
+                      <p
+                        class="
+                          ml-16
+                          text-lg
+                          leading-6
+                          font-medium
+                          text-gray-900
+                        "
+                      >
+                        Location
+                      </p>
+                    </dt>
+                    <dd class="mt-2 ml-16 text-base text-gray-500">
+                      Thanisandra - one of B'lore's fastest growing ​real estate
+                      hubs
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <br />
+              <div
+                class="
+                  bg-white
+                  border border-gray-200
+                  overflow-hidden
+                  rounded-lg
+                "
+              >
+                <div class="px-4 py-2 md:py-5 sm:px-6">
+                  <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Investment Opportunity in a Grade 'A' premium residential
+                    apartment project, close to Manyata Tech Park in
+                    Thanisandra, Bangalore
+                  </p>
+                </div>
+                <div class="border-t border-gray-200">
+                  <dl>
+                    <div
+                      class="
+                        bg-gray-50
+                        px-4
+                        py-2
+                        md:py-5
+                        sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6
+                      "
+                    >
+                      <dt class="text-sm font-medium text-gray-500">
+                        Location
+                      </dt>
+                      <dd
+                        class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                      >
+                        Thanisandra, Bangalore​
+                      </dd>
+                    </div>
+                    <div
+                      class="
+                        bg-white
+                        px-4
+                        py-2
+                        md:py-5
+                        sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6
+                      "
+                    >
+                      <dt class="text-sm font-medium text-gray-500">Type</dt>
+                      <dd
+                        class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                      >
+                        2 BHK Residential Apartment​
+                      </dd>
+                    </div>
+                    <div
+                      class="
+                        bg-gray-50
+                        px-4
+                        py-2
+                        md:py-5
+                        sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6
+                      "
+                    >
+                      <dt class="text-sm font-medium text-gray-500">
+                        Net Rate (Incl. all charges)​
+                      </dt>
+                      <dd
+                        class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                      >
+                        Rs. 6,246 per SqFt​
+                      </dd>
+                    </div>
+                    <div
+                      class="
+                        bg-white
+                        px-4
+                        py-2
+                        md:py-5
+                        sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6
+                      "
+                    >
+                      <dt class="text-sm font-medium text-gray-500">
+                        Expected Project Completion
+                      </dt>
+                      <dd
+                        class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                      >
+                        March, 2025
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br /><br />
+          <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide">
+              Growth Triggers
+            </h2>
+          </div>
+
+          <div class="mt-6 md:mt-10">
+            <dl
+              class="
+                space-y-10
+                md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10
+              "
+            >
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="h-6 w-6" src="./images/gt1.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Proposed Metro Station
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  The project is situated 10 mins away from a proposed metro
+                  station in Nagavara.
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Proximity to Manyata Tech park​
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  The demand for residential properties in the region has
+                  steadily been increasing because of this proximity. ​
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Major upcoming Projects
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  KIADB Park, IT investment region, Devanahalli Business Park,
+                  Bagalur KIADB IT SEZ (5000 Acres), Bagalur Finance City (50
+                  Acres), Hardware Park & SHELL Park.
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="h-6 w-6" src="./images/gt4.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Alternative Airport Route​
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  Considering the alternative route to the airport that has been
+                  proposed, in all surety, the price is set to rise high. ​
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <br /><br />
+          <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide">
+              Location Details
+            </h2>
+          </div>
+          <div class="mt-5 w-full h-auto">
+            <img
+              class="hidden md:block ml-auto mr-auto"
+              src="./images/loc-lg.png"
+            />
+            <img
+              class="block md:hidden ml-auto mr-auto"
+              src="./images/loc-sm.png"
+            />
+          </div>
+
+          <br /><br />
+          <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide">
+              Location Growth History
+            </h2>
+          </div>
+          <div class="mt-6 md:mt-10 text-sm md:text-base">
+            Price trend of the location
+            <!-- div for axis -->
+            <div class="border-black border-l-2 border-t-2 py-4 mt-2">
+              <p class="pl-2">2008</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(3111% / 90)">
+                  <b>₹ 3,111</b><br />KIA operations commence
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2009</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(2909% / 90)">
+                  <b>₹ 2,909</b>
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2010</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(2956% / 90)">
+                  <b>₹ 2,956</b>
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2011</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(3573% / 90)">
+                  <b>₹ 3,573</b><br />Metro Phase II announced
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2012</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(3802% / 90)">
+                  <b>₹ 3,802</b>
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2013</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(4206% / 90)">
+                  <b>₹ 4,206</b>
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2014</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(4431% / 90)">
+                  <b>₹ 4,431</b>
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2015</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(5014% / 90)">
+                  <b>₹ 5,014</b><br />MSR Elements Mall commenced
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2016</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(5150% / 90)">
+                  <b>₹ 5,150</b><br />Infosys leased 2.1L Sq.Ft. in Bhartiya
+                  City
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2017</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(5900% / 90)">
+                  <b>₹ 5,900</b><br />Alternate Route to Airport via Thanisandra
+                  Main Road commenced
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2018</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(6400% / 90)">
+                  <b>₹ 6,400</b><br />Hilton & Embassy tied up to construct a
+                  dual branded hotel with about 1000 Cr investment, in Manyata
+                  Tech Park
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2019</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(6400% / 90)">
+                  <b>₹ 6,400</b>
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2020</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(6800% / 90)">
+                  <b>₹ 6,800</b><br />ANSR leased additional 3L Sq.Ft. in
+                  Embassy Manyata Business Park. Total 6.5L Sq.Ft.
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2021</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(7000% / 90)">
+                  <b>₹ 7,000</b><br />Airport alternate route white topping and
+                  other modification expected to be completed
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2022</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(7505% / 90)">
+                  <b>₹ 7,505</b>
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2023</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(8010% / 90)">
+                  <b>₹ 8,010</b><br />Metro Phase II construction, planned
+                  completion
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2024</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(8515% / 90)">
+                  <b>₹ 8,515</b><br />Planned launch of a metro line to Airport
+                  through Nagavara metro station
+                </div>
+              </div>
+              <br />
+
+              <p class="pl-2">2025</p>
+              <div class="lghContainer">
+                <div class="lghPriceBar" style="width: calc(9020% / 90)">
+                  <b>₹ 9,020</b>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br /><br />
+
+          <br /><br />
+          <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide">
+              Why Aasthy?
+            </h2>
+          </div>
+          <div class="mt-6 md:mt-10">
+            <dl
+              class="
+                space-y-10
+                md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10
+              "
+            >
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="rounded-md" src="./images/whyAasthy.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Small investment ticket
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  Start real investments as low as ₹ 50,000.
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="rounded-md" src="./images/whyAasthy.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Fractional investment
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  Fractional ownership of prime real estate investment
+                  opportunity.
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="rounded-md" src="./images/whyAasthy.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    High liquidity
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  Exit any time within 3 days.
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="rounded-md" src="./images/whyAasthy.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Just 1% of your investment ticket for commitment
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  Book your slots at just 1% of your investment amount.
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="rounded-md" src="./images/whyAasthy.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Social sentiments
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  Our asset selection is not only based on data but also social
+                  sentiments.
+                </dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div
+                    class="
+                      absolute
+                      flex
+                      items-center
+                      justify-center
+                      h-12
+                      w-12
+                      rounded-md
+                      text-white
+                      bg-indigo-500
+                    "
+                  >
+                    <img class="rounded-md" src="./images/whyAasthy.png" />
+                  </div>
+                  <p
+                    class="
+                      ml-16
+                      text-md
+                      md:text-lg
+                      leading-6
+                      font-medium
+                      text-gray-900
+                    "
+                  >
+                    Get investment insights backed by real data
+                  </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-sm md:text-base text-gray-500">
+                  Asset selected based on investment insights backed by real
+                  data.
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <br /><br />
+          <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide">
+              How does it work?
+            </h2>
+          </div>
+          <div class="mt-6 md:mt-10 text-sm md:text-base">
+            <div class="timeline">
+              <div class="container left">
+                <div class="content">
+                  <div class="flex flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Asset shortlisted
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    After conducting rigorous market review, with due diligence
+                    to target returns and legal title, we shortlisted this Grade
+                    'A' asset.
+                  </p>
+                </div>
+              </div>
+              <div class="container right">
+                <div class="content">
+                  <div class="flex md:flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Investment booked
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    Investor books the investment by paying 1% of the investment
+                    amount, this is done to ensure that minimum required
+                    investors are met before buying the shortlisted asset.
+                  </p>
+                </div>
+              </div>
+              <div class="container left">
+                <div class="content">
+                  <div class="flex flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Play the waiting game
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    Investor waits for the investment opportunity to be fully
+                    booked (7-10 days).
+                  </p>
+                </div>
+              </div>
+              <div class="container right">
+                <div class="content">
+                  <div class="flex md:flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Investment completed
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    Investor transfers the remaining 99% of the investment
+                    amount on receipt of a communication from Aasthy.
+                  </p>
+                </div>
+              </div>
+              <div class="container left">
+                <div class="content">
+                  <div class="flex flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Debentures issued
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    Aasthy creates a special purpose vehicle (SPV) for the
+                    shortlisted asset, in which all the investors will be
+                    debenture holders. Debentures will be issued corresponding
+                    to the investment amount.
+                  </p>
+                </div>
+              </div>
+              <div class="container right">
+                <div class="content">
+                  <div class="flex md:flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Asset purchased
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    The special purpose vehicle (SPV) purchases the asset in its
+                    name using the amount collected from investors.
+                  </p>
+                </div>
+              </div>
+              <div class="container left">
+                <div class="content">
+                  <div class="flex flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Asset sold
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    The entity exits from the investment by selling the asset
+                    and settling all the associated expenses to third parties.
+                  </p>
+                </div>
+              </div>
+              <div class="container right">
+                <div class="content">
+                  <div class="flex md:flex-row sm:flex-row-reverse">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    &nbsp;
+                    <p
+                      class="
+                        text-md
+                        md:text-lg
+                        leading-6
+                        font-semibold
+                        text-gray-900
+                      "
+                    >
+                      Payout of proceedings
+                    </p>
+                  </div>
+                  <p class="mt-2 text-sm md:text-base text-gray-500">
+                    The entity pays out the proceedings from selling the asset
+                    (after all deductions) to all the investors as interest on
+                    Debentures.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br /><br /><br />
+          <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide">
+              Frequently asked Questions
+            </h2>
+          </div>
+          <div class="w-full mx-auto py-0 md:py-8">
+            <div>
+              <div class="tab w-full overflow-hidden">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-one"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-one"
+                  >What is Fractional Real Estate Investment?​</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    Fractional ownership in real estate is a term used to
+                    describe when a number of investors join together to invest
+                    in a real estate asset so that all of them can benefit from
+                    a share of the income (if any) and appreciation that the
+                    asset generates. The Investment is made for a certain period
+                    of time, with clear exit plan to get maximum capital
+                    appreciation.​
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-two"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-two"
+                  >Who can Invest in Aasthy proposed Investments?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    Any Indian citizen or an NRI<sup>*</sup> can invest with
+                    us.<br /><br />
+                    <sup>*</sup>NRI investors: NRI investors can only invest
+                    through an NRO or NRE Account or from a normal savings bank
+                    account in India, however, your sale proceeds (as well as
+                    interest distributions, if any) will be credited to your NRO
+                    account only. Please speak to your banker for a more
+                    detailed understanding of your specific requirements.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-three"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-three"
+                  >What are the Exit charges if I decide to exit during a
+                  holding period?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    Your Investment will be returned post deducting Exit
+                    processing fees and Financial charges. The current market
+                    valuation on the underlying property will also be evaluated
+                    to arrive at the notional gain/loss of your investment. The
+                    return on your investment will be less than what was
+                    projected, if you decide to exit during a holding period.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-four"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-four"
+                  >How do you project the price appreciation?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    The projected price appreciation is factoring the past price
+                    performance of a micro market, projected price increase
+                    based on builders' estimates, price trends of similar
+                    projects in the same micro market, future growth triggers
+                    and various other data points.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-five"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-five"
+                  >Can I see the appreciation of my investment in
+                  real-time?​</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    Yes, you will have access to your investment dashboard on
+                    Aasthy website where there will be periodical updates on
+                    price appreciation, micro market growth triggers and project
+                    updates.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-six"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-six"
+                  >Is my ROI assured?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    The project price appreciation is factoring the past price
+                    performance of a micro market, projected price increase
+                    based on builders estimates, price trends of similar
+                    projects in the same micro market and future growth
+                    triggers. As much as we have factored in all these data
+                    points, there is an element of risk where-in the projected
+                    returns may not be met due to market conditions or project
+                    delays.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-seven"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-seven"
+                  >What is Aasthy?​</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    Aasthy is a tech-enabled real estate investment platform
+                    which helps users to invest small amount of money into Real
+                    estate. Aasthy removes the complexities involved in
+                    investing in real estate, making it easy for the retail
+                    investor to invest in the most stable investment - Real
+                    Estate.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-eight"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-eight"
+                  >How easily can I take my money out of Aasthy
+                  Investment?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    Aasthy highly recommends you to stay invested through out
+                    the proposed investment period (holding period) but for
+                    unforeseen reasons if you really want to exit, your money
+                    will be credited within 3 days of you formally expressing
+                    your Interest to exit. Kindly note that the facility will be
+                    limited to 5% of the total investors at a time and if more
+                    investors want to exit at a single time, we will follow a
+                    first come first serve basis. Your resale request if not
+                    taken up immediately, however, will then be considered after
+                    we filling the initial slots.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-nine"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-nine"
+                  >Why a specific holding period?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    We derive the ideal holding period for the underlying asset
+                    based on various parameters, to optimize the appreciation.
+                    However, we might consider exit offers during the holding
+                    period as well, if it provides good returns for the
+                    investors.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-ten"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-ten"
+                  >During the holding period who owns the Property?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    The special purpose vehicle (SPV) will hold the apartment
+                    during the holding period and the SPV will be managed by
+                    Aasthy team to ensure the SPV is maintained and exited at
+                    the right time.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-eleven"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-eleven"
+                  >How safe is my investment?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    Your investment is safe as it will be used to purchase the
+                    specific asset for which you have made the investment for
+                    and we consider Real estate to be a very stable asset as
+                    compared to most other asset classes such as stocks.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab w-full overflow-hidden border-t">
+                <input
+                  class="absolute opacity-0"
+                  id="tab-single-twelve"
+                  type="radio"
+                  name="tabs2"
+                />
+                <label
+                  class="block py-5 leading-normal cursor-pointer"
+                  for="tab-single-twelve"
+                  >I heard that investment in under construction property is
+                  risky. How can I avoid this?</label
+                >
+                <div
+                  class="
+                    tab-content
+                    overflow-hidden
+                    border-l-2 border-indigo-500
+                    leading-normal
+                  "
+                >
+                  <p class="p-5">
+                    This information could be true in case of Grade B/C
+                    builders' properties, but Aasthy picks projects by Grade A
+                    builders only and we have stringent RERA norms for builders,
+                    and thus we expect the risk to be less.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.getElementById("invamt").innerHTML =
+        document.getElementById("ticketsize").value;
+      document.getElementById("approxreturn").innerHTML =
+        document.getElementById("ticketsize").value * 1.6053;
+      document.getElementById("paynow").innerHTML =
+        document.getElementById("ticketsize").value * 0.01;
+      const ip = document.getElementById("ticketsize");
+      const op = document.getElementById("invamt");
+
+      const inputHandler = function (e) {
+        op.innerHTML = e.target.value;
+        document.getElementById("approxreturn").innerHTML =
+          e.target.value * 1.6053;
+        document.getElementById("paynow").innerHTML = e.target.value * 0.01;
+      };
+      ip.addEventListener("input", inputHandler);
+
+      var modal = document.getElementById("modal");
+      // var investHeader = document.getElementById("invest-header");
+      var investHero = document.getElementById("invest-hero");
+      var cancel = document.getElementById("cancel");
+      // investHeader.onclick = function () {
+      //   modal.style.display = "block";
+      // };
+      investHero.onclick = function () {
+        // window.parent.location.href = "https://aasthy.com?assetInvestment=303859769";
+        window.parent.postMessage('showLoginModal');
+        // modal.style.display = "block";
+      };
+      cancel.onclick = function () {
+        modal.style.display = "none";
+      };
+    </script>
+  </body>
+</html>
