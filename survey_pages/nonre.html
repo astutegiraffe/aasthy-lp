@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aasthy | Real Estate investments made real easy</title>
+    <link rel="stylesheet" href="./css.css" />
+  </head>
+  <body>
+    <header role="banner" class="ui-section-header">
+      <div class="ui-layout-container">
+        <div class="ui-section-header__layout ui-layout-flex">
+          <a
+            href="#"
+            role="link"
+            aria-label="#"
+            class="ui-section-header--logo"
+          >
+            <img style="max-width: 50%" src="./images/aasthy-logo.png" />
+          </a>
+
+          <nav
+            role="navigation"
+            class="ui-section-header--nav ui-layout-flex"
+          ></nav>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+      <section class="ui-section-hero">
+        <div class="ui-layout-container">
+          <div class="ui-section-hero__layout ui-layout-grid ui-layout-grid-2">
+            <div>
+              <h1>
+                Real Estate <br />
+                investments made <br />
+                real easy.
+              </h1>
+              <br />
+              <p class="ui-text-intro">
+                Meet Aasthy, your personal real estate investment advisor.
+                Discover insights and opportunities like never before!
+              </p>
+              <br />
+            </div>
+            <img
+              src="./images/hero.png"
+              loading="lazy"
+              alt="#"
+              class="ui-image-half-right"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="ui-section-feature">
+        <div class="ui-layout-container">
+          <div class="ui-section-feature__layout ui-layout-grid">
+            <div>
+              <h2>Real Estate is the best investment in India</h2>
+              <p class="ui-text-intro">
+                RBI data seems to suggest that @ <b>14.99%</b>, the RoI of Real
+                Estate investments is the highest (in India), when compared with
+                stocks, FDs, gold, etc.
+              </p>
+            </div>
+          </div>
+          <div class="ui-section-feature__layout ui-layout-grid">
+            <div class="ui-layout-grid ui-layout-grid-2">
+              <img
+                src="./images/comparisons.png"
+                loading="lazy"
+                alt="#"
+                class="ui-image-half-left"
+              />
+              <img
+                src="./images/whyRealEstate.png"
+                loading="lazy"
+                alt="#"
+                class="ui-image-half-right"
+              />
+            </div>
+          </div>
+          <br /><br /><br /><br /><br />
+          <div
+            class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2"
+          >
+            <div>
+              <h2>Population growth & Urbanization</h2>
+              <p class="ui-text-intro">
+                Long term demand for housing in India is growing by 4%
+              </p>
+            </div>
+            <img
+              src="./images/urbanization.png"
+              loading="lazy"
+              alt="#"
+              class="ui-image-half-left"
+            />
+          </div>
+          <br /><br /><br /><br /><br />
+          <div
+            class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2"
+          >
+            <img
+              src="./images/wealthDistribution.png"
+              loading="lazy"
+              alt="#"
+              class="ui-image-half-left"
+            />
+            <div>
+              <h2>Investment share in Real Estate</h2>
+              <p class="ui-text-intro">
+                When compared with other forms of investment, Real Estate in
+                India constitutes <b>17.33%</b> of the wealth distribution pie!
+                It is still lesser than that in the <b>USA (34.41%)</b> & the
+                <b>UK (35.17%)</b> and declining!
+              </p>
+            </div>
+          </div>
+          <br /><br /><br /><br />
+          <div
+            class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2"
+          >
+            <div>
+              <h2>Is Real Estate risky?</h2>
+              <p class="ui-text-intro">
+                Absolutely not! It now awaits your entry as an investor. Hurry
+                and sign up!
+              </p>
+            </div>
+            <img
+              src="./images/risk.png"
+              loading="lazy"
+              alt="#"
+              class="ui-image-half-right"
+            />
+          </div>
+          <br />
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <a
+              href="#"
+              onclick="trackAndRedirect()"
+              class="
+                ui-component-button
+                ui-component-button-normal
+                ui-component-button-secondary
+              "
+              role="link"
+              aria-label="#"
+              style="
+                position: fixed;
+                bottom: 40px;
+                color: white;
+                background-color: #4e0668;
+              "
+              >Next
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAEX-715eFIfQXSYtiu9QwnTivgHYcBdRo",
+        authDomain: "reimon-user-research.firebaseapp.com",
+        projectId: "reimon-user-research",
+        storageBucket: "reimon-user-research.appspot.com",
+        messagingSenderId: "381696181620",
+        appId: "1:381696181620:web:9670fd745bce4a443f1821",
+        measurementId: "G-B7EF2TBZ3Q"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const analytics = firebase.analytics();
+    </script>
+    <script>
+      trackAndRedirect = (e) => {
+        analytics.logEvent('next_clicked', { page: 'nonre', version: 2});
+        location.href = "https://forms.office.com/Pages/ResponsePage.aspx?id=tfvoEPChTkmIyP-auPckBij1pnF1W2pGkJ_uCBjLvSZUQjRLR0pLMDJNUk1MWFFPOUEzUzdIR1ZJTyQlQCN0PWcu";
+      }
+    </script>
+  </body>
+</html>
