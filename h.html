@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		.row {
+			margin: auto;
+		}
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.66vw;
+			line-height: 150%;
+			text-align: center;
+			letter-spacing: 0.02em;
+			color: #2F363F;
+		}
+
+		.large-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
+
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 36px;
+			line-height: 42px;
+			/* identical to box height, or 117% */
+
+			text-align: center;
+			letter-spacing: -0.05em;
+
+			color: #2F363F;
+		}
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-odd-section {
+			background: #FFFFFF;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom: 20px;
+		}
+
+		.btn-get-started {
+			margin-top: 13.33%;
+			margin-left: 9.30%;
+			background: #4E0668;
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			border-radius: 6px;
+			border: 0px;
+			font-size: 1vw;
+			font-family: Poppins;
+			font-weight: 600;
+			color: #FFFFFF;
+			white-space: nowrap;
+			padding: 2%;
+		}
+
+		#section-1-image-1 {
+			width: 93.2%;
+			content: url("./section-h-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-1-large-text {
+			width: 81.38%;
+			margin-top: 24.30%;
+			margin-left: 9.30%;
+			color: #000000;
+		}
+
+		#section-1-small-text {
+			margin-top: 5.00%;
+			margin-left: 9.30%;
+		}
+
+		.section-1-text-align {
+			text-align: start;
+		}
+
+		.asset-investment-card {
+			max-width: 350px;
+			width: 85vw;
+			height: fit-content;
+			box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+			border-radius: 10px;
+			background: #FFFFFF;
+			margin: 20px auto;
+		}
+
+		.asset-investment-card-image {
+			margin: 10px;
+			border-radius: 10px;
+			width: calc(100% - 20px);
+			object-fit: cover;
+		}
+
+		.asset-investment-card-content {
+			padding: 10px 20px;
+			width: 100%;
+			margin: 10px;
+		}
+
+		.asset-investment-card-title {
+			margin: 0;
+			margin-bottom: 5px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: 0.02em;
+			color: #27272E;
+			height: 24px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.asset-investment-card-location {
+			margin: 0;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 150%;
+			letter-spacing: 0.01em;
+			color: #3B3B3B;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.asset-investment-card-metrics-countainer {
+			display: flex;
+		}
+
+		.asset-investment-card-metrics {
+			margin: 10px 20px 10px 0px;
+			display: block;
+		}
+
+		.asset-investment-card-metrics-name {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 10px;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #835494;
+			white-space: nowrap;
+		}
+
+		.asset-investment-card-days-left {
+			margin-top: 5px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 10px;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #835494;
+			white-space: nowrap;
+		}
+
+		.asset-investment-card-metrics-value {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 150%;
+			letter-spacing: 0.01em;
+			color: #2F363F;
+		}
+
+		.asset-investment-card-progress-bar {
+			width: 100%;
+			height: 5px;
+			border-radius: 5px;
+			overflow: hidden;
+			background: #F7F7F7;
+		}
+
+		.asset-investment-card-progress {
+			height: 5px;
+			background: #F7BF02;
+		}
+
+		.asset-investment-card-progress-text {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 10px;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #6F6F6F;
+			width: 100%;
+		}
+
+		.asset-investment-card-save-info {
+			float: right;
+			margin-left: 10px;
+			margin-top: 3px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 12px;
+			line-height: 160%;
+			display: flex;
+			align-items: center;
+			letter-spacing: 0.05em;
+			text-transform: capitalize;
+			color: #81878C;
+		}
+
+		.asset-investment-card-comment-info {
+			float: right;
+			margin-left: 10px;
+			margin-top: 3px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 12px;
+			line-height: 160%;
+			display: flex;
+			align-items: center;
+			letter-spacing: 0.05em;
+			text-transform: capitalize;
+			color: #81878C;
+		}
+
+		.asset-investment-card-price-info {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: 0.04em;
+			color: #3B3B3B;
+		}
+
+		.asset-investment-card-invest-now {
+			width: calc(100% - 40px);
+			height: 40px;
+			background: #4E0668;
+			border: 1px solid #4E0668;
+			box-sizing: border-box;
+			border-radius: 6px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 16px;
+			color: #FAF8FB;
+			z-index: 50;
+			margin-left: 20px;
+			margin-top: -10px;
+		}
+
+		.asset-investment-card-invest-now-disabled {
+			font-family: "Poppins";
+			font-style: normal;
+			font-size: 10px;
+			line-height: 18px;
+			line-height: 16px;
+			color: #4E0668;
+			margin: 0 20px;
+			z-index: 50;
+		}
+
+		.asset-investment-card-extended-deadline {
+			background: #F7F7F7;
+			border: 1px dashed #E1E1E1;
+			border-radius: 4px;
+			text-decoration: line-through;
+			width: fit-content;
+			margin-bottom: 10px;
+		}
+
+		.asset-investment-card-extended-deadline-label {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: bold;
+			font-size: 10px;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			text-decoration-line: line-through;
+			color: #9399A6;
+			margin: 0 10px;
+			padding-bottom: 5px;
+		}
+
+		.asset-investment-card-investment-deadline {
+			background: #E5F5F2;
+			border: 1px dashed #AFDDD2;
+			border-radius: 4px;
+			width: fit-content;
+			margin-bottom: 10px;
+		}
+
+		.asset-investment-card-investment-deadline-label {
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: bold;
+			font-size: 10px;
+			line-height: 170%;
+			letter-spacing: 0.05em;
+			color: #74AC20;
+			margin: 0 10px;
+			padding-bottom: 5px;
+		}
+
+		.asset-investment-card-fully-funded {
+			width: fit-content;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: 0.04em;
+			color: #74AC20;
+		}
+
+		.like {
+			content: url("./images/Heart.png");
+			padding: 5px;
+		}
+
+		.comment {
+			content: url("./images/Comment.png");
+			padding: 5px;
+		}
+
+		#shared-investments-content {
+			display: flex;
+			width: 100%;
+			position: relative;
+		}
+
+		.asset-investment-card-fully-funded {
+			width: fit-content;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 150%;
+			letter-spacing: 0.04em;
+			color: #74AC20;
+		}
+
+		#investments-sign-up {
+			display: flex;
+			width: 222px;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			padding: 15px;
+			margin-left: auto;
+			min-width: 222px;
+			background: #4E0668;
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			border-radius: 6px;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 24px;
+			color: #FFFFFF;
+			flex: none;
+			order: 0;
+			flex-grow: 0;
+			white-space: nowrap;
+			border: none;
+		}
+
+		.shared-investment-arrow-keys {
+			position: absolute;
+			margin-top: 250px;
+			width: 25px;
+			height: 23px;
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			border-radius: 100px;
+			border-color: #000000;
+			flex-wrap: nowrap;
+			display: flex;
+			z-index: 2000;
+			opacity: 1;
+			background: #FFFFFF;
+		}
+
+		#shared-investments-next-btn {
+			margin-right: 2%;
+			right: 0%;
+		}
+
+		#shared-investments-prev-btn {
+			margin-left: 2%;
+		}
+
+		.shared-investments-btn-img {
+			margin: auto;
+		}
+
+		#shared-investments-assets {
+			overflow-y: hidden;
+			display: flex;
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+			-ms-overflow-style: none;
+			/* IE and Edge */
+			scrollbar-width: none;
+			/* Firefox */
+		}
+
+		#shared-investments-assets::-webkit-scrollbar {
+			display: none;
+		}
+
+		.col-manual {
+			position: relative;
+			width: 100%;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.asset-investment-card-tooltip-builder-text {
+			visibility: hidden;
+			background: #222;
+			border: 1px transparent;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 13px;
+			line-height: 100% !important;
+			letter-spacing: 0.01em;
+			color: #FFFFFF;
+			text-overflow: ellipsis;
+			padding: 5px;
+			text-align: center;
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			height: fit-content;
+			word-wrap: break-word;
+			white-space: normal;
+			opacity: 0.9;
+			margin-top: 15px;
+			margin-left: -100px;
+		}
+
+		.asset-investment-card-tooltip-builder:hover .asset-investment-card-tooltip-builder-text {
+			visibility: visible;
+		}
+
+		.small-text-item {
+			margin-bottom: 4vw;
+		}
+
+		.small-text-image {
+			width: 4vw;
+			height: 4vw;
+			margin-right: auto;
+			margin-left: auto;
+			margin-bottom: 4vw;
+			display: block;
+		}
+
+
+		@media all and (max-width: 767px) {
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			#section-1-large-text span {
+				font-size: 8.69vw;
+			}
+
+			#section-1-image-1 {
+				width: 100%;
+				aspect-ratio: 342.3/300;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-small-text {
+				width: 81.15%;
+				margin-top: 8%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-large-text {
+				width: 79.71%;
+				margin-top: 10.87%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.section-1-text-align {
+				text-align: center;
+			}
+
+			.btn-get-started {
+				height: 13.28%;
+				margin-top: 18.84%;
+				margin-left: auto;
+				margin-right: auto;
+				font-size: 100%;
+				font-style: normal;
+				font-family: Poppins;
+				font-weight: 600;
+				color: #FFFFFF;
+			}
+		}
+
+		@media all and (min-width: 480px) {
+			hr {
+				display: none;
+			}
+			
+			#section-1-image-1 {
+				margin-top: 20%;
+			}
+
+			.small-text-item {
+				display: flex;
+				margin-bottom: 1.66vw;
+			}
+
+			.small-text-image {
+				width: 2vw;
+				height: 2vw;
+				margin-right: 2vw;
+				margin-top: 1.5vw;
+				margin-bottom: 0%;
+			}
+
+			#section-1-small-text {
+				margin-left: 12%;
+			}
+
+			.small-text {
+				text-align: left;
+			}
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 24px;
+			}
+
+			.btn-get-started {
+				font-size: 16px;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+	function scrollToElm(container, duration, left) {
+		let change = getRelativePos(container, left);
+		scrollTo(container, change, duration);  // duration in seconds
+	}
+
+	function getRelativePos(container, left) {
+		let width = parseInt(window.getComputedStyle(document.querySelector('.asset-investment-card')).width);
+		let index = parseInt(container.scrollLeft / width);
+		let cardInView = left === 1 ? 0.99 : 0.01;
+		let focusEl = container.scrollLeft % width > cardInView * width ? index + 1 : index;
+		let change;
+		if (focusEl + left >= 0) {
+			if (focusEl + left <= 2) {
+				change = focusEl + left;
+			} else {
+				change = 2;
+			}
+		} else {
+			change = 0;
+		}
+		return change * width;
+	}
+
+	function scrollTo(element, change, duration, left) {
+		let start = element.scrollLeft;
+		let startTime = performance.now();
+		let val, now, elapsed, t;
+
+		function animateScroll() {
+			now = performance.now();
+			elapsed = (now - startTime) / 1000;
+			t = (elapsed / duration);
+			element.scrollLeft = start + ((change - start) * easeInOutQuad(t));
+			if (t < 1)
+				window.requestAnimationFrame(animateScroll);
+		};
+		animateScroll();
+	}
+
+	function easeInOutQuad(t) { return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t };
+
+	function loadingEvent() {
+		console.log(document.body.scrollHeight);
+		let curEl = document.getElementById(`shared-investments-assets`);
+		document.getElementById('shared-investments-next-btn').addEventListener('click', () => {
+			scrollToElm(curEl, 0.4, 1);
+		});
+
+		document.getElementById('shared-investments-prev-btn').addEventListener('click', () => {
+			scrollToElm(curEl, 0.4, -1);
+		});
+	}
+</script>
+
+<body onload="loadingEvent()">
+	<div>
+		<section class="landing-page-odd-section">
+			<div class="container-fluid landing-page-section">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="section-1-text-align">
+							<div id="section-1-large-text">
+								<span class="large-text">Investments</span>
+							</div>
+							<div id="section-1-small-text">
+								<div class="small-text-item">
+									<img class="small-text-image" src="./images/BarGraph.png" alt="Bar Graph">
+									<span class="small-text">Make smart real estate investment digitaly and transparent</span>
+								</div>
+								<div class="small-text-item">
+									<img class="small-text-image" src="./images/GrowthGraph.png" alt="Growth Graph">
+									<span class="small-text">Invest in real estate using demand & supply mapping</span>
+								</div>
+								<div class="small-text-item">
+									<img class="small-text-image" src="./images/PieChart.png" alt="Pie Chart">
+									<span class="small-text">Start investing in Fractional investment as low as ₹ 10,000</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<img id="section-1-image-1" class="landing-page-img"
+							alt="Apprecation , Yeilds and Discussions" />
+					</div>
+					<div id="shared-investments-content">
+						<div class="shared-investment-arrow-keys" id="shared-investments-prev-btn">
+							<img class="shared-investments-btn-img" src="./images/Prev.png" alt="Arrow">
+						</div>
+						<div class="shared-investment-arrow-keys" id="shared-investments-next-btn">
+							<img class="shared-investments-btn-img" src="./images/Next.png" alt="Arrow">
+						</div>
+						<div id="shared-investments-assets">
+							<div class="col-manual lg-3 justify-content-center" id=asset-3>
+								<div class="asset-investment-card">
+									<a>
+										<img class="asset-investment-card-image" src="./images/Rounded Rectangle.png" />
+									</a>
+									<div class="asset-investment-card-content">
+										<a>
+											<p class="asset-investment-card-title">Aasthy Asset - 3</p>
+											<p class="asset-investment-card-location">Whitefield, Bengaluru, Karnataka</p>
+										</a>
+										<div class="asset-investment-card-metrics-countainer">
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
+												<div class="asset-investment-card-metrics-value">yy,yyy</div>
+											</div>
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
+												<div class="asset-investment-card-metrics-value">₹zzz</div>
+											</div>
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">
+													Builder's projection
+													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+														style="margin-left: '5.56px';">
+														<span class='asset-investment-card-tooltip-builder-text'>This
+															return per year is based on the builder's prediction</span>
+													</i>
+												</div>
+												<div class="asset-investment-card-metrics-value">XXX</div>
+											</div>
+										</div>
+										<div class="asset-investment-card-metrics-countainer">
+											<div class="asset-investment-card-metrics" style="margin-top: '0px';">
+												<div class="asset-investment-card-metrics-name">
+													Aasthy's safe projection
+													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+														style="margin-left: '5.56px';">
+														<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+													</i>
+												</div>
+												<div class="asset-investment-card-metrics-value">yy,yyy</div>
+											</div>
+										</div>
+										<div class="asset-investment-card-metrics-name">xx Days left to invest</div>
+										<div>
+											<div class="asset-investment-card-progress-bar">
+												<div class="asset-investment-card-progress" style="width: 40%;"></div>
+											</div>
+											<p class="asset-investment-card-progress-text">₹zzz of ₹zz,zzz funded</p>
+											<span class="asset-investment-card-save-info"><i class="like"
+													style="font-weight: '200'; color: '#2F363F';"></i>0</span>
+											<span class="asset-investment-card-comment-info"><i class="comment"
+													style="font-weight: '200'; color: '#2F363F';"></i>2</span>
+											<span class="asset-investment-card-price-info">zz,zzz</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-manual lg-3 justify-content-center" id=asset-2>
+								<div class="asset-investment-card">
+									<a>
+										<img class="asset-investment-card-image" src="./images/Rounded Rectangle.png" />
+									</a>
+									<div class="asset-investment-card-content">
+										<a>
+											<p class="asset-investment-card-title">Aasthy Asset - 2</p>
+											<p class="asset-investment-card-location">Indiranagar, Bengaluru, Karnataka</p>
+										</a>
+										<div class="asset-investment-card-metrics-countainer">
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
+												<div class="asset-investment-card-metrics-value">yy,yyy</div>
+											</div>
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
+												<div class="asset-investment-card-metrics-value">₹zzz</div>
+											</div>
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">
+													Builder's projection
+													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+														style="margin-left: '5.56px';">
+														<span class='asset-investment-card-tooltip-builder-text'>This
+															return per year is based on the builder's prediction</span>
+													</i>
+												</div>
+												<div class="asset-investment-card-metrics-value">XXX</div>
+											</div>
+										</div>
+										<div class="asset-investment-card-metrics-countainer">
+											<div class="asset-investment-card-metrics" style="margin-top: '0px';">
+												<div class="asset-investment-card-metrics-name">
+													Aasthy's safe projection
+													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+														style="margin-left: '5.56px';">
+														<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+													</i>
+												</div>
+												<div class="asset-investment-card-metrics-value">yy,yyy</div>
+											</div>
+										</div>
+										<div class="asset-investment-card-metrics-name">xx Days left to invest</div>
+										<div>
+											<div class="asset-investment-card-progress-bar">
+												<div class="asset-investment-card-progress" style="width: 50%;"></div>
+											</div>
+											<p class="asset-investment-card-progress-text">₹zzz of ₹zz,zzz funded</p>
+											<span class="asset-investment-card-save-info"><i class="like"
+													style="font-weight: '200'; color: '#2F363F';"></i>0</span>
+											<span class="asset-investment-card-comment-info"><i class="comment"
+													style="font-weight: '200'; color: '#2F363F';"></i>6</span>
+											<span class="asset-investment-card-price-info">zz,zzz</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-manual lg-3 justify-content-center" id=asset-1>
+								<div class="asset-investment-card">
+									<a>
+										<img class="asset-investment-card-image" src="./images/Rounded Rectangle.png" />
+									</a>
+									<div class="asset-investment-card-content">
+										<a>
+											<p class="asset-investment-card-title">Aasthy Asset - 1</p>
+											<p class="asset-investment-card-location">Thanisandra, Bengaluru, Karnataka</p>
+										</a>
+										<div class="asset-investment-card-metrics-countainer">
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
+												<div class="asset-investment-card-metrics-value">yy,yyy</div>
+											</div>
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
+												<div class="asset-investment-card-metrics-value">₹zzz</div>
+											</div>
+											<div class="asset-investment-card-metrics">
+												<div class="asset-investment-card-metrics-name">
+													Builder's projection
+													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+														style="margin-left: '5.56px';">
+														<span class='asset-investment-card-tooltip-builder-text'>This
+															return per year is based on the builder's prediction</span>
+													</i>
+												</div>
+												<div class="asset-investment-card-metrics-value">XXX</div>
+											</div>
+										</div>
+										<div class="asset-investment-card-metrics-countainer">
+											<div class="asset-investment-card-metrics" style="margin-top: '0px';">
+												<div class="asset-investment-card-metrics-name">
+													Aasthy's safe projection
+													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+														style="margin-left: '5.56px';">
+														<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+													</i>
+												</div>
+												<div class="asset-investment-card-metrics-value">yy,yyy</div>
+											</div>
+										</div>
+										<div>
+											<div class="asset-investment-card-progress-bar">
+												<div class="asset-investment-card-progress" style="width: 100%;"></div>
+											</div>
+											<p class="asset-investment-card-progress-text">₹zz,zzz of ₹zz,zzz funded
+											</p>
+											<div class="asset-investment-card-fully-funded">FULLY FUNDED</div>
+											<span class="asset-investment-card-save-info"><i class="like"
+													style="font-weight: '200'; color: '#2F363F';"></i>21</span>
+											<span class="asset-investment-card-comment-info"><i class="comment"
+													style="font-weight: '200'; color: '#2F363F';"></i>67</span>
+											<span class="asset-investment-card-price-info">zz,zzz</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button id="investments-sign-up" onclick="window.parent.postMessage('showLoginModal')">Sign up to see
+					more<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png"
+						id="alert-card-kyc-btn-img"></img></button>
+			</div>
+			<hr class="line-mobile" style="margin: auto; border-color: rgb(0, 0, 0);" />
+		</section>
+	</div>
+</body>
+
+</html>

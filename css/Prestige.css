@@ -1,0 +1,763 @@
+/* This source code is exported from pxCode, you can get more document from https://www.pxcode.io */
+.prestige-group {
+  display: flex;
+  background-color: white; }
+
+.prestige-group.layout {
+  position: relative;
+  overflow: hidden;
+  min-height: 896px;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-flex {
+  display: flex;
+  flex-direction: column; }
+
+.prestige-flex.layout8 {
+  position: relative;
+  overflow: visible;
+  flex-grow: 1;
+  margin: 91px 0px 69px; }
+
+.prestige-group1 {
+  display: flex; }
+
+.prestige-group1.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 189px;
+  margin: 0px; }
+
+.prestige-image {
+  background: var(--src) center center/contain no-repeat; }
+
+.prestige-image.layout {
+  position: relative;
+  height: 189px;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-highlights {
+  font: 700 18px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #303740;
+  letter-spacing: 0px; }
+
+.prestige-highlights.layout {
+  position: relative;
+  margin: 20px 20px 0px; }
+
+.prestige-small-text-body-box.layout {
+  position: relative;
+  margin: 7px 20px 0px; }
+
+.prestige-small-text-body {
+  font: 12px/2.5 "Poppins", Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body-span0 {
+  font: 1em/2.5 "Poppins", Helvetica, Arial, serif;
+  color: #303740ff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body-span1 {
+  font: 1em/2.5 "Poppins", Helvetica, Arial, serif;
+  color: #4f0769ff;
+  text-decoration: underline;
+  letter-spacing: 0px; }
+
+.prestige-group2 {
+  display: flex; }
+
+.prestige-group2.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  margin: 65px 20px 0px; }
+
+.prestige-cover-group {
+  display: flex;
+  background-color: white;
+  border: 0.75395px solid #b5b5b5;
+  border-radius: 3.01578950881958px 3.01578950881958px 0px 0px; }
+
+.prestige-cover-group.layout {
+  position: absolute;
+  overflow: visible;
+  top: -45px;
+  height: 46px;
+  left: 0px;
+  right: 0px; }
+
+.prestige-flex.layout {
+  position: relative;
+  overflow: visible;
+  flex-grow: 1;
+  margin: 8.29px 12px; }
+
+.prestige-img {
+  background: var(--src) center center/contain no-repeat; }
+
+.prestige-img.layout {
+  position: relative;
+  height: 11.64px;
+  width: 63.37px;
+  min-width: 63.37px;
+  margin: 0px 0px 0px 0.06px; }
+
+.prestige-flex2 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex2.layout {
+  position: relative;
+  overflow: visible;
+  width: 179.33px;
+  min-width: 179.33px;
+  margin: 1.07px 0px 0.71px; }
+
+.prestige-text-body {
+  font: 500 14px/1.16323 "Poppins", Helvetica, Arial, serif;
+  color: #303740;
+  text-decoration: underline;
+  letter-spacing: 0px; }
+
+.prestige-text-body.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-icon {
+  background: var(--src) center center/contain no-repeat; }
+
+.prestige-icon.layout {
+  position: relative;
+  height: 12.5px;
+  width: 12.5px;
+  min-width: 12.5px;
+  margin: 0.68px 0px 2.82px; }
+
+.prestige-cover-group1 {
+  display: flex;
+  background-color: white;
+  border: 0.75395px solid #b5b5b5;
+  border-radius: 0px 0px 3.01579px 3.01579px; }
+
+.prestige-cover-group1.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-flex.layout1 {
+  position: relative;
+  overflow: visible;
+  flex-grow: 1;
+  margin: 7px 13.57px; }
+
+.prestige-flex4 {
+  display: flex; }
+
+.prestige-flex4.layout {
+  position: relative;
+  overflow: visible;
+  margin: 5.3px 0px 0px; }
+
+.prestige-small-text-body1 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body1.layout {
+  position: relative;
+  margin: 0px 0px 4px; }
+
+.prestige-flex4-spacer {
+  display: flex;
+  flex: 0 1 4.64px; }
+
+.prestige-icon.layout1 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 8.95px; }
+
+.prestige-flex4-spacer1 {
+  display: flex;
+  flex: 0 1 6.79px; }
+
+.prestige-small-text-body2-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body2 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body2-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body2-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-flex4-spacer2 {
+  display: flex;
+  flex: 0 1 8.96px; }
+
+.prestige-icon.layout2 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 8.95px; }
+
+.prestige-flex5 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex5.layout {
+  position: relative;
+  overflow: visible;
+  width: 225.57px;
+  min-width: 225.57px;
+  margin: 2.7px 0px 0px 0.43px; }
+
+.prestige-small-text-body3-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body3 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body3-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body3-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-icon.layout3 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 8px 0px 7.74px; }
+
+.prestige-rental-listings {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-rental-listings.layout {
+  position: relative;
+  margin: 0.41px 0px 3.59px; }
+
+.prestige-group3 {
+  display: flex; }
+
+.prestige-group3.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  margin: 57px 20px 0px; }
+
+.prestige-img.layout1 {
+  position: relative;
+  height: 11.64px;
+  width: 34.48px;
+  min-width: 34.48px;
+  margin: 0px 0px 0px 0.06px; }
+
+.prestige-flex7 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex7.layout {
+  position: relative;
+  overflow: visible;
+  width: 150.33px;
+  min-width: 150.33px;
+  margin: 1.07px 0px 0.71px; }
+
+.prestige-icon.layout4 {
+  position: relative;
+  height: 12.5px;
+  width: 12.5px;
+  min-width: 12.5px;
+  margin: 1.68px 0px 1.82px; }
+
+.prestige-cover-group3 {
+  display: flex;
+  background-color: white;
+  border: 0.75395px solid #b5b5b5;
+  border-radius: 0px 0px 3.01579px 3.01579px; }
+
+.prestige-cover-group3.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-flex.layout3 {
+  position: relative;
+  overflow: visible;
+  flex-grow: 1;
+  margin: 7px 13.57px; }
+
+.prestige-flex9 {
+  display: flex; }
+
+.prestige-flex9.layout {
+  position: relative;
+  overflow: visible;
+  margin: 5.3px 0px 0px; }
+
+.prestige-small-text-body4 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body4.layout {
+  position: relative;
+  margin: 0px 0px 4px; }
+
+.prestige-flex9-spacer {
+  display: flex;
+  flex: 0 1 4.64px; }
+
+.prestige-icon.layout5 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 8.95px; }
+
+.prestige-flex9-spacer1 {
+  display: flex;
+  flex: 0 1 6.79px; }
+
+.prestige-small-text-body5-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body5 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body5-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body5-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-flex9-spacer2 {
+  display: flex;
+  flex: 0 1 8.96px; }
+
+.prestige-icon.layout6 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 8.95px; }
+
+.prestige-flex10 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex10.layout {
+  position: relative;
+  overflow: visible;
+  width: 225.57px;
+  min-width: 225.57px;
+  margin: 2.7px 0px 0px 0.43px; }
+
+.prestige-small-text-body6-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body6 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body6-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body6-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-icon.layout7 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 8px 0px 7.74px; }
+
+.prestige-group4 {
+  display: flex; }
+
+.prestige-group4.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  margin: 57px 20px 0px; }
+
+.prestige-flex12 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex12.layout {
+  position: relative;
+  overflow: visible;
+  width: 179.33px;
+  min-width: 179.33px;
+  margin: 1.07px 0px 0.71px; }
+
+.prestige-cover-group5 {
+  display: flex;
+  background-color: white;
+  border: 0.75395px solid #b5b5b5;
+  border-radius: 0px 0px 3.01579px 3.01579px; }
+
+.prestige-cover-group5.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-flex.layout5 {
+  position: relative;
+  overflow: visible;
+  flex-grow: 1;
+  margin: 7px 13.57px; }
+
+.prestige-flex14 {
+  display: flex; }
+
+.prestige-flex14.layout {
+  position: relative;
+  overflow: visible;
+  margin: 5.3px 0px 0px; }
+
+.prestige-small-text-body7 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body7.layout {
+  position: relative;
+  margin: 0px 0px 4px; }
+
+.prestige-flex14-spacer {
+  display: flex;
+  flex: 0 1 4.64px; }
+
+.prestige-icon.layout9 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 8.95px; }
+
+.prestige-flex14-spacer1 {
+  display: flex;
+  flex: 0 1 6.79px; }
+
+.prestige-small-text-body8-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body8 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body8-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body8-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-flex14-spacer2 {
+  display: flex;
+  flex: 0 1 8.96px; }
+
+.prestige-icon.layout10 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 8.95px; }
+
+.prestige-flex15 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex15.layout {
+  position: relative;
+  overflow: visible;
+  width: 225.57px;
+  min-width: 225.57px;
+  margin: 2.7px 0px 0px 0.43px; }
+
+.prestige-small-text-body9-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body9 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body9-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body9-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-icon.layout11 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 8px 0px 7.74px; }
+
+.prestige-group5 {
+  display: flex; }
+
+.prestige-group5.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  margin: 58px 20px 0px; }
+
+.prestige-flex17 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex17.layout {
+  position: relative;
+  overflow: visible;
+  width: 179.33px;
+  min-width: 179.33px;
+  margin: 1.07px 0px 0.71px; }
+
+.prestige-cover-group7 {
+  display: flex;
+  background-color: white;
+  border: 0.75395px solid #b5b5b5;
+  border-radius: 0px 0px 3.01579px 3.01579px; }
+
+.prestige-cover-group7.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-flex18 {
+  display: flex; }
+
+.prestige-flex18.layout {
+  position: relative;
+  overflow: visible;
+  flex-grow: 1;
+  margin: 12.3px 13.57px 7px; }
+
+.prestige-flex18-col {
+  display: flex;
+  flex: 0 1 239.69px; }
+
+.prestige-flex.layout7 {
+  position: relative;
+  overflow: visible;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-flex20 {
+  display: flex; }
+
+.prestige-flex20.layout {
+  position: relative;
+  overflow: visible;
+  margin: 0px; }
+
+.prestige-small-text-body10 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body10.layout {
+  position: relative;
+  margin: 0px 0px 4px; }
+
+.prestige-flex20-spacer {
+  display: flex;
+  flex: 0 1 4.64px; }
+
+.prestige-icon.layout13 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 8.95px; }
+
+.prestige-flex20-spacer1 {
+  display: flex;
+  flex: 0 1 6.79px; }
+
+.prestige-small-text-body11-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body11 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body11-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body11-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-flex21 {
+  display: flex;
+  justify-content: space-between; }
+
+.prestige-flex21.layout {
+  position: relative;
+  overflow: visible;
+  margin: 2.7px 13.69px 0px 0.43px; }
+
+.prestige-small-text-body12-box.layout {
+  position: relative;
+  margin: 0px; }
+
+.prestige-small-text-body12 {
+  font: 600 12px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888d;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body12-span0 {
+  font: 600 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-small-text-body12-span1 {
+  font: 1em/1.2 "Poppins", Helvetica, Arial, serif;
+  color: #82888dff;
+  letter-spacing: 0px; }
+
+.prestige-icon.layout14 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 8px 0px 7.74px; }
+
+.prestige-flex21-col {
+  display: flex;
+  flex: 0 1 86px; }
+
+.prestige-group6 {
+  display: flex; }
+
+.prestige-group6.layout {
+  position: relative;
+  overflow: visible;
+  min-height: 14px;
+  flex-grow: 1;
+  margin: 0.41px 0px 3.59px; }
+
+.prestige-rental-listings.layout3 {
+  position: relative;
+  flex-grow: 1;
+  margin: 0px; }
+
+.prestige-content-box {
+  display: flex;
+  background-color: #303740;
+  border-radius: 4px 4px 4px 4px; }
+
+.prestige-content-box.layout {
+  position: absolute;
+  overflow: visible;
+  top: -32.41px;
+  height: 37px;
+  left: -21.66px;
+  right: 8.66px; }
+
+.prestige-content-box-spacer {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 12px; }
+
+.prestige-icon.layout15 {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  margin: 8.5px 0px; }
+
+.prestige-content-box-spacer1 {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 10px; }
+
+.prestige-graph {
+  font: 600 14px/1.2 "Poppins", Helvetica, Arial, serif;
+  color: white;
+  letter-spacing: 0px; }
+
+.prestige-graph.layout {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 8px 0px 13px; }
+
+.prestige-flex18-spacer {
+  display: flex;
+  flex: 0 1 8.96px; }
+
+.prestige-icon.layout16 {
+  position: relative;
+  height: 2.26px;
+  width: 2.26px;
+  min-width: 2.26px;
+  margin: 6.79px 0px 29.65px; }

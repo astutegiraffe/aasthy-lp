@@ -1,0 +1,236 @@
+<html>
+
+<head>
+	<style>
+		body{
+			height:900px;
+		}
+		* {
+			box-sizing: border-box
+		}
+		.prev-arrow{
+			margin-left:5px;
+		}
+		.next-arrow{
+			margin-left:10px;
+		}
+		.left-card {
+			position: absolute;
+			width: 40%;
+			height: auto;
+			top: calc(100vw/12);
+			left: 13%;
+			z-index: 1;
+		}
+
+		.right-card {
+			position: absolute;
+			width: 40%;
+			height: auto;
+			top: calc(100vw/12);
+			left: 148%;
+			z-index: 1;
+		}
+
+		.main-card {
+			position: absolute;
+			left: 30%;
+			z-index: 2;
+			width: 140%;
+			height:auto;
+		}
+
+		.slideshow-container-wrapper {
+			width: 100%;
+			position: relative;
+			margin-bottom:5px;
+		}
+
+		.slideshow-container {
+			position: absolute;
+			width: 50%;
+			top: 50px;
+		}
+
+		.mySlides {
+
+			display: none;
+		}
+
+		.prev,
+		.next {
+			cursor: pointer;
+			position: absolute;
+			padding: 16px;
+			color: #4E0668;
+			font-weight: bold;
+			font-size: 20px;
+			transition: 0.6s ease;
+			border-radius: 120px;
+			user-select: none;
+		}
+
+		.next {
+			width: 60px;
+			height: 60px;
+			right:4.5%;
+			top: 43%;
+			background: #FFFFFF;
+			z-index: 10;
+		}
+
+		.prev {
+			width: 60px;
+			height: 60px;
+			top: 43%;
+			left: 5%;
+			background: #FFFFFF;
+			z-index: 10;
+		}
+
+		.prev:hover,
+		.next:hover {
+			background-color: #4E0668;
+			color: white;
+		}
+
+		.text {
+			color: #f2f2f2;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+		}
+
+		.numbertext {
+			color: #f2f2f2;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+		}
+
+		.dot {
+			cursor: pointer;
+			height: 15px;
+			width: 15px;
+			margin: 0 2px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+			transition: background-color 0.6s ease;
+		}
+
+		.threedots {
+			margin-left:50%;
+			height:100px;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		.active,
+		.dot:hover {
+			background-color: #717171;
+		}
+
+		.fade {
+			-webkit-animation-name: fade;
+			-webkit-animation-duration: 1s;
+			animation-name: fade;
+			animation-duration: 1s;
+		}
+
+		@-webkit-keyframes fade {
+			from {
+				opacity: .4;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fade {
+			from {
+				opacity: .4
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<script>
+	function plusSlides(n) {
+		slideIndex += n;
+		showSlides();
+	}
+
+	// Thumbnail image controls
+	function currentSlide(n) {
+		slideIndex = n;
+		showSlides();
+	}
+
+	function showSlides() {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		if (slideIndex > slides.length) { slideIndex = 1 }
+		if (slideIndex < 1) { slideIndex = slides.length }
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active";
+	}
+</script>
+
+<body onload='currentSlide(1)'>
+	<div class='slideshow-container-wrapper'>
+		<img src='./images/Background_Desktop.png' style="width:100%">
+		<div class="slideshow-container">
+
+			<!-- Full-width images with number and caption text -->
+			<div class="mySlides fade">
+				<div class="numbertext"></div>
+				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Invest_Desktop_Small.png" /></a>
+				<img class='main-card' src="./images/Learn_Desktop.png" />
+				<a onclick="plusSlides(1) "><img class='right-card' src="./images/Discover_Desktop_Small.png"></a>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext"></div>
+				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Learn_Desktop_Small.png" /></a>
+				<img class='main-card' src="./images/Discover_Desktop.png" />
+				<a onclick="plusSlides(1)"><img class='right-card' src="./images/Invest_Desktop_Small.png" /></a>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext"></div>
+				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Discover_Desktop_Small.png" /></a>
+				<img class='main-card' src="./images/Invest_Desktop.png" />
+				<a onclick="plusSlides(1)"><img class='right-card' src="./images/Learn_Desktop_Small.png" /></a>
+			</div>        
+		</div>
+		<a class="prev" onclick="plusSlides(-1)"><span class="prev-arrow">&#10094;</span></a>
+		<a class="next" onclick="plusSlides(1)"><span class="next-arrow">&#10095;</span></a>
+		<br>
+		
+	</div>
+	<div class='threedots'>
+		<span class="dot" onclick="currentSlide(1)"></span>
+		<span class="dot" onclick="currentSlide(2)"></span>
+		<span class="dot" onclick="currentSlide(3)"></span>
+	</div>
+</body>
+
+</html>

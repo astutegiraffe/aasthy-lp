@@ -188,7 +188,7 @@
     </style>
   </head>
 
-  <body>
+  <body onload="loadingEvent()">
 <!--     <header class="sticky top-0 z-50">
       <div class="relative bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -2157,6 +2157,9 @@
       };
       cancel.onclick = function () {
         modal.style.display = "none";
+      };
+      function loadingEvent() {
+        console.log(document.body.scrollHeight);
       };
     </script>
   </body>
