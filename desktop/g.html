@@ -2,15 +2,20 @@
 
 <head>
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
 		* {
 			box-sizing: border-box
 		}
-		.prev-arrow{
-			margin-left:5px;
+
+		.prev-arrow {
+			margin-left: 5px;
 		}
-		.next-arrow{
-			margin-left:10px;
+
+		.next-arrow {
+			margin-left: 10px;
 		}
+
 		.left-card {
 			position: absolute;
 			width: 40%;
@@ -34,13 +39,13 @@
 			left: 30%;
 			z-index: 2;
 			width: 140%;
-			height:auto;
+			height: auto;
 		}
 
 		.slideshow-container-wrapper {
 			width: 100%;
 			position: relative;
-			margin-bottom:5px;
+			margin-bottom: 5px;
 		}
 
 		.slideshow-container {
@@ -70,7 +75,7 @@
 		.next {
 			width: 60px;
 			height: 60px;
-			right:4.5%;
+			right: 4.5%;
 			top: 43%;
 			background: #FFFFFF;
 			z-index: 10;
@@ -121,8 +126,8 @@
 		}
 
 		.threedots {
-			margin-left:50%;
-			height:100px;
+			margin-left: 50%;
+			height: 100px;
 		}
 
 		a {
@@ -139,6 +144,35 @@
 			-webkit-animation-duration: 1s;
 			animation-name: fade;
 			animation-duration: 1s;
+		}
+
+		.learn-btn {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			position: absolute;
+			width: 9.653vw;
+			height: 3.472vw;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 1.181vw;
+			line-height: 1.111vw;
+			padding-left: 1vw;
+			color: #FFFFFF;
+			background: #4E0668;
+			border-radius: 6px;
+			z-index: 20;
+			top: 34.5vw;
+			left: 46.6vw;
+			border: none;
+			cursor: pointer;
+		}
+
+		@media all and (max-width: 900px) {
+			.learn-btn {
+				font-size: 1vw;
+			}
 		}
 
 		@-webkit-keyframes fade {
@@ -163,11 +197,41 @@
 	</style>
 </head>
 <script>
+	function Timer(fn, t) {
+		var timerObj = setInterval(fn, t);
+		this.stop = function () {
+			if (timerObj) {
+				clearInterval(timerObj);
+				timerObj = null;
+			}
+			return this;
+		}
+		// start timer using current settings (if it's not already running)
+		this.start = function () {
+			if (!timerObj) {
+				this.stop();
+				timerObj = setInterval(fn, t);
+			}
+			return this;
+		}
+
+		// start with new or original interval, stop current interval
+		this.reset = function (newT = t) {
+			t = newT;
+			return this.stop().start();
+		}
+	}
+	var timer = new Timer(function () {
+		plusSlides(1)
+	}, 8000);
+
 	function plusSlides(n) {
+
 		slideIndex += n;
 		showSlides();
+		timer.stop();
+		timer.start();
 	}
-
 	// Thumbnail image controls
 	function currentSlide(n) {
 		slideIndex = n;
@@ -188,23 +252,30 @@
 		}
 		slides[slideIndex - 1].style.display = "block";
 		dots[slideIndex - 1].className += " active";
+		timer.start()
 	}
 </script>
 
-<body onload='currentSlide(1)' style='height:fit-content'>
+<body onload='currentSlide(1)'>
 	<div class='slideshow-container-wrapper'>
 		<img src='./images/Background_Desktop.png' style="width:100%">
 		<div class="slideshow-container">
-
-			<!-- Full-width images with number and caption text -->
 			<div class="mySlides fade">
+				<button class="learn-btn" onclick="window.parent.postMessage(`learnNowButton-${document.body.scrollHeight}`)">
+					Learn Now
+					<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png" />
+				</button>
 				<div class="numbertext"></div>
 				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Invest_Desktop_Small.png" /></a>
-				<img class='main-card' src="./images/Learn_Desktop.png" />
+				<img class='main-card' onclick="window.parent.postMessage('learnCarouselClick')" src="./images/Learn_Desktop.png"></img>
 				<a onclick="plusSlides(1) "><img class='right-card' src="./images/Discover_Desktop_Small.png"></a>
 			</div>
 
 			<div class="mySlides fade">
+				<!-- <button class="learn-btn">
+					Discover Now
+					<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png" />
+				</button> -->
 				<div class="numbertext"></div>
 				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Learn_Desktop_Small.png" /></a>
 				<img class='main-card' src="./images/Discover_Desktop.png" />
@@ -212,16 +283,19 @@
 			</div>
 
 			<div class="mySlides fade">
+				<!-- <button class="learn-btn">
+					Invest Now
+					<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png" />
+				</button> -->
 				<div class="numbertext"></div>
 				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Discover_Desktop_Small.png" /></a>
 				<img class='main-card' src="./images/Invest_Desktop.png" />
 				<a onclick="plusSlides(1)"><img class='right-card' src="./images/Learn_Desktop_Small.png" /></a>
-			</div>        
+			</div>
 		</div>
 		<a class="prev" onclick="plusSlides(-1)"><span class="prev-arrow">&#10094;</span></a>
 		<a class="next" onclick="plusSlides(1)"><span class="next-arrow">&#10095;</span></a>
 		<br>
-		
 	</div>
 	<div class='threedots'>
 		<span class="dot" onclick="currentSlide(1)"></span>
