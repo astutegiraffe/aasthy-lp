@@ -182,12 +182,10 @@
 
 		#rei-dropdown {
 			font-size: 24px;
-			line-height: 30px;
 		}
 
 		.rei-metrics-text {
 			font-size: 18px;
-			line-height: 18px;
 			padding: 1.5%;
 		}
 
@@ -247,6 +245,10 @@
 			font-size: 1.25vw;
 		}
 
+		.rei-metrics {
+			margin: 0.5vw;
+		}
+
 		#rei-button {
 			height: 13.28%;
 			margin-left: auto;
@@ -255,6 +257,31 @@
 			font-style: normal;
 			font-family: "Poppins";
 			font-weight: 600;
+		}
+	}
+
+	@media all and (max-width: 700px) {
+
+		body {
+			height: 71vw;
+		}
+
+		#rei-header {
+			font-size: 6vw;
+		}
+
+		#rei-dropdown {
+			font-size: 1.66vw;
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
+			background-position-y: 0.6vw;
+		}
+
+		#rei-metrics-content {
+			bottom: 9%;
+		}
+
+		.rei-metrics {
+			margin: 0.6vw;
 		}
 	}
 
@@ -415,6 +442,7 @@
 		let yAxisMin = Math.floor((Math.min(...yValues) / 500) - 1) * 500;
 		let yAxisMax = Math.ceil((Math.max(...yValues) / 500 + 1)) * 500;
 		let stepSize = Math.ceil((yAxisMax - yAxisMin) / 4);
+		let xAxisTicks = (document.body.scrollWidth > 700) ? 6 : 5;
 		return {
 			type: "line",
 			data: {
@@ -461,7 +489,7 @@
 						},
 						ticks: {
 							autoSkip: true,
-							maxTicksLimit: 6,
+							maxTicksLimit: xAxisTicks,
 							maxRotation: 0,
 							minRotation: 0,
 							padding: 10,

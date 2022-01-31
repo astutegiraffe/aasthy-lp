@@ -157,7 +157,6 @@
 			font-style: normal;
 			font-weight: 500;
 			font-size: 1.181vw;
-			line-height: 1.111vw;
 			padding-left: 1vw;
 			color: #FFFFFF;
 			background: #4E0668;
@@ -169,9 +168,33 @@
 			cursor: pointer;
 		}
 
+		.learn-btn-arrow {
+			margin-left: 8px;
+			height: 8px;
+			width: 5px;
+		}
+
 		@media all and (max-width: 900px) {
 			.learn-btn {
 				font-size: 1vw;
+			}
+
+			.learn-btn-arrow {
+				margin-left: 1.2vw;
+				height: 1vw;
+				width: 0.625vw;
+			}
+		}
+
+		@media all and (max-width: 700px) {
+			.learn-btn {
+				width: 10.5vw;
+			}
+
+			.learn-btn-arrow {
+				margin-left: 1.2vw;
+				height: 1vw;
+				width: 0.625vw;
 			}
 		}
 
@@ -263,7 +286,7 @@
 			<div class="mySlides fade">
 				<button class="learn-btn" onclick="window.parent.postMessage(`learnNowButton-${document.body.scrollHeight}`)">
 					Learn Now
-					<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png" />
+					<img class="learn-btn-arrow" alt="right arrow" src="./images/Arrow.png" />
 				</button>
 				<div class="numbertext"></div>
 				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Invest_Desktop_Small.png" /></a>
