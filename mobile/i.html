@@ -13,8 +13,8 @@
 	}
 
 	body {
-		height: 97vw;
-		min-height: 410px;
+		height: 95vw;
+		min-height: 420px;
 		overflow: hidden;
 	}
 
@@ -136,6 +136,7 @@
 		color: #FFFFFF;
 		white-space: nowrap;
 		border: none;
+		cursor: pointer;
 		margin-right: 15px;
 	}
 
@@ -188,7 +189,6 @@
 		}
 	}
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <body>
 	<div id="rei-header">Learn Various Indices</div>
@@ -411,7 +411,7 @@
 		let populateREI = (reiIndexName, timeRange) => {
 			showLoadingScreen();
 			let token = getToken();
-			fetch(`https://reimon.in/api2/getRealEstateIndices/?reiIndexName=${reiIndexName}`, {
+			fetch(`/api2/getRealEstateIndices/?reiIndexName=${reiIndexName}`, {
 				method: "GET",
 				headers: { token: token },
 			})
