@@ -50,7 +50,7 @@ function loadingEvent() {
         scrollToElm(curEl, 0.4, -1);
     });
 }
-window.load=function(){
+window.onload=function(){
     loadingEvent()
 }
 window.urls=[]
