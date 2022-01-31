@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<meta name="robots" content="noindex">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -79,7 +80,7 @@
 
 		#section-1-image-1 {
 			width: 93.2%;
-			content: url("./section-h-image-1.png");
+			content: url("https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/section-h-image-1.png");
 			background-repeat: no-repeat;
 			background-size: contain;
 		}
@@ -540,7 +541,7 @@
 			hr {
 				display: none;
 			}
-			
+
 			#section-1-image-1 {
 				margin-top: 20%;
 			}
@@ -584,10 +585,68 @@
 		}
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script>
+		function scrollToElm(container, duration, left) {
+			let change = getRelativePos(container, left);
+			scrollTo(container, change, duration);  // duration in seconds
+		}
+
+		function getRelativePos(container, left) {
+			let width = parseInt(window.getComputedStyle(document.querySelector('.asset-investment-card')).width);
+			let index = parseInt(container.scrollLeft / width);
+			let cardInView = left === 1 ? 0.99 : 0.01;
+			let focusEl = container.scrollLeft % width > cardInView * width ? index + 1 : index;
+			let change;
+			if (focusEl + left >= 0) {
+				if (focusEl + left <= 2) {
+					change = focusEl + left;
+				} else {
+					change = 2;
+				}
+			} else {
+				change = 0;
+			}
+			return change * width;
+		}
+
+		function scrollTo(element, change, duration, left) {
+			let start = element.scrollLeft;
+			let startTime = performance.now();
+			let val, now, elapsed, t;
+
+			function animateScroll() {
+				now = performance.now();
+				elapsed = (now - startTime) / 1000;
+				t = (elapsed / duration);
+				element.scrollLeft = start + ((change - start) * easeInOutQuad(t));
+				if (t < 1)
+					window.requestAnimationFrame(animateScroll);
+			};
+			animateScroll();
+		}
+
+		function easeInOutQuad(t) { return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t };
+
+		function loadingEvent() {
+			console.log(document.body.scrollHeight);
+			let curEl = document.getElementById(`shared-investments-assets`);
+			document.getElementById('shared-investments-next-btn').addEventListener('click', () => {
+				scrollToElm(curEl, 0.4, 1);
+			});
+
+			document.getElementById('shared-investments-prev-btn').addEventListener('click', () => {
+				scrollToElm(curEl, 0.4, -1);
+			});
+		}
+		window.onload = function () {
+			loadingEvent()
+		}
+		window.urls = []
+	</script>
 </head>
 
 
-<body >
+<body>
 	<div>
 		<section class="landing-page-odd-section">
 			<div class="container-fluid landing-page-section">
@@ -599,16 +658,24 @@
 							</div>
 							<div id="section-1-small-text">
 								<div class="small-text-item">
-									<img class="small-text-image" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/BarGraph.png" alt="Bar Graph">
-									<span class="small-text">Make smart real estate investment digitally and transparently</span>
+									<img class="small-text-image"
+										src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/BarGraph.png"
+										alt="Bar Graph">
+									<span class="small-text">Make smart real estate investment digitally and
+										transparently</span>
 								</div>
 								<div class="small-text-item">
-									<img class="small-text-image" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/GrowthGraph.png" alt="Growth Graph">
+									<img class="small-text-image"
+										src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/GrowthGraph.png"
+										alt="Growth Graph">
 									<span class="small-text">Invest in real estate using demand & supply mapping</span>
 								</div>
 								<div class="small-text-item">
-									<img class="small-text-image" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/PieChart.png" alt="Pie Chart">
-									<span class="small-text">Start investing in Fractional investment as low as ₹ 10,000</span>
+									<img class="small-text-image"
+										src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/PieChart.png"
+										alt="Pie Chart">
+									<span class="small-text">Start investing in Fractional investment as low as ₹
+										10,000</span>
 								</div>
 							</div>
 						</div>
@@ -619,21 +686,28 @@
 					</div>
 					<div id="shared-investments-content">
 						<div class="shared-investment-arrow-keys" id="shared-investments-prev-btn">
-							<img class="shared-investments-btn-img" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Prev.png" alt="Arrow">
+							<img class="shared-investments-btn-img"
+								src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Prev.png"
+								alt="Arrow">
 						</div>
 						<div class="shared-investment-arrow-keys" id="shared-investments-next-btn">
-							<img class="shared-investments-btn-img" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Next.png" alt="Arrow">
+							<img class="shared-investments-btn-img"
+								src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Next.png"
+								alt="Arrow">
 						</div>
 						<div id="shared-investments-assets">
 							<div class="col-manual lg-3 justify-content-center" id=asset-3>
 								<div class="asset-investment-card">
 									<a>
-										<img class="asset-investment-card-image" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Asset-image-3.png" />
+										<img class="asset-investment-card-image"
+											src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Asset-image-3.png" />
 									</a>
 									<div class="asset-investment-card-content">
 										<a>
-											<p class="asset-investment-card-title">Aasthy Fractional Investment Opportunity, Whitefield</p>
-											<p class="asset-investment-card-location">Whitefield, Bengaluru, Karnataka</p>
+											<p class="asset-investment-card-title">Aasthy Fractional Investment
+												Opportunity, Whitefield</p>
+											<p class="asset-investment-card-location">Whitefield, Bengaluru, Karnataka
+											</p>
 										</a>
 										<div class="asset-investment-card-metrics-countainer">
 											<div class="asset-investment-card-metrics">
@@ -649,7 +723,9 @@
 													Return(CAGR)
 													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
 														style="margin-left: '5.56px';">
-														<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on a guaranteed buyback from the builder at the end of the investment period</span>
+														<span class='asset-investment-card-tooltip-builder-text'>This
+															return per year is based on a guaranteed buyback from the
+															builder at the end of the investment period</span>
 													</i>
 												</div>
 												<div class="asset-investment-card-metrics-value">15.72%</div>
@@ -669,12 +745,15 @@
 							<div class="col-manual lg-3 justify-content-center" id=asset-2>
 								<div class="asset-investment-card">
 									<a>
-										<img class="asset-investment-card-image" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Asset-image-2.png" />
+										<img class="asset-investment-card-image"
+											src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Asset-image-2.png" />
 									</a>
 									<div class="asset-investment-card-content">
 										<a>
-											<p class="asset-investment-card-title">Aasthy Grade 'A' Residential Apartment 1</p>
-											<p class="asset-investment-card-location">Thanisandra, Bengaluru, Karnataka</p>
+											<p class="asset-investment-card-title">Aasthy Grade 'A' Residential
+												Apartment 1</p>
+											<p class="asset-investment-card-location">Thanisandra, Bengaluru, Karnataka
+											</p>
 										</a>
 										<div class="asset-investment-card-metrics-countainer">
 											<div class="asset-investment-card-metrics">
@@ -690,7 +769,10 @@
 													Return(CAGR)
 													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
 														style="margin-left: '5.56px';">
-														<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+														<span class='asset-investment-card-tooltip-builder-text'>This
+															return per year is based on our data insights (appreciation
+															and yield), locality, amenities and builder's
+															predictions</span>
 													</i>
 												</div>
 												<div class="asset-investment-card-metrics-value">8.91%</div>
@@ -710,11 +792,13 @@
 							<div class="col-manual lg-3 justify-content-center" id=asset-1>
 								<div class="asset-investment-card">
 									<a>
-										<img class="asset-investment-card-image" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Aasthy-Asset-1.png" />
+										<img class="asset-investment-card-image"
+											src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Aasthy-Asset-1.png" />
 									</a>
 									<div class="asset-investment-card-content">
 										<a>
-											<p class="asset-investment-card-title">Aasthy Fractional Investment Opportunity, Sarjapur Road</p>
+											<p class="asset-investment-card-title">Aasthy Fractional Investment
+												Opportunity, Sarjapur Road</p>
 											<p class="asset-investment-card-location">Sarjapur, Bengaluru, Karnataka</p>
 										</a>
 										<div class="asset-investment-card-metrics-countainer">
@@ -731,7 +815,10 @@
 													Return(CAGR)
 													<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
 														style="margin-left: '5.56px';">
-														<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+														<span class='asset-investment-card-tooltip-builder-text'>This
+															return per year is based on our data insights (appreciation
+															and yield), locality, amenities and builder's
+															predictions</span>
 													</i>
 												</div>
 												<div class="asset-investment-card-metrics-value">12%</div>
@@ -752,7 +839,8 @@
 					</div>
 				</div>
 				<button id="investments-sign-up" onclick="window.postMessage('showLoginModal')">Sign In to see
-					more<img alt="right arrow" style="margin-left: 8px;" src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Arrow.png"
+					more<img alt="right arrow" style="margin-left: 8px;"
+						src="https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Arrow.png"
 						id="alert-card-kyc-btn-img"></img></button>
 			</div>
 			<hr class="line-mobile" style="margin: auto; border-color: rgb(0, 0, 0);" />
