@@ -7,11 +7,6 @@
 		* {
 			box-sizing: border-box;
 		}
-		body {
-			display: flex;
-			font-family: 'DM Sans', sans-serif;
-			transition: .4s ease-in;
-		}
 
 		input[type=radio] {
 			width: 2vw;
@@ -44,10 +39,9 @@
 		.main-container {
 			position: relative;
 			width: 100%;
-			/* background:url(https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Background-Mobile.png) no-repeat center;
-			background-size: cover; */
-			/* max-height:1500px; */
-			max-height: 900px;
+			background: url(https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Background_Mobile.png) no-repeat 50% 50%;
+			background-size: cover;
+			height:600px;
 			transform-style: preserve-3d;
 			display: flex;
 			justify-content: center;
@@ -97,37 +91,41 @@
 			position: absolute;
 			margin-top: 85%;
 			left:calc(45%);
-			/* margin-left: -5vw; */
 		}
 
 		#card2 {
 			position: absolute;
 			margin-top: 85%;
 			left:calc(50%);
-			/* margin-left: 5vw; */
 		}
 
 		#card3 {
 			position: absolute;
 			margin-top: 85%;
 			left:calc(55%);
-			/* margin-left: 15vw; */
 		}
-
-		body:after {
-			content: "";
-			position: fixed;
-			max-height:900px;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			z-index: -1;
-			display: block;
-			background: url(https://raw.githubusercontent.com/astutegiraffe/aasthy-lp/staging/mobile/images/Background_Mobile.png) no-repeat 50% 50%;
-			background-size: cover;
+		@media screen and (max-width:680px) {
+			.main-container{
+				height:550px ;
+			}
+		}
+		@media screen and (max-width:600px) {
+			.main-container{
+				height:500px ;
+			}
+		}
+		@media screen and (max-width:520px) {
+			.main-container{
+				height:450px ;
+			}
+		}
+		@media screen and (max-width:460px) {
+			.main-container{
+				height:400px ;
+			}
 		}
 	</style>
+	<!-- <script src='./x.js'></script> -->
 </head>
 
 <body >
