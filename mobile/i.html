@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+	* {
+		text-rendering: optimizeLegibility;
+	}
+
+	body {
+		height: 95vw;
+		min-height: 420px;
+		overflow: hidden;
+	}
+
+	#rei-header {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 160%;
+		text-transform: capitalize;
+		padding-left: 1vw;
+		color: #2F363F;
+	}
+
+	#rei-tagline {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 160%;
+		letter-spacing: 0.05em;
+		color: #2F363F;
+		padding-left: 1vw;
+	}
+
+	#rei-selector {
+		display: flex;
+		padding-top: 1.93vw;
+		padding-left: 1vw;
+	}
+
+	#rei-dropdown {
+		height: 7.31vw;
+		background: #FFFFFF;
+		border: 1px solid #EEEEEE;
+		border-radius: 4px;
+		width: 45vw;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 18px;
+		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
+		background-repeat: no-repeat;
+		background-position-x: 97%;
+		background-position-y: 2.3vw;
+		padding-left: 0.8vw;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		text-rendering: optimizeLegibility;
+	}
+
+	#rei-price-cagr {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 150%;
+		letter-spacing: 0.02em;
+		color: #222222;
+		width: 50vw;
+		padding-left: 5vw;
+		display: table-cell;
+		vertical-align: middle;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#rei-time-range {
+		text-align: center;
+		width: 100vw;
+		align-items: stretch;
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: normal;
+		line-height: 150%;
+		font-size: 11px;
+		letter-spacing: 0.02em;
+		padding-top: 5.072vw;
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.rei-time-range-value {
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 11px;
+		line-height: 150%;
+		letter-spacing: 0.02em;
+		color: #9ABED9;
+		cursor: pointer;
+	}
+
+	#rei-chart-container {
+		width: 90vw;
+		padding-top: 2vw;
+		padding-left: 1.5vw;
+		padding-right: 1.5vw;
+		padding-bottom: 5.69vw;
+		order: 2;
+		margin-right: 8.19vw;
+	}
+
+	#rei-button {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 6px 10px;
+		margin-left: auto;
+		background: #4E0668;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+		border-radius: 6px;
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: 600;
+		font-size: 16px;
+		color: #FFFFFF;
+		white-space: nowrap;
+		border: none;
+		cursor: pointer;
+		margin-right: 15px;
+	}
+
+	.right-arrow-svg {
+		padding-left: 5px;
+	}
+
+	#rei-hr {
+		padding-top: 2vw;
+	}
+
+	#loader {
+		animation: 1.2s linear infinite spin;
+		border: solid 5px white;
+		border-bottom-color: #4E0668;
+		border-radius: 50%;
+		content: "";
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+		will-change: transform;
+		z-index: 10;
+		visibility: hidden;
+	}
+
+	#loader.display {
+		visibility: visible;
+	}
+
+	@-webkit-keyframes spin {
+		0% {
+			-webkit-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+		}
+
+		100% {
+			-webkit-transform: translate3d(-50%, -50%, 0) rotate(360deg);
+		}
+	}
+
+	@keyframes spin {
+		0% {
+			transform: translate3d(-50%, -50%, 0) rotate(0deg);
+		}
+
+		100% {
+			transform: translate3d(-50%, -50%, 0) rotate(360deg);
+		}
+	}
+</style>
+
+<body>
+	<div id="rei-header">Learn Various Indices</div>
+	<div id="rei-tagline">Similar to stock indexes a real estate index is indicative of the price per square foot for a
+		real estate asset.</div>
+	<div id="rei-container">
+		<div id="rei-selector">
+			<select name="rei-dropdown" id="rei-dropdown">
+				<option value="India_KA_Bangalore" class="rei-dropdown-option">Bangalore</option>
+				<option value="India_MP_Indore" class="rei-dropdown-option">Indore</option>
+				<option value="India_MH_Mumbai" class="rei-dropdown-option">Mumbai</option>
+			</select>
+			<div id="rei-price-cagr">
+				<div id="rei-price-cagr-value"> </div>
+			</div>
+		</div>
+		<div id="rei-time-range">
+			<span class="rei-time-range-value">3M</span>
+			&nbsp;|&nbsp;
+			<span class="rei-time-range-value">6M</span>
+			&nbsp;|&nbsp;
+			<span class="rei-time-range-value">1Y</span>
+			&nbsp;|&nbsp;
+			<span class="rei-time-range-value">All-Time</span>
+		</div>
+		<div class="custom-spinner-container">
+			<div id="loader"></div>
+		</div>
+		<div id="rei-chart-container">
+			<canvas id="rei-chart"></canvas>
+		</div>
+	</div>
+	<button id="rei-button" onclick="window.parent.postMessage('showLoginModal')">
+		Sign In to see detailed indices
+		<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png" />
+	</button>
+	<script>
+
+		let xValues = [];
+		let chart = {};
+		let yValues = [];
+
+		let getChartConfig = (xValues, yValues) => {
+			let yAxisMin = Math.floor((Math.min(...yValues) / 500) - 1) * 500;
+			let yAxisMax = Math.ceil((Math.max(...yValues) / 500 + 1)) * 500;
+			let stepSize = Math.ceil((yAxisMax - yAxisMin) / 4); return {
+				type: "line",
+				data: {
+					labels: xValues,
+					datasets: [{
+						fill: false,
+						borderColor: "#4E0668",
+						borderJoinStyle: 'miter',
+						pointStyle: 'none',
+						tension: 0.5,
+						borderWidth: 1,
+						data: yValues,
+						label: "Price Per Square Foot"
+					}]
+				},
+				options: {
+					plugins: {
+						legend: {
+							display: false
+						},
+						tooltip: {
+							intersect: false,
+						},
+						hover: {
+							mode: 'nearest',
+							intersect: true
+						}
+					},
+					title: {
+						display: false,
+					},
+					elements: {
+						point: {
+							radius: 0
+						},
+					},
+					scales: {
+						x: {
+							type: 'time',
+							display: true,
+							time: {
+								tooltipFormat: 'DD MMM, YYYY',
+								unit: 'month'
+							},
+							ticks: {
+								autoSkip: true,
+								maxTicksLimit: 4,
+								maxRotation: 0,
+								minRotation: 0,
+								padding: 5
+							},
+							grid: {
+								drawBorders: false,
+								drawOnChartArea: false,
+								borderWidth: 2,
+								tickLength: 0,
+								borderColor: '#535B62',
+								color: '#535B62'
+							},
+						},
+						y: {
+							type: 'linear',
+							display: true,
+							min: yAxisMin,
+							max: yAxisMax,
+							ticks: {
+								callback: function (value, index, values) {
+									return '₹' + (value > "9999999" ? (Number(value) / 10000000).toFixed(1) + 'Cr' : (value > "99999" ? (Number(value) / 100000).toFixed(1) + 'L' : (Number(value) / 1000).toFixed(1) + 'K'));
+								},
+								padding: 5,
+								stepSize: stepSize
+							},
+							grid: {
+								drawBorders: false,
+								drawOnChartArea: false,
+								borderWidth: 2,
+								borderColor: '#535B62',
+								color: '#535B62'
+							},
+						}
+					},
+				}
+			}
+		}
+
+		let getPercentage = (currentValue, startValue) => {
+			let percentage = (100 * (currentValue - startValue) / startValue).toFixed(2);
+			return ((percentage >= 0) ? ` (<span style = "color: green;">${percentage} %</span>)`
+				: ` (<span style = "color:red;">${percentage} %</span>)`)
+		}
+
+		let populatePricePercentage = (xValues, yValues) => {
+			let startValue = yValues[0];
+			let currentValue = yValues[yValues.length - 1];
+			document.getElementById("rei-price-cagr-value").innerHTML = "<b>₹ " + currentValue.toFixed(0) + "</b>" + getPercentage(currentValue, startValue);
+		}
+
+		let timeRangeFilter = (xValues, yValues, timeRange) => {
+			let months;
+			let filteredxValues = [];
+			let filteredyValues = [];
+			switch (timeRange) {
+				case '3M':
+					months = 3;
+					break;
+				case '6M':
+					months = 6;
+					break;
+				case '1Y':
+					months = 12;
+					break;
+				default:
+					return { filteredxValues: xValues, filteredyValues: yValues };
+			}
+			let lastDate = new Date(xValues[xValues.length - 1]);
+			let startDate = new Date(lastDate.setMonth(lastDate.getMonth() - months));
+			for (let i in xValues) {
+				if (xValues[i] > startDate) {
+					filteredxValues.push(xValues[i]);
+					filteredyValues.push(yValues[i]);
+				}
+			}
+			return { filteredxValues, filteredyValues };
+		}
+
+		let highlightTimeRange = (timeRange) => {
+			let timeRangeElements = document.querySelectorAll(".rei-time-range-value");
+			for (let timeRangeElement of timeRangeElements) {
+				timeRangeElement.style.fontWeight = (timeRangeElement.textContent === timeRange) ? "bold" : "normal";
+				timeRangeElement.style.color = (timeRangeElement.textContent === timeRange) ? "#4E0668" : "#EBA1D7";
+			}
+		}
+
+		let populateGraph = (xValues, yValues, timeRange) => {
+			let chartContainer = document.getElementById("rei-chart-container");
+			let canvas = document.createElement("canvas");
+			chartContainer.removeChild(document.getElementById("rei-chart"));
+			canvas.setAttribute("id", "rei-chart");
+			chartContainer.appendChild(canvas);
+			let ctx = document.getElementById("rei-chart");
+			let filteredValues = timeRangeFilter(xValues, yValues, timeRange);
+			let filteredxValues = filteredValues.filteredxValues;
+			let filteredyValues = filteredValues.filteredyValues;
+			highlightTimeRange(timeRange);
+			populatePricePercentage(filteredxValues, filteredyValues);
+			filteredyValues = filteredyValues.map(e => e.toFixed(0));
+			chart = new Chart(ctx, getChartConfig(filteredxValues, filteredyValues));
+		}
+
+		let showLoadingScreen = () => {
+			let loader = document.querySelector("#loader");
+			loader.classList.add("display");
+			document.querySelector("#rei-chart-container").style.opacity = 0.2;
+		}
+
+		let hideLoadingScreen = () => {
+			let loader = document.querySelector("#loader");
+			loader.classList.remove("display");
+			document.querySelector("#rei-chart-container").style.opacity = 1;
+		}
+
+		let getToken = () => {
+			const SECRET = 'noM13Reff@riGetutsAyhts@A';
+			const epochTime = new Date().getTime();
+			return window.btoa(unescape(encodeURIComponent(SECRET + epochTime)));
+		}
+
+		let hideTooltip = () => {
+			if (chart && chart.tooltip) {
+				chart.tooltip.setActiveElements([], { x: 0, y: 0 });
+				chart.update();
+			}
+		}
+
+		let populateREI = (reiIndexName, timeRange) => {
+			showLoadingScreen();
+			let token = getToken();
+			fetch(`/api2/getRealEstateIndices/?reiIndexName=${reiIndexName}`, {
+				method: "GET",
+				headers: { token: token },
+			})
+				.then(response => response.json())
+				.then(result => {
+					xValues = Object.keys(result);
+					for (let i in xValues) {
+						xValues[i] = new Date(new Date(xValues[i].replace(/-/g, "/")));
+					}
+					yValues = [];
+					for (let j in result) {
+						yValues.push(result[j].median);
+					}
+					hideLoadingScreen();
+					populateGraph(xValues, yValues, timeRange);
+				})
+				.catch(error => {
+					console.error("error", error);
+					document.body.innerHTML = "";
+				})
+		}
+
+		let selectedREIIndexName = document.getElementById("rei-dropdown");
+		let timeRangeElements = document.getElementsByClassName("rei-time-range-value");
+		let selectedTimeRange = "6M";
+		populateREI(selectedREIIndexName.value, selectedTimeRange);
+
+		selectedREIIndexName.addEventListener("change", (event) => {
+			populateREI(event.target.value, selectedTimeRange);
+		});
+
+		for (let element of timeRangeElements) {
+			element.addEventListener("click", (event) => {
+				selectedTimeRange = element.innerHTML;
+				populateGraph(xValues, yValues, selectedTimeRange);
+			})
+		}
+
+		document.addEventListener('click', (event) => {
+			if (event.target === 'rei-chart') {
+				hideTooltip();
+			}
+		});
+
+		window.onmessage = (e) => {
+			hideTooltip();
+		};
+
+	</script>
+</body>
+
+</html>
