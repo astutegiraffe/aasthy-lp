@@ -153,12 +153,17 @@
 		border-radius: 6px;
 		border: 0px;
 		font-size: 16px;
-		font-family: Poppins;
+		font-family: "Poppins";
 		font-weight: 600;
 		color: #FFFFFF;
 		white-space: nowrap;
-		padding: 1%;
+		padding: 0.7% 1.5%;
 		visibility: none;
+	}
+
+	.right-arrow-svg {
+		width: 12px;
+		height: 12px;
 	}
 
 	#rei-hr {
@@ -182,12 +187,10 @@
 
 		#rei-dropdown {
 			font-size: 24px;
-			line-height: 30px;
 		}
 
 		.rei-metrics-text {
 			font-size: 18px;
-			line-height: 18px;
 			padding: 1.5%;
 		}
 
@@ -197,7 +200,6 @@
 	}
 
 	@media all and (max-width: 1200px) {
-
 		body {
 			height: 67vw;
 		}
@@ -224,7 +226,6 @@
 	}
 
 	@media all and (max-width: 900px) {
-
 		body {
 			height: 65vw;
 		}
@@ -247,14 +248,54 @@
 			font-size: 1.25vw;
 		}
 
+		.rei-metrics {
+			margin: 0.5vw;
+		}
+
 		#rei-button {
 			height: 13.28%;
 			margin-left: auto;
 			margin-right: 5%;
 			font-size: 1.66vw;
 			font-style: normal;
-			font-family: Poppins;
+			font-family: "Poppins";
 			font-weight: 600;
+		}
+
+		.right-arrow-svg {
+			width: 10px;
+			height: 10px;
+			padding-bottom: 0.5px;
+		}
+	}
+
+	@media all and (max-width: 700px) {
+		body {
+			height: 71vw;
+		}
+
+		#rei-header {
+			font-size: 6vw;
+		}
+
+		#rei-dropdown {
+			font-size: 1.66vw;
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
+			background-position-y: 0.6vw;
+		}
+
+		#rei-metrics-content {
+			bottom: 18%;
+		}
+
+		.rei-metrics {
+			margin: 0.6vw;
+		}
+
+		.right-arrow-svg {
+			width: 8px;
+			height: 8px;
+			padding-bottom: 1px;
 		}
 	}
 
@@ -354,7 +395,7 @@
 		<div id="rei-button-container">
 			<button id="rei-button" onclick="window.parent.postMessage('signUpLearn')">
 				Sign In to see detailed indices
-				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" width="12" height="12"
+				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" 
 					viewBox="0 0 24 24">
 					<path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
 				</svg>
@@ -415,6 +456,7 @@
 		let yAxisMin = Math.floor((Math.min(...yValues) / 500) - 1) * 500;
 		let yAxisMax = Math.ceil((Math.max(...yValues) / 500 + 1)) * 500;
 		let stepSize = Math.ceil((yAxisMax - yAxisMin) / 4);
+		let xAxisTicks = (document.body.scrollWidth > 700) ? 6 : 5;
 		return {
 			type: "line",
 			data: {
@@ -422,6 +464,7 @@
 				datasets: [{
 					fill: false,
 					borderColor: "#4E0668",
+					backgroundColor: "#4E0668",
 					borderJoinStyle: 'miter',
 					pointStyle: 'none',
 					tension: 0.5,
@@ -461,7 +504,7 @@
 						},
 						ticks: {
 							autoSkip: true,
-							maxTicksLimit: 6,
+							maxTicksLimit: xAxisTicks,
 							maxRotation: 0,
 							minRotation: 0,
 							padding: 10,
