@@ -169,12 +169,23 @@
 		}
 
 		.learn-btn-arrow {
-			margin-left: 8px;
 			height: 8px;
 			width: 5px;
 		}
 
-		@media all and (max-width: 900px) {
+		.right-arrow-svg {
+			margin-left: 8px;
+			width: 12px;
+			height: 12px;
+		}
+
+		@media all and (max-width: 1000px) {
+			.learn-btn {
+				font-size: 1.1vw;
+			}
+		}
+
+		@media all and (max-width: 950px) {
 			.learn-btn {
 				font-size: 1vw;
 			}
@@ -184,17 +195,39 @@
 				height: 1vw;
 				width: 0.625vw;
 			}
+
+			.right-arrow-svg {
+				width: 8px;
+				height: 8px;
+				padding-bottom: 0.5px;
+			}
 		}
 
 		@media all and (max-width: 700px) {
 			.learn-btn {
-				width: 10.5vw;
+				font-size: 1vw;
+				padding-right: 4px;
 			}
 
-			.learn-btn-arrow {
-				margin-left: 1.2vw;
-				height: 1vw;
-				width: 0.625vw;
+			.right-arrow-svg {
+				width: 6.5px;
+				height: 6.5px;
+				padding-bottom: 1.1px;
+				margin-left: 1vw;
+			}
+		}
+
+		@media all and (max-width: 550px) {
+			.learn-btn {
+				font-size: 1vw;
+				padding-right: 2px;
+				padding-left: 7.5px;
+			}
+
+			.right-arrow-svg {
+				width: 6px;
+				height: 6px;
+				padding-bottom: 0.8px;
 			}
 		}
 
@@ -286,7 +319,9 @@
 			<div class="mySlides fade">
 				<button class="learn-btn" onclick="window.parent.postMessage(`learnNowButton-${document.body.scrollHeight}`)">
 					Learn Now
-					<img class="learn-btn-arrow" alt="right arrow" src="./images/Arrow.png" />
+					<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
+						<path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+					</svg>
 				</button>
 				<div class="numbertext"></div>
 				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Invest_Desktop_Small.png" /></a>

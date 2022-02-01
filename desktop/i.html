@@ -161,6 +161,11 @@
 		visibility: none;
 	}
 
+	.right-arrow-svg {
+		width: 12px;
+		height: 12px;
+	}
+
 	#rei-hr {
 		padding-top: 2vw;
 	}
@@ -195,7 +200,6 @@
 	}
 
 	@media all and (max-width: 1200px) {
-
 		body {
 			height: 67vw;
 		}
@@ -222,7 +226,6 @@
 	}
 
 	@media all and (max-width: 900px) {
-
 		body {
 			height: 65vw;
 		}
@@ -258,10 +261,15 @@
 			font-family: "Poppins";
 			font-weight: 600;
 		}
+
+		.right-arrow-svg {
+			width: 10px;
+			height: 10px;
+			padding-bottom: 0.5px;
+		}
 	}
 
 	@media all and (max-width: 700px) {
-
 		body {
 			height: 71vw;
 		}
@@ -277,11 +285,17 @@
 		}
 
 		#rei-metrics-content {
-			bottom: 9%;
+			bottom: 18%;
 		}
 
 		.rei-metrics {
 			margin: 0.6vw;
+		}
+
+		.right-arrow-svg {
+			width: 8px;
+			height: 8px;
+			padding-bottom: 1px;
 		}
 	}
 
@@ -381,8 +395,7 @@
 		<div id="rei-button-container">
 			<button id="rei-button" onclick="window.parent.postMessage('signUpLearn')">
 				Sign In to see detailed indices
-				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" width="12" height="12"
-					viewBox="0 0 24 24">
+				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
 					<path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
 				</svg>
 			</button>
@@ -450,6 +463,7 @@
 				datasets: [{
 					fill: false,
 					borderColor: "#4E0668",
+					backgroundColor: "#4E0668",
 					borderJoinStyle: 'miter',
 					pointStyle: 'none',
 					tension: 0.5,
