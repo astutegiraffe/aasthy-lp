@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+	body {
+		overflow: hidden;
+		height: 60vw;
+	}
+
+	#container {
+		max-width: 1440px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#rei-header {
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: bold;
+		font-size: 4.44vw;
+		line-height: 120%;
+		color: #2F363F;
+		margin-left: 3%;
+		margin-top: 2%;
+	}
+
+	#rei-tagline {
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.66vw;
+		line-height: 125%;
+		color: #2F363F;
+		margin-left: 3%;
+		margin-top: 0.5%;
+	}
+
+	#rei-container {
+		display: flex;
+		padding: 3%;
+	}
+
+	#rei-content {
+		display: block;
+		width: 70%;
+	}
+
+	#rei-selector {
+		display: flex;
+		padding-bottom: 1%;
+
+	}
+
+	#rei-time-range {
+		text-align: center;
+		position: relative;
+		width: 100%;
+		align-items: stretch;
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.25vw;
+		line-height: 150%;
+		letter-spacing: 0.02em;
+		display: table-cell;
+		vertical-align: middle;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.rei-time-range-value {
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.25vw;
+		line-height: 150%;
+		letter-spacing: 0.02em;
+		text-decoration-line: underline;
+		color: #9ABED9;
+		cursor: pointer;
+	}
+
+	#rei-dropdown {
+		font-family: "Poppins";
+		box-sizing: border-box;
+		background: #FFFFFF;
+		border: 1px solid #EEEEEE;
+		border-radius: 4px;
+		width: 32.01%;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.67vw;
+		height: 2.75vw;
+		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
+		background-repeat: no-repeat;
+		background-position-x: 97%;
+		background-position-y: 1vw;
+		padding-left: 0.8vw;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+
+	#rei-chart-container {
+		position: relative;
+		margin: auto;
+		padding-top: 5%;
+		width: 100%;
+	}
+
+	#rei-metrics-container {
+		position: relative;
+		flex: none;
+		width: 25%;
+	}
+
+	#rei-metrics-content {
+		position: absolute;
+		bottom: 7%;
+		left: 10%;
+	}
+
+	.rei-metrics {
+		position: relative;
+		margin: 25px;
+		width: 100%;
+	}
+
+	.rei-metrics-text {
+		font-family: "Poppins";
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1vw;
+		line-height: 150%;
+		letter-spacing: 0.02em;
+	}
+
+	#rei-button {
+		float: right;
+		margin-right: 5%;
+		background: #4E0668;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+		border-radius: 6px;
+		border: 0px;
+		font-size: 16px;
+		font-family: Poppins;
+		font-weight: 600;
+		color: #FFFFFF;
+		white-space: nowrap;
+		padding: 1%;
+		visibility: none;
+	}
+
+	@media all and (min-width: 1440px) {
+
+		body {
+			height: 60vw;
+		}
+
+		#rei-header {
+			font-size: 64px;
+			line-height: 64px;
+		}
+
+		#rei-tagline {
+			font-size: 24px;
+			line-height: 30px;
+		}
+
+		.rei-metrics-text {
+			font-size: 18px;
+			line-height: 18px;
+			padding: 1.5%;
+		}
+
+		#rei-button {
+			font-size: 16px;
+		}
+	}
+
+	@media all and (max-width: 1200px) {
+		body {
+			height: 63vw;
+		}
+
+		#rei-header {
+			font-size: 4.44vw;
+		}
+
+		#rei-tagline {
+			font-size: 1.66vw;
+		}
+
+		.rei-metrics-text {
+			font-size: 1.25vw;
+		}
+
+		#rei-button {
+			font-size: 1.25vw;
+		}
+	}
+
+	@media all and (max-width: 900px) {
+
+		body {
+			height: 63vw;
+		}
+
+		#rei-header {
+			font-size: 6.04vw;
+		}
+
+		#rei-tagline {
+			font-size: 1.66vw;
+		}
+
+		.rei-metrics-text {
+			font-size: 1.25vw;
+		}
+
+		#rei-button {
+			height: 13.28%;
+			margin-top: 18.84%;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 100%;
+			font-style: normal;
+			font-family: Poppins;
+			font-weight: 600;
+			color: #FFFFFF;
+		}
+	}
+
+	#loader {
+		animation: 1.2s linear infinite spin;
+		border: solid 5px white;
+		border-bottom-color: #4E0668;
+		border-radius: 50%;
+		content: "";
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+		will-change: transform;
+		z-index: 10;
+		visibility: hidden;
+	}
+
+	#loader.display {
+		visibility: visible;
+	}
+
+	@-webkit-keyframes spin {
+		0% {
+			-webkit-transform: translate3d(-50%, -50%, 0) rotate(0deg);
+		}
+
+		100% {
+			-webkit-transform: translate3d(-50%, -50%, 0) rotate(360deg);
+		}
+	}
+
+	@keyframes spin {
+		0% {
+			transform: translate3d(-50%, -50%, 0) rotate(0deg);
+		}
+
+		100% {
+			transform: translate3d(-50%, -50%, 0) rotate(360deg);
+		}
+	}
+</style>
+
+<body>
+	<div id="container">
+		<div id="rei-header">Learn Various Indices</div>
+		<div id="rei-tagline">
+			Similar to stock indices, a real estate index is indicative of the price per square foot for a real estate
+			asset.
+		</div>
+		<div id="rei-container">
+			<div id="rei-content">
+				<div id="rei-selector">
+					<select name="rei-dropdown" id="rei-dropdown">
+						<option value="India_KA_Bangalore" class="rei-dropdown-option">Bangalore</option>
+						<option value="India_MP_Indore" class="rei-dropdown-option">Indore</option>
+						<option value="India_MH_Mumbai" class="rei-dropdown-option">Mumbai</option>
+					</select>
+					<div id="rei-time-range">
+						<span class="rei-time-range-value">3M</span>
+						&nbsp;|&nbsp;
+						<span class="rei-time-range-value">6M</span>
+						&nbsp;|&nbsp;
+						<span class="rei-time-range-value">1Y</span>
+						&nbsp;|&nbsp;
+						<span class="rei-time-range-value">All-Time</span>
+					</div>
+				</div>
+				<div id="rei-chart-container">
+					<canvas id="rei-chart"></canvas>
+
+				</div>
+				<div class="custom-spinner-container">
+					<div id="loader"></div>
+				</div>
+			</div>
+			<div id="rei-metrics-container">
+				<div id="rei-metrics-content">
+					<div class="rei-metrics">
+						<div class="rei-metrics-text" id="rei-current-date"> </div>
+						<div class="rei-metrics-text" id="rei-current-price"> </div>
+					</div>
+					<div class="rei-metrics">
+						<div class="rei-metrics-text" id="rei-time-range-max"> </div>
+						<div class="rei-metrics-text" id="rei-time-range-max-value"> </div>
+					</div>
+					<div class="rei-metrics">
+						<div class="rei-metrics-text" id="rei-time-range-min"> </div>
+						<div class="rei-metrics-text" id="rei-time-range-min-value"> </div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="rei-button-container">
+			<button id="rei-button" onclick="window.parent.postMessage('signUpLearn')">
+				Sign up to see detailed indices and heatmaps
+				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" width="12" height="12"
+					viewBox="0 0 24 24">
+					<path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+
+
+</body>
+<script>
+
+	let getNth = (day) => {
+		if (day > 3 && day < 21) return 'th';
+		switch (day % 10) {
+			case 1: return "st";
+			case 2: return "nd";
+			case 3: return "rd";
+			default: return "th";
+		}
+	}
+
+	let getPercentage = (currentValue, startValue) => {
+		let percentage = (100 * (currentValue - startValue) / startValue).toFixed(2);
+		return ((percentage >= 0) ? ` (<span style = "color: green;">${percentage} %</span>)`
+			: ` (<span style = "color:red;">${percentage} %</span>)`)
+	}
+
+	let populateMetrics = (xValues, yValues, timeRange) => {
+		const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		let startValue = yValues[0];
+		let currentValue = yValues[yValues.length - 1];
+		let maxValue = Math.max(...yValues);
+		let minValue = Math.min(...yValues);
+
+		let startDate = new Date(xValues[0]);
+		let currentDate = new Date(xValues[xValues.length - 1]);
+		let currentDay = currentDate.getDate() + getNth(currentDate.getDate());
+		let currentMonth = month[currentDate.getMonth()];;
+		let currentYear = currentDate.getFullYear();
+
+		document.getElementById('rei-current-price').innerHTML = "<b>₹ " + currentValue.toFixed(0) + getPercentage(currentValue, startValue) + "</b>";
+		document.getElementById('rei-current-date').innerHTML = [currentDay, currentMonth, currentYear].join(" ");
+
+		document.getElementById('rei-time-range-max-value').innerHTML = "₹ " + maxValue.toFixed(0);
+		document.getElementById('rei-time-range-max').innerHTML = timeRange + ' High';
+
+		document.getElementById('rei-time-range-min-value').innerHTML = "₹ " + minValue.toFixed(0);
+		document.getElementById('rei-time-range-min').innerHTML = timeRange + ' Low';
+	}
+
+	let getDaysArray = (start, end) => {
+		let arr = [];
+		for (let dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
+			arr.push(new Date(dt));
+		}
+		return arr;
+	};
+
+	let linearRegression = (yValues, xValues) => {
+		let daysArr = getDaysArray(xValues[0], xValues[xValues.length - 1]);
+		let x = [...Array(xValues.length).keys()];
+		let x2 = [...Array(daysArr.length).keys()];
+		let slowCounter = 0;
+		let y = []
+		let lr = {};
+		let sumX = 0;
+		let sumY = 0;
+		let sumXY = 0;
+		let sumXX = 0;
+		let regressionLine = [];
+		let tempRegressionLine = [];
+
+		for (let fastCounter = 0; fastCounter < x2.length; fastCounter++) {
+			if (x2[fastCounter] === x[slowCounter]) {
+				y.push(yValues[slowCounter]);
+				slowCounter++;
+			} else {
+				y.push(y[fastCounter - 1]);
+			}
+		}
+		let n = y.length;
+
+		for (let i = 0; i < n; i++) {
+			sumX += x2[i];
+			sumY += y[i];
+			sumXY += (x2[i] * y[i]);
+			sumXX += (x2[i] * x2[i]);
+		}
+
+		lr['slope'] = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+		lr['intercept'] = (sumY - lr.slope * sumX) / n;
+
+		for (let i in y) {
+			tempRegressionLine[i] = (lr['slope'] * x2[i] + lr['intercept']).toFixed(0);
+		}
+
+		for (slowCounter = 0, fastCounter = 0; fastCounter < x2.length; fastCounter++) {
+			if (x2[fastCounter] === x[slowCounter]) {
+				regressionLine.push(tempRegressionLine[fastCounter]);
+				slowCounter++;
+			}
+		}
+		return regressionLine;
+	}
+
+	let getChartConfig = (xValues, yValues, regressionLine) => {
+
+		return {
+			type: "line",
+			data: {
+				labels: xValues,
+				datasets: [{
+					fill: false,
+					borderColor: "#4E0668",
+					borderJoinStyle: 'miter',
+					pointStyle: 'none',
+					tension: 0.5,
+					borderWidth: 1,
+					data: yValues,
+					label: "Price Per Square Foot"
+				}, {
+					fill: false,
+					borderColor: "#FBDF80",
+					borderJoinStyle: 'miter',
+					pointStyle: 'none',
+					tension: 0.5,
+					borderWidth: 1,
+					data: regressionLine,
+					label: "Linear Projection",
+					borderDash: [10, 5]
+				}]
+			},
+			options: {
+				legend: {
+					display: false
+				},
+				title: {
+					display: false,
+				},
+				elements: {
+					point: {
+						radius: 0
+					},
+				},
+				tooltips: {
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						type: 'time',
+						display: true,
+						time: {
+							tooltipFormat: 'DD MMM, YYYY',
+							unit: 'month'
+						},
+						ticks: {
+							autoSkip: true,
+							maxTicksLimit: 6,
+							maxRotation: 0,
+							minRotation: 0,
+							padding: 10,
+							font: {
+								family: '"Helvetica"',
+								style: 'normal',
+								weight: 'normal',
+								size: '14px',
+								lineHeight: '18px',
+							},
+						},
+						color: '#535B62',
+						gridLines: {
+							drawBorders: false,
+							drawOnChartArea: false,
+							lineWidth: 2,
+							color: '#535B62',
+							tickMarkLength: 0,
+						},
+					}],
+					yAxes: [{
+						type: 'linear',
+						display: true,
+						ticks: {
+							callback: function (value, index, values) {
+								return '₹' + (value > "9999999" ? (Number(value) / 10000000).toFixed(1) + 'Cr' : (value > "99999" ? (Number(value) / 100000).toFixed(1) + 'L' : (Number(value) / 1000).toFixed(1) + 'K'));
+							},
+							maxTicksLimit: 6,
+							padding: 5,
+						},
+						gridLines: {
+							drawBorders: false,
+							drawOnChartArea: false,
+							lineWidth: 2,
+							color: '#535B62',
+						},
+						font: {
+							family: '"Helvetica"',
+							style: 'normal',
+							weight: 'normal',
+							size: '14px',
+							lineHeight: '18px',
+						},
+					}]
+				},
+			}
+		}
+	}
+
+	let timeRangeFilter = (xValues, yValues, timeRange) => {
+		let months;
+		let filteredxValues = [];
+		let filteredyValues = [];
+		switch (timeRange) {
+			case '3M':
+				months = 3;
+				break;
+			case '6M':
+				months = 6;
+				break;
+			case '1Y':
+				months = 12;
+				break;
+			default:
+				return { filteredxValues: xValues, filteredyValues: yValues };
+		}
+		let lastDate = new Date(xValues[xValues.length - 1]);
+		let startDate = new Date(lastDate.setMonth(lastDate.getMonth() - months));
+		for (let i in xValues) {
+			if (xValues[i] > startDate) {
+				filteredxValues.push(xValues[i]);
+				filteredyValues.push(yValues[i]);
+			}
+		}
+		return { filteredxValues, filteredyValues };
+	}
+
+	let highlightTimeRange = (timeRange) => {
+		let timeRangeElements = document.querySelectorAll(".rei-time-range-value");
+		for (let timeRangeElement of timeRangeElements) {
+			timeRangeElement.style.textDecorationLine = (timeRangeElement.textContent === timeRange) ? "none" : "underline";
+		}
+	}
+
+	let populateGraph = (xValues, yValues, timeRange) => {
+		let chartContainer = document.getElementById("rei-chart-container");
+		let canvas = document.createElement("canvas");
+		chartContainer.removeChild(document.getElementById("rei-chart"));
+		canvas.setAttribute("id", "rei-chart");
+		chartContainer.appendChild(canvas);
+		let ctx = document.getElementById("rei-chart");
+		let filteredValues = timeRangeFilter(xValues, yValues, timeRange);
+		let filteredxValues = filteredValues.filteredxValues;
+		let filteredyValues = filteredValues.filteredyValues;
+		highlightTimeRange(timeRange);
+		populateMetrics(filteredxValues, filteredyValues, timeRange);
+		let regressionLine = linearRegression(filteredyValues, filteredxValues);
+		filteredyValues = filteredyValues.map(e => e.toFixed(0));
+		new Chart(ctx, getChartConfig(filteredxValues, filteredyValues, regressionLine));
+	}
+
+	let showLoadingScreen = () => {
+		let loader = document.querySelector("#loader");
+		loader.classList.add("display");
+		document.querySelector("#rei-chart-container").style.opacity = 0.2;
+		document.querySelector("#rei-metrics-container").style.opacity = 0.2;
+	}
+
+	let hideLoadingScreen = () => {
+		let loader = document.querySelector("#loader");
+		loader.classList.remove("display");
+		document.querySelector("#rei-chart-container").style.opacity = 1;
+		document.querySelector("#rei-metrics-container").style.opacity = 1;
+	}
+
+	let xValues = [];
+	let yValues = [];
+
+	let populateREI = (reiIndexName, timeRange) => {
+		showLoadingScreen();
+		fetch(`https://reimon.in/apiv2/getRealEstateIndices/?reiIndexName=${reiIndexName}`)
+			.then(response => response.json())
+			.then(result => {
+				xValues = Object.keys(result);
+				for (let i in xValues) {
+					xValues[i] = new Date(new Date(xValues[i].replace(/-/g, "/")));
+				}
+				yValues = [];
+				for (let j in result) {
+					yValues.push(result[j].median);
+				}
+				hideLoadingScreen();
+				populateGraph(xValues, yValues, timeRange);
+			})
+			.catch(error => {
+				console.error("error", error);
+				document.body.innerHTML = "";
+			})
+	}
+
+	let selectedREIIndexName = document.getElementById("rei-dropdown");
+	let timeRangeElements = document.getElementsByClassName("rei-time-range-value");
+	let selectedTimeRange = "6M";
+	populateREI(selectedREIIndexName.value, selectedTimeRange);
+
+	selectedREIIndexName.addEventListener("change", (event) => {
+		populateREI(event.target.value, selectedTimeRange);
+	});
+
+	for (let element of timeRangeElements) {
+		element.addEventListener("click", (event) => {
+			selectedTimeRange = element.innerHTML;
+			populateGraph(xValues, yValues, selectedTimeRange);
+		})
+	}
+</script>
+
+</htmlge
