@@ -3,17 +3,11 @@
 
 <head>
 	<meta name="robots" content="noindex">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-
-		body {
-			overflow: hidden;
-		}
 
 		.row {
 			margin: auto;
@@ -81,7 +75,7 @@
 		#section-1-image-1 {
 			width: 82.6%;
 			float: right;
-			content: url("./section-h-image-1.png");
+			content: url("lp/desktop/section-h-image-1.png");
 			background-repeat: no-repeat;
 			background-size: contain;
 			margin-top: -9%;
@@ -121,7 +115,7 @@
 			color: #2F363F;
 		}
 
-		.asset-investment-card {
+		.asset-investment-card-lp {
 			max-width: 350px;
 			width: 30%;
 			height: fit-content;
@@ -131,7 +125,7 @@
 			margin: auto;
 		}
 
-		.asset-investment-card-image {
+		.asset-investment-card-lp-image {
 			margin: 10px;
 			border-radius: 10px;
 			width: calc(100% - 20px);
@@ -139,7 +133,7 @@
 			aspect-ratio: 354/155;
 		}
 
-		.asset-investment-card-content {
+		.asset-investment-card-lp-content {
 			padding: 10px 20px;
 			width: 100%;
 			margin: 3%;
@@ -149,7 +143,7 @@
 			padding-bottom: 2%;
 		}
 
-		.asset-investment-card-title {
+		.asset-investment-card-lp-title {
 			margin: 0;
 			margin-bottom: 5px;
 			font-family: "Poppins";
@@ -164,7 +158,7 @@
 			text-overflow: ellipsis;
 		}
 
-		.asset-investment-card-location {
+		.asset-investment-card-lp-location {
 			margin: 0;
 			font-family: "Poppins";
 			font-style: normal;
@@ -178,11 +172,11 @@
 			text-overflow: ellipsis;
 		}
 
-		.asset-investment-card-metrics-countainer {
+		.asset-investment-card-lp-metrics-countainer {
 			display: flex;
 		}
 
-		.asset-investment-card-metrics {
+		.asset-investment-card-lp-metrics {
 			/* margin: 10px 20px 10px 0px; */
 			display: block;
 			margin-top: 2%;
@@ -191,7 +185,7 @@
 			margin-right: 5%;
 		}
 
-		.asset-investment-card-metrics-name {
+		.asset-investment-card-lp-metrics-name {
 			font-family: "Poppins";
 			font-style: normal;
 			font-weight: normal;
@@ -202,7 +196,7 @@
 			white-space: nowrap;
 		}
 
-		.asset-investment-card-days-left {
+		.asset-investment-card-lp-days-left {
 			margin-top: 5px;
 			font-family: "Poppins";
 			font-style: normal;
@@ -214,7 +208,7 @@
 			white-space: nowrap;
 		}
 
-		.asset-investment-card-metrics-value {
+		.asset-investment-card-lp-metrics-value {
 			font-family: "Poppins";
 			font-style: normal;
 			font-weight: normal;
@@ -224,7 +218,7 @@
 			color: #2F363F;
 		}
 
-		.asset-investment-card-progress-bar {
+		.asset-investment-card-lp-progress-bar {
 			width: 100%;
 			height: 5px;
 			border-radius: 5px;
@@ -232,12 +226,12 @@
 			background: #F7F7F7;
 		}
 
-		.asset-investment-card-progress {
+		.asset-investment-card-lp-progress {
 			height: 5px;
 			background: #F7BF02;
 		}
 
-		.asset-investment-card-progress-text {
+		.asset-investment-card-lp-progress-text {
 			font-family: "Poppins";
 			font-style: normal;
 			font-weight: normal;
@@ -248,7 +242,7 @@
 			width: 100%;
 		}
 
-		.asset-investment-card-save-info {
+		.asset-investment-card-lp-save-info {
 			float: right;
 			margin-left: 10px;
 			margin-top: 3px;
@@ -264,7 +258,7 @@
 			color: #81878C;
 		}
 
-		.asset-investment-card-comment-info {
+		.asset-investment-card-lp-comment-info {
 			float: right;
 			margin-left: 10px;
 			margin-top: 3px;
@@ -280,7 +274,7 @@
 			color: #81878C;
 		}
 
-		.asset-investment-card-price-info {
+		.asset-investment-card-lp-price-info {
 			font-family: "Poppins";
 			font-style: normal;
 			font-weight: 600;
@@ -290,7 +284,7 @@
 			color: #3B3B3B;
 		}
 
-		.asset-investment-card-invest-now {
+		.asset-investment-card-lp-invest-now {
 			width: calc(100% - 40px);
 			height: 40px;
 			background: #4E0668;
@@ -308,7 +302,7 @@
 			margin-top: -10px;
 		}
 
-		.asset-investment-card-invest-now-disabled {
+		.asset-investment-card-lp-invest-now-disabled {
 			font-family: "Poppins";
 			font-style: normal;
 			font-size: 10px;
@@ -319,12 +313,12 @@
 			z-index: 50;
 		}
 
-		.asset-investment-card-tooltip-builder {
+		.asset-investment-card-lp-tooltip-builder {
 			position: relative;
 			display: inline-block;
 		}
 
-		.asset-investment-card-extended-deadline {
+		.asset-investment-card-lp-extended-deadline {
 			background: #F7F7F7;
 			border: 1px dashed #E1E1E1;
 			border-radius: 4px;
@@ -333,7 +327,7 @@
 			margin-bottom: 10px;
 		}
 
-		.asset-investment-card-extended-deadline-label {
+		.asset-investment-card-lp-extended-deadline-label {
 			font-family: "Poppins";
 			font-style: normal;
 			font-weight: bold;
@@ -346,7 +340,7 @@
 			padding-bottom: 5px;
 		}
 
-		.asset-investment-card-investment-deadline {
+		.asset-investment-card-lp-investment-deadline {
 			background: #E5F5F2;
 			border: 1px dashed #AFDDD2;
 			border-radius: 4px;
@@ -354,7 +348,7 @@
 			margin-bottom: 10px;
 		}
 
-		.asset-investment-card-investment-deadline-label {
+		.asset-investment-card-lp-investment-deadline-label {
 			font-family: "Poppins";
 			font-style: normal;
 			font-weight: bold;
@@ -367,12 +361,12 @@
 		}
 
 		.like {
-			content: url("./images/Heart.png");
+			content: url("lp/desktop/images/Heart.png");
 			padding: 5px;
 		}
 
 		.comment {
-			content: url("./images/Comment.png");
+			content: url("lp/desktop/images/Comment.png");
 			padding: 5px;
 		}
 
@@ -382,7 +376,7 @@
 			padding: 20px;
 		}
 
-		.asset-investment-card-fully-funded {
+		.asset-investment-card-lp-fully-funded {
 			width: fit-content;
 			font-family: "Poppins";
 			font-style: normal;
@@ -420,7 +414,7 @@
 			margin-top: 2px;
 		}
 
-		.asset-investment-card-tooltip-builder-text {
+		.asset-investment-card-lp-tooltip-builder-text {
 			visibility: hidden;
 			background: #222;
 			border: 1px transparent;
@@ -447,7 +441,7 @@
 			margin-left: -80px;
 		}
 
-		.asset-investment-card-tooltip-builder:hover .asset-investment-card-tooltip-builder-text {
+		.asset-investment-card-lp-tooltip-builder:hover .asset-investment-card-lp-tooltip-builder-text {
 			visibility: visible;
 		}
 
@@ -543,39 +537,39 @@
 				font-size: 16px;
 			}
 
-			.asset-investment-card-title {
+			.asset-investment-card-lp-title {
 				font-size: 16px;
 			}
 
-			.asset-investment-card-location {
+			.asset-investment-card-lp-location {
 				font-size: 12px;
 			}
 
-			.asset-investment-card-metrics-name {
+			.asset-investment-card-lp-metrics-name {
 				font-size: 10px;
 			}
 
-			.asset-investment-card-metrics-value {
+			.asset-investment-card-lp-metrics-value {
 				font-size: 12px;
 			}
 
-			.asset-investment-card-progress-text {
+			.asset-investment-card-lp-progress-text {
 				font-size: 10px;
 			}
 
-			.asset-investment-card-price-info {
+			.asset-investment-card-lp-price-info {
 				font-size: 16px;
 			}
 
-			.asset-investment-card-comment-info {
+			.asset-investment-card-lp-comment-info {
 				font-size: 12px;
 			}
 
-			.asset-investment-card-save-info {
+			.asset-investment-card-lp-save-info {
 				font-size: 12px;
 			}
 
-			.asset-investment-card-fully-funded {
+			.asset-investment-card-lp-fully-funded {
 				font-size: 16px;
 			}
 
@@ -594,13 +588,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<script>
-	function loadingEvent() {
-		console.log(document.body.scrollHeight);
-	}
-</script>
-
-<body onload="loadingEvent()">
+<body >
 	<div style="overflow: hidden;">
 		<section class="landing-page-odd-section">
 			<div class="container-fluid p-0 landing-page-section">
@@ -613,15 +601,15 @@
 					<div class="col-md-6 p-0">
 						<div class="section-1-text-align">
 							<div class="small-text-item">
-								<img class="small-text-image" src="./images/BarGraph.png" alt="Bar Graph">
+								<img class="small-text-image" src="lp/desktop/images/BarGraph.png" alt="Bar Graph">
 								<span class="small-text">Make smart real estate investment digitally and transparently</span>
 							</div>
 							<div class="small-text-item">
-								<img class="small-text-image" src="./images/GrowthGraph.png" alt="Growth Graph">
+								<img class="small-text-image" src="lp/desktop/images/GrowthGraph.png" alt="Growth Graph">
 								<span class="small-text">Invest in real estate using demand & supply mapping</span>
 							</div>
 							<div class="small-text-item">
-								<img class="small-text-image" src="./images/PieChart.png" alt="Pie Chart">
+								<img class="small-text-image" src="lp/desktop/images/PieChart.png" alt="Pie Chart">
 								<span class="small-text">Start investing in Fractional investment as low as  <br>₹ 10,000</span>
 							</div>
 						</div>
@@ -632,129 +620,128 @@
 					</div>
 				</div>
 				<div id="investment-assets">
-					<div class="asset-investment-card">
+					<div class="asset-investment-card-lp">
 						<a>
-							<img class="asset-investment-card-image" src="./images/Asset-image-3.png" />
+							<img class="asset-investment-card-lp-image" src="lp/desktop/images/Asset-image-3.png" />
 						</a>
-						<div class="asset-investment-card-content">
+						<div class="asset-investment-card-lp-content">
 							<a>
-								<p class="asset-investment-card-title">Aasthy Fractional Investment Opportunity, Whitefield</p>
-								<p class="asset-investment-card-location">Whitefield, Bengaluru, Karnataka</p>
+								<p class="asset-investment-card-lp-title">Aasthy Fractional Investment Opportunity, Whitefield</p>
+								<p class="asset-investment-card-lp-location">Whitefield, Bengaluru, Karnataka</p>
 							</a>
-							<div class="asset-investment-card-metrics-countainer">
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
-									<div class="asset-investment-card-metrics-value">1768</div>
+							<div class="asset-investment-card-lp-metrics-countainer">
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">Area(sq.ft.)</div>
+									<div class="asset-investment-card-lp-metrics-value">1768</div>
 								</div>
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
-									<div class="asset-investment-card-metrics-value">₹5599.55</div>
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">Price/sq.ft.</div>
+									<div class="asset-investment-card-lp-metrics-value">₹5599.55</div>
 								</div>
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">
 										Return(CAGR)
-										<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+										<i class="asset-investment-card-lp-tooltip-builder fa fa-exclamation-circle"
 											style="margin-left: '5.56px';">
-											<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on a guaranteed buyback from the builder at the end of the investment period</span>
+											<span class='asset-investment-card-lp-tooltip-builder-text'>This return per year is based on a guaranteed buyback from the builder at the end of the investment period</span>
 										</i>
 									</div>
-									<div class="asset-investment-card-metrics-value">15.72%</div>
+									<div class="asset-investment-card-lp-metrics-value">15.72%</div>
 								</div>
 							</div>
 							<div>
-								<div class="asset-investment-card-fully-funded">SHOW INTEREST</div>
-								<span class="asset-investment-card-save-info"><i class="like"
+								<div class="asset-investment-card-lp-fully-funded">SHOW INTEREST</div>
+								<span class="asset-investment-card-lp-save-info"><i class="like"
 										style="font-weight: '200'; color: '#2F363F';"></i>4</span>
-								<span class="asset-investment-card-comment-info"><i class="comment"
+								<span class="asset-investment-card-lp-comment-info"><i class="comment"
 										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
-								<span class="asset-investment-card-price-info">Min Investment ₹50K</span>
+								<span class="asset-investment-card-lp-price-info">Min Investment ₹50K</span>
 							</div>
 						</div>
 					</div>
-					<div class="asset-investment-card">
+					<div class="asset-investment-card-lp">
 						<a>
-							<img class="asset-investment-card-image" src="./images/Asset-image-2.png" />
+							<img class="asset-investment-card-lp-image" src="lp/desktop/images/Asset-image-2.png" />
 						</a>
-						<div class="asset-investment-card-content">
+						<div class="asset-investment-card-lp-content">
 							<a>
-								<p class="asset-investment-card-title">Aasthy Grade 'A' Residential Apartment 1</p>
-								<p class="asset-investment-card-location">Thanisandra, Bengaluru, Karnataka</p>
+								<p class="asset-investment-card-lp-title">Aasthy Grade 'A' Residential Apartment 1</p>
+								<p class="asset-investment-card-lp-location">Thanisandra, Bengaluru, Karnataka</p>
 							</a>
-							<div class="asset-investment-card-metrics-countainer">
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
-									<div class="asset-investment-card-metrics-value">1280</div>
+							<div class="asset-investment-card-lp-metrics-countainer">
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">Area(sq.ft.)</div>
+									<div class="asset-investment-card-lp-metrics-value">1280</div>
 								</div>
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
-									<div class="asset-investment-card-metrics-value">₹6245</div>
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">Price/sq.ft.</div>
+									<div class="asset-investment-card-lp-metrics-value">₹6245</div>
 								</div>
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">
 										Return(CAGR)
-										<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+										<i class="asset-investment-card-lp-tooltip-builder fa fa-exclamation-circle"
 											style="margin-left: '5.56px';">
-											<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+											<span class='asset-investment-card-lp-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
 										</i>
 									</div>
-									<div class="asset-investment-card-metrics-value">8.91%</div>
+									<div class="asset-investment-card-lp-metrics-value">8.91%</div>
 								</div>
 							</div>
 							<div>
-								<div class="asset-investment-card-fully-funded">SHOW INTEREST</div>
-								<span class="asset-investment-card-save-info"><i class="like"
+								<div class="asset-investment-card-lp-fully-funded">SHOW INTEREST</div>
+								<span class="asset-investment-card-lp-save-info"><i class="like"
 										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
-								<span class="asset-investment-card-comment-info"><i class="comment"
+								<span class="asset-investment-card-lp-comment-info"><i class="comment"
 										style="font-weight: '200'; color: '#2F363F';"></i>1</span>
-								<span class="asset-investment-card-price-info">Min Investment ₹50K</span>
+								<span class="asset-investment-card-lp-price-info">Min Investment ₹50K</span>
 							</div>
 						</div>
 					</div>
-					<div class="asset-investment-card">
+					<div class="asset-investment-card-lp">
 						<a>
-							<img class="asset-investment-card-image" src="./images/Aasthy-Asset-1.png" />
+							<img class="asset-investment-card-lp-image" src="lp/desktop/images/Aasthy-Asset-1.png" />
 						</a>
-						<div class="asset-investment-card-content">
+						<div class="asset-investment-card-lp-content">
 							<a>
-								<p class="asset-investment-card-title">Aasthy Fractional Investment Opportunity, Sarjapur Road</p>
-								<p class="asset-investment-card-location">Sarjarpur, Bengaluru, Karnataka</p>
+								<p class="asset-investment-card-lp-title">Aasthy Fractional Investment Opportunity, Sarjapur Road</p>
+								<p class="asset-investment-card-lp-location">Sarjarpur, Bengaluru, Karnataka</p>
 							</a>
-							<div class="asset-investment-card-metrics-countainer">
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">Area(sq.ft.)</div>
-									<div class="asset-investment-card-metrics-value">979</div>
+							<div class="asset-investment-card-lp-metrics-countainer">
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">Area(sq.ft.)</div>
+									<div class="asset-investment-card-lp-metrics-value">979</div>
 								</div>
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">Price/sq.ft.</div>
-									<div class="asset-investment-card-metrics-value">₹5670</div>
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">Price/sq.ft.</div>
+									<div class="asset-investment-card-lp-metrics-value">₹5670</div>
 								</div>
-								<div class="asset-investment-card-metrics">
-									<div class="asset-investment-card-metrics-name">
+								<div class="asset-investment-card-lp-metrics">
+									<div class="asset-investment-card-lp-metrics-name">
 										Return(CAGR)
-										<i class="asset-investment-card-tooltip-builder fa fa-exclamation-circle"
+										<i class="asset-investment-card-lp-tooltip-builder fa fa-exclamation-circle"
 											style="margin-left: '5.56px';">
-											<span class='asset-investment-card-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
+											<span class='asset-investment-card-lp-tooltip-builder-text'>This return per year is based on our data insights (appreciation and yield), locality, amenities and builder's predictions</span>
 										</i>
 									</div>
-									<div class="asset-investment-card-metrics-value">12%</div>
+									<div class="asset-investment-card-lp-metrics-value">12%</div>
 								</div>
 							</div>
 							<div>
-								<div class="asset-investment-card-fully-funded">COMING SOON</div>
-								<span class="asset-investment-card-save-info"><i class="like"
+								<div class="asset-investment-card-lp-fully-funded">COMING SOON</div>
+								<span class="asset-investment-card-lp-save-info"><i class="like"
 										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
-								<span class="asset-investment-card-comment-info"><i class="comment"
+								<span class="asset-investment-card-lp-comment-info"><i class="comment"
 										style="font-weight: '200'; color: '#2F363F';"></i>0</span>
-								<span class="asset-investment-card-price-info">Min Investment ₹30K</span>
+								<span class="asset-investment-card-lp-price-info">Min Investment ₹30K</span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<button id="investments-sign-up" onclick="window.parent.postMessage('showLoginModal')">Sign In to see
-					more<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png"
+				<button id="investments-sign-up" onclick="postMessage('showLoginModal')">Sign In to see
+					more<img alt="right arrow" style="margin-left: 8px;" src="lp/desktop/images/Arrow.png"
 						id="alert-card-kyc-btn-img"></img></button>
 		</section>
 	</div>
 </body>
-
 </html>
