@@ -17,11 +17,11 @@
       rel="stylesheet"
     />
     <style>
-      * {
+      /* * {
         box-sizing: border-box;
-      }
+      } */
 
-      .lghContainer {
+      .lghcontainer-f {
         width: 100%;
         background-color: #fff;
       }
@@ -54,7 +54,7 @@
       }
 
       /* Container around content */
-      .container {
+      .container-f {
         padding: 10px 40px;
         position: relative;
         background-color: inherit;
@@ -62,7 +62,7 @@
       }
 
       /* The circles on the timeline */
-      .container::after {
+      .container-f::after {
         content: "";
         position: absolute;
         width: 25px;
@@ -119,7 +119,7 @@
       }
 
       /* The actual content */
-      .content {
+      .content-f {
         padding: 20px 30px;
         background-color: white;
         position: relative;
@@ -135,14 +135,14 @@
         }
 
         /* Full-width containers */
-        .container {
+        .container-f {
           width: 100%;
           padding-left: 70px;
           padding-right: 25px;
         }
 
         /* Make sure that all arrows are pointing leftwards */
-        .container::before {
+        .container-f::before {
           left: 60px;
           border: medium solid white;
           border-width: 10px 10px 10px 0;
@@ -164,7 +164,7 @@
       html {
         font-family: "Poppins", sans-serif;
       }
-      /* Tab content - closed */
+      /* Tab.content-f - closed */
       .tab-content {
         max-height: 0;
         -webkit-transition: max-height 0.35s;
@@ -1379,7 +1379,7 @@
           <div class="mt-6 md:mt-10 text-sm md:text-base">
             <div class="timeline">
               <div class="container-f left">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1416,7 +1416,7 @@
                 </div>
               </div>
               <div class="container-f right">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex md:flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1453,7 +1453,7 @@
                 </div>
               </div>
               <div class="container-f left">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1489,7 +1489,7 @@
                 </div>
               </div>
               <div class="container-f right">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex md:flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1525,7 +1525,7 @@
                 </div>
               </div>
               <div class="container-f left">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1569,7 +1569,7 @@
                 </div>
               </div>
               <div class="container-f right">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex md:flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1605,7 +1605,7 @@
                 </div>
               </div>
               <div class="container-f left">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1641,7 +1641,7 @@
                 </div>
               </div>
               <div class="container-f right">
-                <div class="content">
+                <div class="content-f">
                   <div class="flex md:flex-row sm:flex-row-reverse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

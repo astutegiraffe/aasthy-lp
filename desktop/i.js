@@ -1,4 +1,3 @@
-
 let xValues = [];
 let yValues = [];
 let chart = {};
@@ -234,7 +233,7 @@ let populateREI = (reiIndexName, timeRange) => {
             populateGraph(xValues, yValues, timeRange);
         })
         .catch(error => {
-            console.error("error", error);
+            console.error("Error: REI failed to load with error", error);
         })
 }
 

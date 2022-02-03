@@ -1,329 +1,199 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body {
-            height: fit-content;
-        }
+	<meta name="robots" content="noindex">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-        .discover-heading-j {
-            font-family: Poppins;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 25px;
-            line-height: 160%;
-            text-transform: capitalize;
-            color: #2F363F;
-
-        }
-
-        #condensed-asset-card-j-container {
-            width: 100%;
-            height: 170px;
-            display: flex;
-            overflow-y: hidden;
-            overflow-x: scroll;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            z-index: 0;
-        }
-
-        #condensed-asset-card-j-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .condensed-asset-card-j-component {
-            width: calc(100%-40px);
-            min-width: 380px;
-            max-width: 380px;
-            height: 142px;
-            position: relative;
-            margin-left: 2%;
-            margin-top: 10px;
-            background: #FFFFFF;
-            box-shadow: 0px 0px 0.885714px rgba(12, 26, 75, 0.24), 0px 2.65714px 7.08571px -0.885714px rgba(50, 50, 71, 0.05);
-            border-radius: 16px;
-            cursor: pointer;
-        }
-
-        #condensed-asset-card-j-title {
-            max-width: 239px;
-            width: 80%;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 150%;
-            letter-spacing: 0.01em;
-            color: #27272E;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .condensed-asset-card-j-price-component {
-            margin-bottom: 8px;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 150%;
-            letter-spacing: 0.04em;
-            color: #3B3B3B;
-        }
-
-        .condensed-asset-card-j-left-component {
-            position: absolute;
-            top: 9px;
-            left: 10.16px;
-        }
-
-        .condensed-asset-card-j-image {
-            height: 96px;
-            width: 96px;
-        }
-
-        .condensed-asset-card-j-property-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 14.1714px;
-            object-fit: cover;
-        }
-
-        .condensed-asset-card-j-details {
-            position: absolute;
-            left: 121px;
-            top: 13px;
-            height: 100%;
-        }
-
-        .condensed-asset-card-j-details-title {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 10px;
-            line-height: 170%;
-            letter-spacing: 0.05em;
-            color: #835494;
-        }
-
-        .condensed-asset-card-j-details-content {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 12px;
-            line-height: 150%;
-            letter-spacing: 0.01em;
-            color: #2F363F;
-        }
-
-        .condensed-asset-card-j-image-source-icon {
-            position: absolute;
-            top: 78px;
-            width: 96px;
-            height: 18.69px;
-            background: #F7F7F7;
-            border-radius: 100px;
-        }
-
-        #condensed-asset-card-j-source-text {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 10px;
-            margin-top: 2px;
-            line-height: 130%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            letter-spacing: 0.01em;
-            text-transform: capitalize;
-            color: #24003D;
-            flex: none;
-            order: 0;
-            flex-grow: 1;
-        }
-
-        #condensed-asset-card-j-source-photo {
-            position: absolute;
-            margin-left: 3.5px;
-        }
-
-        .condensed-asset-card-j-location-component {
-            max-width: 239px;
-            width: 75%;
-            height: 17px;
-            margin-bottom: 8px;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 10px;
-            line-height: 170%;
-            letter-spacing: 0.05em;
-            color: #3B3B3B;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .condensed-asset-card-j-details-container {
-            max-width: 69px;
-            height: 35px;
-            float: left;
-            margin-right: 30px;
-        }
-
-
-        .arrow-keys {
-            position: absolute;
-            margin-top: -100px;
-            width: 25px;
-            height: 23px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-            border-radius: 100px;
-            border-color: #000000;
-            flex-wrap: nowrap;
-            display: flex;
-            z-index: 2000;
-            opacity: 1;
-            background: #FFFFFF;
-        }
-
-        #next-btn {
-            position: absolute;
-            right: 1%;
-        }
-
-        #prev-btn {
-            position: absolute;
-            left: 1%;
-        }
-
-        .btn-img {
-            margin: auto;
-        }
-
-        select {
-            width: 275px;
-            height: 41px;
-            font-size: 18px;
-            outline: none;
-            background: #FFFFFF;
-            border: 1px solid #EEEEEE;
-            border-radius: 4px;
-            color: #444444;
-            margin-bottom: 5px;
-            font-family: "Poppins";
-            margin-top: 5px;
-            /* -webkit-appearance: none; */
-            padding-left: 8px;
-
-            outline: none;
-        }
-
-        #city,
-        #propertyType {
-            width: 45%;
-            height: 41px;
-        }
-
-
-        #sign-up-j {
-            display: flex;
-            cursor: pointer;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            background: #4E0668;
-            width: 284px;
-            height: 35px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-            font-family: Poppins;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 11px;
-            line-height: 24px;
-            color: #FFFFFF;
-            flex: none;
-            order: 0;
-            flex-grow: 0;
-            margin-left: auto;
-        }
-        .condensed-asset-card-j-tooltip-builder {
-			position: relative;
-			/* display: inline-block; */
+		.row {
+			margin: auto;
 		}
-        .condensed-asset-card-j-tooltip-builder-text {
-			visibility: hidden;
-			background: #222;
-			border: 1px transparent;
-			font-family: "Poppins";
+
+		.landing-page-img {
+			display: block;
+		}
+
+		.small-text {
+			font-family: Poppins;
 			font-style: normal;
 			font-weight: normal;
-			font-size: 14px;
-			line-height: 100% !important;
-			letter-spacing: 0.01em;
-			color: #FFFFFF;
-			text-overflow: ellipsis;
-			padding: 5px;
-            padding-left:20px;
-			position: absolute;
-			z-index: 1;
-			width: 300px;
-			word-wrap: break-word;
-			white-space: normal;
-			opacity: 0.9;
-			top: 100%;
-			left: 50%;
-			margin-left: -320px;
+			font-size: 1.66vw;
+			/* or 125% */
 		}
 
-		.condensed-asset-card-j-tooltip-builder:hover .condensed-asset-card-j-tooltip-builder-text {
-			visibility: visible;
+		.large-text {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4.44vw;
+			line-height: 100%;
+			/* or 100% */
+			letter-spacing: -0.05em;
 		}
-    </style>
-    <!-- <script src='./j.js'>
-    </script> -->
+
+		.landing-page-main-container {
+			margin-top: 69px;
+		}
+
+		.landing-page-odd-section {
+			background: #FFFFFF;
+		}
+
+		.landing-page-section {
+			/* aspect-ratio: 1440/955; */
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.btn-get-started {
+			margin-top: 13.33%;
+			margin-left: 9.30%;
+			background: #4E0668;
+			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+			border-radius: 6px;
+			border: 0px;
+			font-size: 1vw;
+			font-family: Poppins;
+			font-weight: 600;
+			color: #FFFFFF;
+			white-space: nowrap;
+			padding: 2%;
+		}
+
+		#section-1-image-1 {
+			width: 93.2%;
+			margin-top: 18.19%;
+			margin-left: 0%;
+			aspect-ratio: 671/736;
+			content: url("./section-1-image-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		#section-1-large-text {
+			width: 81.38%;
+			margin-top: 24.30%;
+			margin-left: 9.30%;
+			color: #000000;
+		}
+
+		#section-1-small-text {
+			width: 70.00%;
+			margin-top: 5.00%;
+			margin-left: 9.30%;
+		}
+
+		.section-1-text-align {
+			text-align: start;
+		}
+
+		@media all and (max-width: 767px) {
+			.large-text {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			.small-text {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+
+			#section-1-large-text span {
+				font-size: 8.69vw;
+			}
+
+			#section-1-image-1 {
+				width: 82.68%;
+				aspect-ratio: 342.3/404;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-small-text {
+				width: 81.15%;
+				margin-top: 11.11%;
+				margin-left: auto;
+				margin-right: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#section-1-large-text {
+				width: 79.71%;
+				margin-top: 10.87%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.section-1-text-align {
+				text-align: center;
+			}
+
+			.btn-get-started {
+				height: 13.28%;
+				margin-top: 18.84%;
+				margin-left: auto;
+				margin-right: auto;
+				font-size: 100%;
+				font-style: normal;
+				font-family: Poppins;
+				font-weight: 600;
+				color: #FFFFFF;
+			}
+		}
+
+		@media all and (min-width: 1440px) {
+			.large-text {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			.small-text {
+				font-size: 24px;
+				line-height: 24px;
+			}
+
+			.btn-get-started {
+				font-size: 16px;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body >
-    <div style='margin-left:2%'>
-        <h1 class='discover-heading-j'>Discover Assets</h1>
-        <select name="city" id="city" onchange="changeCity()">
-            <option value="none" selected disabled hidden>City</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="NonMetroSpot">Non Metro Spot</option>
-        </select>
-        <select name="propertyType" id='propertyType' onchange="changePropertyType()">
-            <option value="none" selected disabled hidden>Property Type</option>
-            <option value="Apartment">Apartment</option>
-        </select>
-        <select name="roi" id='roi' onchange="changeROI()">
-            <option value="none" selected disabled hidden>Return on Investment(%)</option>
-            <option value="Appreciation">Appreciation>20%</option>
-            <option value="AppreciationAndYield">Appreciation>20% And Yield>7%</option>
-            <option value="Yield">Yield>7%</option>
-        </select>
-    </div>
-    <div style='margin-top: 20px;'>
-        <div id='condensed-asset-card-j-container'>
-
-        </div>
-        <div class="arrow-keys" id="prev-btn">
-            <img class="btn-img" src="lp/mobile/images/Prev.png" alt="Arrow">
-        </div>
-        <div class="arrow-keys" id="next-btn">
-            <img class="btn-img" src="lp/mobile/images/Next.png" alt="Arrow">
-        </div>
-    </div>
-    <button id="sign-up-j" style='margin-bottom:10px' onclick="window.parent.postMessage('showLoginModal')">Sign up to see more
-        properties and cities<img alt="right arrow" style="margin-left: 8px;" src="lp/mobile/images/Arrow.png"
-            id="alert-card-kyc-btn-img"></img></button>
+<body>
+	<div>
+		<section class="landing-page-odd-section">
+			<div class="container-fluid p-0 landing-page-section">
+				<div class="row">
+					<div class="col-md-6 p-0">
+						<div class="section-1-text-align">
+							<div id="section-1-large-text">
+								<span class="large-text">
+									Real Estate investments made real easy.
+								</span>
+							</div>
+							<div id="section-1-small-text">
+								<span class="small-text">
+									Meet Aasthy, your personal real estate investment advisor. Discover insights and
+									opportunities like never before.
+								</span>
+							</div>
+							<button class='btn-get-started' onclick="window.parent.postMessage('showLoginModal')">
+								View Properties
+							</button>
+						</div>
+					</div>
+					<div class="col-md-6 p-0">
+						<img id="section-1-image-1" class="landing-page-img"
+							alt="Apprecation , Yeilds and Discussions" />
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 </body>
 
 </html>
