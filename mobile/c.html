@@ -6,10 +6,6 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-		body {
-			overflow: hidden;
-		}
-
 		.row {
 			margin: auto;
 		}
@@ -60,7 +56,7 @@
 			margin-top: 0%;
 			margin-left: 0%;
 			aspect-ratio: 640/477;
-			content: url("./section-3-image-1.png");
+			content: url("lp/section-3-image-1.png");
 			background-repeat: no-repeat;
 			background-size: contain;
 		}
@@ -70,7 +66,7 @@
 			margin-top: 0%;
 			margin-left: 9.30%;
 			aspect-ratio: 640/477;
-			content: url("./section-3-image-2.png");
+			content: url("lp/section-3-image-2.png");
 			background-repeat: no-repeat;
 			background-size: contain;
 		}
@@ -86,7 +82,7 @@
 			width: 79.16%;
 			margin-top: 20%;
 			margin-left: 12.63%;
-			color: #000000;
+			color: #FFFFFF;
 		}
 
 		@media all and (min-width: 1440px) {
@@ -130,7 +126,7 @@
 				position: absolute;
 				width: 75.84%;
 				aspect-ratio: 314/289.37;
-				content: url("./top-left-wave.png");
+				content: url("lp/top-left-wave.png");
 				background-repeat: no-repeat;
 				background-size: contain;
 			}
@@ -139,9 +135,9 @@
 				display: block;
 				position: absolute;
 				width: 61.59%;
-				margin-left: 38.40%;
+				margin-left: 31%;
 				aspect-ratio: 255/235;
-				content: url("./top-right-wave.png");
+				content: url("lp/top-right-wave.png");
 				background-repeat: no-repeat;
 				background-size: contain;
 			}
@@ -155,7 +151,7 @@
 			}
 
 			#section-3-image-2 {
-				content: url("./section-3-image-2-mobile.png")
+				content: url("lp/section-3-image-2-mobile.png")
 			}
 
 			#section-3-large-text-1 {
@@ -172,19 +168,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<script>
-	function loadingEvent() {
-		console.log(document.body.scrollHeight);
-	}
-</script>
-
-<body onload="loadingEvent()">
-	<div style="overflow: hidden;">
-		<hr class="line-desktop" style="width: 90.50%; margin: 0px auto; border-color: #000000;" />
+<body>
+	<div>
+		<hr class="line-mobile" style=" margin: 0px auto; border-color: #000000;" />
 		<section class="landing-page-odd-section">
-			<div class="container-fluid p-0 landing-page-section alternate-color">
+			<div class="container-fluid landing-page-section alternate-color">
 				<div class="row">
-					<div class="col-md-6 p-0">
+					<div class="col-md-6">
 						<div class="top-right-wave"></div>
 						<div id="section-3-large-text-1">
 							<span class="large-text">
@@ -192,20 +182,20 @@
 							</span>
 						</div>
 					</div>
-					<div class="col-md-6 p-0">
+					<div class="col-md-6">
 						<img id="section-3-image-1" class="landing-page-img"
 							alt="Easily discover & compare investment hotspots." />
 					</div>
 				</div>
-				<hr class="line-desktop" style="width: 90.50%; margin: 0px auto; border-color: #000000;" />
+				<hr class="line-mobile" style="width: 90.50vw; margin: 0px auto; border-color: #000000;" />
 				<div class="row">
-					<div class="col-md-6 p-0 order-last order-md-first">
+					<div class="col-md-6 order-last order-md-first">
 						<img id="section-3-image-2" class="landing-page-img" alt="Apprecation chart" />
 					</div>
-					<div class="col-md-6 p-0 order-first order-md-last">
+					<div class="col-md-6 order-first order-md-last">
 						<div class="top-left-wave"></div>
 						<div id="section-3-large-text-2">
-							<span class="large-text">
+							<span class="large-text" style="color: #FFFFFF">
 								Get investment insights backed by real data.
 							</span>
 						</div>

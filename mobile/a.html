@@ -6,10 +6,6 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
-		body {
-			overflow: hidden;
-		}
-
 		.row {
 			margin: auto;
 		}
@@ -71,7 +67,7 @@
 			margin-top: 18.19%;
 			margin-left: 0%;
 			aspect-ratio: 671/736;
-			content: url("./section-1-image-1.png");
+			content: url("lp/mobile/section-1-image-1.png");
 			background-repeat: no-repeat;
 			background-size: contain;
 		}
@@ -166,14 +162,7 @@
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-
-<script>
-	function loadingEvent() {
-		console.log(document.body.scrollHeight);
-	}
-</script>
-
-<body onload="loadingEvent()">
+<body >
 	<div style="overflow: hidden;">
 		<section class="landing-page-odd-section">
 			<div class="container-fluid p-0 landing-page-section">
@@ -191,7 +180,7 @@
 									opportunities like never before.
 								</span>
 							</div>
-							<button class='btn-get-started' onclick="window.parent.postMessage('showLoginModal')">
+							<button class='btn-get-started' onclick="postMessage('showLoginModal')">
 								View Properties
 							</button>
 						</div>

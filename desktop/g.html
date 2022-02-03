@@ -2,18 +2,20 @@
 
 <head>
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-
 		* {
 			box-sizing: border-box
 		}
 
 		.prev-arrow {
-			margin-left: 5px;
+			position: absolute;
+			top: 10px;
+			left: 12px;
 		}
 
 		.next-arrow {
-			margin-left: 10px;
+			position: absolute;
+			top: 10px;
+			right: 12px;
 		}
 
 		.left-card {
@@ -54,8 +56,8 @@
 			top: 50px;
 		}
 
-		.mySlides {
 
+		.mySlides {
 			display: none;
 		}
 
@@ -73,18 +75,18 @@
 		}
 
 		.next {
-			width: 60px;
-			height: 60px;
+			width: 50px;
+			height: 50px;
 			right: 4.5%;
-			top: 43%;
+			top: 20vw;
 			background: #FFFFFF;
 			z-index: 10;
 		}
 
 		.prev {
-			width: 60px;
-			height: 60px;
-			top: 43%;
+			width: 50px;
+			height: 50px;
+			top: 20vw;
 			left: 5%;
 			background: #FFFFFF;
 			z-index: 10;
@@ -127,7 +129,6 @@
 
 		.threedots {
 			margin-left: 50%;
-			height: 100px;
 		}
 
 		a {
@@ -139,11 +140,19 @@
 			background-color: #717171;
 		}
 
-		.fade {
-			-webkit-animation-name: fade;
+		.k-fades {
+			-webkit-animation-name: k-fades;
 			-webkit-animation-duration: 1s;
-			animation-name: fade;
+			animation-name: k-fades;
 			animation-duration: 1s;
+		}
+
+		.add-display {
+			display: block;
+		}
+
+		.remove-display {
+			display: none;
 		}
 
 		.learn-btn {
@@ -151,21 +160,25 @@
 			flex-direction: row;
 			align-items: center;
 			position: absolute;
-			width: 9.653vw;
+			width: 11vw;
 			height: 3.472vw;
 			font-family: "Poppins";
 			font-style: normal;
 			font-weight: 500;
 			font-size: 1.181vw;
-			padding-left: 1vw;
+			padding-left: 2vw;
 			color: #FFFFFF;
 			background: #4E0668;
 			border-radius: 6px;
 			z-index: 20;
 			top: 34.5vw;
-			left: 46.6vw;
+			left: 46vw;
 			border: none;
 			cursor: pointer;
+		}
+
+		.discover-btn {
+			padding-left: 1vw;
 		}
 
 		.learn-btn-arrow {
@@ -231,7 +244,7 @@
 			}
 		}
 
-		@-webkit-keyframes fade {
+		@-webkit-keyframes k-fades {
 			from {
 				opacity: .4;
 			}
@@ -241,7 +254,7 @@
 			}
 		}
 
-		@keyframes fade {
+		@keyframes k-fades {
 			from {
 				opacity: .4
 			}
@@ -250,117 +263,77 @@
 				opacity: 1;
 			}
 		}
+
+		@media screen and (min-width:1200px) {
+			.threedots {
+				margin-top: -33px;
+			}
+		}
 	</style>
+	<script src='./g.js'></script>
 </head>
-<script>
-	function Timer(fn, t) {
-		var timerObj = setInterval(fn, t);
-		this.stop = function () {
-			if (timerObj) {
-				clearInterval(timerObj);
-				timerObj = null;
-			}
-			return this;
-		}
-		// start timer using current settings (if it's not already running)
-		this.start = function () {
-			if (!timerObj) {
-				this.stop();
-				timerObj = setInterval(fn, t);
-			}
-			return this;
-		}
 
-		// start with new or original interval, stop current interval
-		this.reset = function (newT = t) {
-			t = newT;
-			return this.stop().start();
-		}
-	}
-	var timer = new Timer(function () {
-		plusSlides(1)
-	}, 8000);
-
-	function plusSlides(n) {
-
-		slideIndex += n;
-		showSlides();
-		timer.stop();
-		timer.start();
-	}
-	// Thumbnail image controls
-	function currentSlide(n) {
-		slideIndex = n;
-		showSlides();
-	}
-
-	function showSlides() {
-		var i;
-		var slides = document.getElementsByClassName("mySlides");
-		var dots = document.getElementsByClassName("dot");
-		if (slideIndex > slides.length) { slideIndex = 1 }
-		if (slideIndex < 1) { slideIndex = slides.length }
-		for (i = 0; i < slides.length; i++) {
-			slides[i].style.display = "none";
-		}
-		for (i = 0; i < dots.length; i++) {
-			dots[i].className = dots[i].className.replace(" active", "");
-		}
-		slides[slideIndex - 1].style.display = "block";
-		dots[slideIndex - 1].className += " active";
-		timer.start()
-	}
-</script>
-
-<body onload='currentSlide(1)'>
+<body>
 	<div class='slideshow-container-wrapper'>
-		<img src='./images/Background_Desktop.png' style="width:100%">
+		<img src='lp/desktop/images/Background_Desktop.png' style="width:100%">
 		<div class="slideshow-container">
-			<div class="mySlides fade">
-				<!-- <button class="learn-btn" onclick="window.parent.postMessage(`learnNowButton-${document.body.scrollHeight}`)">
+
+			<!-- Full-width images with number and caption text -->
+			<div class="mySlides k-fades">
+				<button class="learn-btn" onclick=clickLearnButton()>
 					Learn Now
 					<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
-						<path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+						<path fill="#FFFFFF"
+							d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
 					</svg>
-				</button> -->
+				</button>
 				<div class="numbertext"></div>
-				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Invest_Desktop_Small.png" /></a>
-				<img class='main-card' onclick="window.parent.postMessage('learnCarouselClick')"
-					src="./images/Learn_Desktop.png"></img>
-				<a onclick="plusSlides(1) "><img class='right-card' src="./images/Discover_Desktop_Small.png"></a>
+				<a onclick="plusSlides(-1)"><img class='left-card'
+						src="lp/desktop/images/Invest_Desktop_Small.png" /></a>
+				<img class='main-card' src="lp/desktop/images/Learn_Desktop.png" />
+				<a onclick="plusSlides(1) "><img class='right-card'
+						src="lp/desktop/images/Discover_Desktop_Small.png"></a>
 			</div>
 
-			<div class="mySlides fade">
-				<!-- <button class="learn-btn">
+			<div class="mySlides k-fades">
+				<button class="learn-btn discover-btn" onclick=clickDiscoverButton()>
 					Discover Now
-					<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png" />
-				</button> -->
-				<div class="numbertext"></div>
-				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Learn_Desktop_Small.png" /></a>
-				<img class='main-card' src="./images/Discover_Desktop.png" />
-				<a onclick="plusSlides(1)"><img class='right-card' src="./images/Invest_Desktop_Small.png" /></a>
+					<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
+						<path fill="#FFFFFF"
+							d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+					</svg>
+				</button>
+				<a onclick="plusSlides(-1)"><img class='left-card'
+						src="lp/desktop/images/Learn_Desktop_Small.png" /></a>
+				<img class='main-card' src="lp/desktop/images/Discover_Desktop.png" />
+				<a onclick="plusSlides(1)"><img class='right-card'
+						src="lp/desktop/images/Invest_Desktop_Small.png" /></a>
 			</div>
 
-			<div class="mySlides fade">
-				<!-- <button class="learn-btn">
+			<div class="mySlides k-fades">
+				<button class="learn-btn" onclick=clickInvestButton()>
 					Invest Now
-					<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png" />
-				</button> -->
-				<div class="numbertext"></div>
-				<a onclick="plusSlides(-1)"><img class='left-card' src="./images/Discover_Desktop_Small.png" /></a>
-				<img class='main-card' src="./images/Invest_Desktop.png" />
-				<a onclick="plusSlides(1)"><img class='right-card' src="./images/Learn_Desktop_Small.png" /></a>
+					<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
+						<path fill="#FFFFFF"
+							d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+					</svg> </button>
+				<a onclick="plusSlides(-1)"><img class='left-card'
+						src="lp/desktop/images/Discover_Desktop_Small.png" /></a>
+				<img class='main-card' src="lp/desktop/images/Invest_Desktop.png" />
+				<a onclick="plusSlides(1)"><img class='right-card'
+						src="lp/desktop/images/Learn_Desktop_Small.png" /></a>
 			</div>
 		</div>
 		<a class="prev" onclick="plusSlides(-1)"><span class="prev-arrow">&#10094;</span></a>
 		<a class="next" onclick="plusSlides(1)"><span class="next-arrow">&#10095;</span></a>
 		<br>
+		<div class='threedots'>
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+		</div>
 	</div>
-	<div class='threedots'>
-		<span class="dot" onclick="currentSlide(1)"></span>
-		<span class="dot" onclick="currentSlide(2)"></span>
-		<span class="dot" onclick="currentSlide(3)"></span>
-	</div>
+
 </body>
 
 </html>
