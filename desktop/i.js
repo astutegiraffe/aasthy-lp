@@ -2,6 +2,7 @@
 let xValues = [];
 let yValues = [];
 let chart = {};
+let prevWidth;
 
 let getNth = (day) => {
     if (day > 3 && day < 21) return 'th';
@@ -234,11 +235,21 @@ let populateREI = (reiIndexName, timeRange) => {
         })
         .catch(error => {
             console.error("error", error);
-            document.body.innerHTML = "";
         })
 }
 
-window.onload=function(){
+let resizeChart = () => {
+    let width = document.body.scrollWidth;
+    if (prevWidth > 700 && width < 700) {
+        chart.options.scales.x.ticks.maxTicksLimit = 4;
+    }
+    if (prevWidth < 700 && width > 700) {
+        chart.options.scales.x.ticks.maxTicksLimit = 6;
+    }
+    prevWidth = width;
+}
+
+let loadREI = () => {
     let selectedREIIndexName = document.getElementById("rei-dropdown");
     let timeRangeElements = document.getElementsByClassName("rei-time-range-value");
     let selectedTimeRange = "6M";
@@ -260,32 +271,11 @@ window.onload=function(){
             hideTooltip();
         }
     });
+    window.addEventListener('resize', resizeChart);
 }
 
-let prevWidth;
-
-let resize = () => {
-    let width = window.outerWidth;
-    if (prevWidth > 700 && width < 700) {
-        chart.options.scales.x.ticks.maxTicksLimit = 4;
-    }
-    if (prevWidth < 700 && width > 700) {
-        chart.options.scales.x.ticks.maxTicksLimit = 6;
-    }
-    let viewPort;
-    if (width > 1440) viewPort = 0.58;
-    else if (width > 1200) viewPort = 0.65;
-    else if (width > 900) viewPort = 0.66;
-    else if (width > 700) viewPort = 0.67;
-    else viewPort = 0.71;
-    let resizeObj = {
-        outerHeight: window.outerHeight,
-        outerWidth: window.outerWidth,
-        iframe: "desktop/i",
-        viewPort: viewPort
-    }
-    prevWidth = width;
-    window.parent.postMessage("resize-" + JSON.stringify(resizeObj));
+window.onload = () => {
+    loadREI();
 }
 
 window.urls = [

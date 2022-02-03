@@ -39,7 +39,7 @@
 		.main-container {
 			position: relative;
 			width: 100%;
-			background: url(lp/mobile/images/ackground_Mobile.png) no-repeat 50% 50%;
+			background: url('lp/mobile/images/Background_Mobile.png') no-repeat 50% 50%;
 			background-size: cover;
 			height:96vw;
 			transform-style: preserve-3d;
@@ -51,13 +51,13 @@
 
 		.cards {
 			position: relative;
-			width: 100vw;
+			width: 96vw;
 			height: 100vw;
 			margin-bottom: 20px;
 			margin-top: 30px;
 		}
 
-		img {
+		.card-img-g {
 			width: 100%;
 			border-radius: 10px;
 		}
@@ -103,6 +103,30 @@
 			margin-top:81%;
 			left:55%;
 		}
+
+		.learn-btn {
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 2.657vw;
+			line-height: 3.382vw;
+			width: 27.778vw;
+			height: 7.246vw;
+			color: #FFFFFF;
+			background: #4E0668;
+			border-radius: 6px;
+			position: absolute;
+			z-index: 20;
+			border: none;
+			top: 63vw;
+			left: 15vw;
+			cursor: pointer;
+		}
+
+		.right-arrow {
+			width: 1.005vw;
+			height: 1.688vw;
+		}
 	</style>
 </head>
 
@@ -113,14 +137,26 @@
 		<input class="input-check" type="radio" name="slider" value='card3' id="card3"/>
 		<div class="cards">
 			<label class="card-g" for="card1" id="card-1">
-				<img src="lp/mobile/images/Learn_Mobile.png" alt="card"/>
+				<button class="learn-btn" onclick=clickLearnButton()>
+					Learn Now
+					<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
+				</button>
+				<img  class='card-img-g' src="lp/mobile/images/Learn_Mobile_New.png" alt="card"/>
 			</label>
 
-			<label class="card" for="card2" id="card-2">
-				<img src="lp/mobile/images/Discover_Mobile.png" alt="card">
+			<label class="card-g" for="card2" id="card-2">
+				<button class="learn-btn" onclick=clickDiscoverButton()>
+				Discover Now
+				<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
+				</button>
+				<img class='card-img-g' src="lp/mobile/images/Discover_Mobile_New.png" alt="card">
 			</label>
 			<label class="card-g" for="card3" id="card-3">
-				<img src="lp/mobile/images/Invest_Mobile.png" alt="card"/>
+				<button class="learn-btn"	onclick=clickInvestButton()>
+				Invest Now
+				<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
+				</button>
+				<img class='card-img-g' src="lp/mobile/images/Invest_Mobile_New.png" alt="card"/>
 			</label>
 		</div>
 	</div>

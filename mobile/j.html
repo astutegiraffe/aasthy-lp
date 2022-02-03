@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             height: fit-content;
@@ -10,7 +11,7 @@
             font-family: Poppins;
             font-style: normal;
             font-weight: 600;
-            font-size: 40px;
+            font-size: 25px;
             line-height: 160%;
             text-transform: capitalize;
             color: #2F363F;
@@ -34,8 +35,8 @@
 
         .condensed-asset-card-j-component {
             width: calc(100%-40px);
-            min-width: 365px;
-            max-width: 372px;
+            min-width: 380px;
+            max-width: 380px;
             height: 142px;
             position: relative;
             margin-left: 2%;
@@ -131,7 +132,7 @@
             font-style: normal;
             font-weight: 600;
             font-size: 10px;
-            margin-top: 1px;
+            margin-top: 2px;
             line-height: 130%;
             display: flex;
             align-items: center;
@@ -173,20 +174,6 @@
             margin-right: 30px;
         }
 
-        .new-tool-tip {
-            width: calc(100%-40px);
-            max-width: 370px;
-            height: 66px;
-            background: #000000;
-            border-radius: 10px;
-            font-family: "Poppins";
-            font-style: normal;
-            font-weight: normal;
-            font-size: 12px;
-            line-height: 160%;
-            letter-spacing: 0.01em;
-            color: #FFFFFF;
-        }
 
         .arrow-keys {
             position: absolute;
@@ -219,7 +206,7 @@
 
         select {
             width: 275px;
-            height: 51px;
+            height: 41px;
             font-size: 18px;
             outline: none;
             background: #FFFFFF;
@@ -238,11 +225,11 @@
         #city,
         #propertyType {
             width: 45%;
-            height: 51px;
+            height: 41px;
         }
 
 
-        #sign-up {
+        #sign-up-j {
             display: flex;
             cursor: pointer;
             flex-direction: row;
@@ -257,7 +244,7 @@
             font-family: Poppins;
             font-style: normal;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 11px;
             line-height: 24px;
             color: #FFFFFF;
             flex: none;
@@ -265,14 +252,46 @@
             flex-grow: 0;
             margin-left: auto;
         }
+        .condensed-asset-card-j-tooltip-builder {
+			position: relative;
+			/* display: inline-block; */
+		}
+        .condensed-asset-card-j-tooltip-builder-text {
+			visibility: hidden;
+			background: #222;
+			border: 1px transparent;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 100% !important;
+			letter-spacing: 0.01em;
+			color: #FFFFFF;
+			text-overflow: ellipsis;
+			padding: 5px;
+            padding-left:20px;
+			position: absolute;
+			z-index: 1;
+			width: 300px;
+			word-wrap: break-word;
+			white-space: normal;
+			opacity: 0.9;
+			top: 100%;
+			left: 50%;
+			margin-left: -320px;
+		}
+
+		.condensed-asset-card-j-tooltip-builder:hover .condensed-asset-card-j-tooltip-builder-text {
+			visibility: visible;
+		}
     </style>
-    <script src='./j.js'>
-    </script>
+    <!-- <script src='./j.js'>
+    </script> -->
 </head>
 
 <body >
     <div style='margin-left:2%'>
-        <h1 class='discover-heading-j-j'>Discover Assets</h1>
+        <h1 class='discover-heading-j'>Discover Assets</h1>
         <select name="city" id="city" onchange="changeCity()">
             <option value="none" selected disabled hidden>City</option>
             <option value="Bangalore">Bangalore</option>
@@ -283,13 +302,12 @@
         <select name="propertyType" id='propertyType' onchange="changePropertyType()">
             <option value="none" selected disabled hidden>Property Type</option>
             <option value="Apartment">Apartment</option>
-            <option value="Residential">Residential</option>
         </select>
         <select name="roi" id='roi' onchange="changeROI()">
             <option value="none" selected disabled hidden>Return on Investment(%)</option>
             <option value="Appreciation">Appreciation>20%</option>
+            <option value="AppreciationAndYield">Appreciation>20% And Yield>7%</option>
             <option value="Yield">Yield>7%</option>
-            <option value="ApprecationAndYield">Appreciation>20% And Yield>7%</option>
         </select>
     </div>
     <div style='margin-top: 20px;'>
@@ -297,14 +315,14 @@
 
         </div>
         <div class="arrow-keys" id="prev-btn">
-            <img class="btn-img" src="./images/Prev.png" alt="Arrow">
+            <img class="btn-img" src="lp/mobile/images/Prev.png" alt="Arrow">
         </div>
         <div class="arrow-keys" id="next-btn">
-            <img class="btn-img" src="./images/Next.png" alt="Arrow">
+            <img class="btn-img" src="lp/mobile/images/Next.png" alt="Arrow">
         </div>
     </div>
-    <button id="sign-up" onclick="window.parent.postMessage('showLoginModal')">Sign up to see more
-        properties and cities<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png"
+    <button id="sign-up-j" style='margin-bottom:10px' onclick="window.parent.postMessage('showLoginModal')">Sign up to see more
+        properties and cities<img alt="right arrow" style="margin-left: 8px;" src="lp/mobile/images/Arrow.png"
             id="alert-card-kyc-btn-img"></img></button>
 </body>
 

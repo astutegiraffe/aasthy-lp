@@ -1,1 +1,1 @@
-window.urls=[]
+window.urls = [];

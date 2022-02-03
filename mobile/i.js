@@ -204,6 +204,7 @@ let populateREI = (reiIndexName, timeRange) => {
             document.body.innerHTML = "";
         })
 }
+
 window.onload = function () {
     console.log('hey')
     let selectedREIIndexName = document.getElementById("rei-dropdown");
@@ -227,6 +228,8 @@ window.onload = function () {
     });
 }
 
-window.urls = ["https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js",
+window.urls = [
+    "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js",
     "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.js",
-    "https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"];
+    "https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"
+];

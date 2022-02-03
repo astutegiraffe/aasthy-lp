@@ -1,1 +1,1 @@
-window.urls=['a.js']
+window.urls = ['a.js'];

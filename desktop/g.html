@@ -1,215 +1,325 @@
 <html>
+
 <head>
-<style>
-* {
-        box-sizing: border-box
-    }
+	<style>
+		* {
+			box-sizing: border-box
+		}
 
-    .prev-arrow {
-       position:absolute;
-       top:10px;
-       left:12px;
-    }
+		.prev-arrow {
+			position: absolute;
+			top: 10px;
+			left: 12px;
+		}
 
-    .next-arrow {
-       position:absolute;
-       top:10px;
-       right:12px;
-    }
+		.next-arrow {
+			position: absolute;
+			top: 10px;
+			right: 12px;
+		}
 
-    .left-card {
-        position: absolute;
-        width: 40%;
-        height: auto;
-        top: calc(100vw/12);
-        left: 13%;
-        z-index: 1;
-    }
+		.left-card {
+			position: absolute;
+			width: 40%;
+			height: auto;
+			top: calc(100vw/12);
+			left: 13%;
+			z-index: 1;
+		}
 
-    .right-card {
-        position: absolute;
-        width: 40%;
-        height: auto;
-        top: calc(100vw/12);
-        left: 148%;
-        z-index: 1;
-    }
+		.right-card {
+			position: absolute;
+			width: 40%;
+			height: auto;
+			top: calc(100vw/12);
+			left: 148%;
+			z-index: 1;
+		}
 
-    .main-card {
-        position: absolute;
-        left: 30%;
-        z-index: 2;
-        width: 140%;
-        height: auto;
-    }
+		.main-card {
+			position: absolute;
+			left: 30%;
+			z-index: 2;
+			width: 140%;
+			height: auto;
+		}
 
-    .slideshow-container-wrapper {
-        width: 100%;
-        position: relative;
-        margin-bottom: 5px;
-    }
+		.slideshow-container-wrapper {
+			width: 100%;
+			position: relative;
+			margin-bottom: 5px;
+		}
 
-    .slideshow-container {
-        position: absolute;
-        width: 50%;
-        top: 50px;
-    }
+		.slideshow-container {
+			position: absolute;
+			width: 50%;
+			top: 50px;
+		}
 
 
-    .mySlides{
-        display:none;
-    }
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        padding: 16px;
-        color: #4E0668;
-        font-weight: bold;
-        font-size: 20px;
-        transition: 0.6s ease;
-        border-radius: 120px;
-        user-select: none;
-    }
+		.mySlides {
+			display: none;
+		}
 
-    .next {
-        width: 50px;
-        height: 50px;
-        right: 4.5%;
-        top: 20vw;
-        background: #FFFFFF;
-        z-index: 10;
-    }
+		.prev,
+		.next {
+			cursor: pointer;
+			position: absolute;
+			padding: 16px;
+			color: #4E0668;
+			font-weight: bold;
+			font-size: 20px;
+			transition: 0.6s ease;
+			border-radius: 120px;
+			user-select: none;
+		}
 
-    .prev {
-        width: 50px;
-        height: 50px;
-        top: 20vw;
-        left: 5%;
-        background: #FFFFFF;
-        z-index: 10;
-    }
+		.next {
+			width: 50px;
+			height: 50px;
+			right: 4.5%;
+			top: 20vw;
+			background: #FFFFFF;
+			z-index: 10;
+		}
 
-    .prev:hover,
-    .next:hover {
-        background-color: #4E0668;
-        color: white;
-    }
+		.prev {
+			width: 50px;
+			height: 50px;
+			top: 20vw;
+			left: 5%;
+			background: #FFFFFF;
+			z-index: 10;
+		}
 
-    .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8px 12px;
-        position: absolute;
-        bottom: 8px;
-        width: 100%;
-        text-align: center;
-    }
+		.prev:hover,
+		.next:hover {
+			background-color: #4E0668;
+			color: white;
+		}
 
-    .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-    }
+		.text {
+			color: #f2f2f2;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+		}
 
-    .dot {
-        cursor: pointer;
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
-    }
+		.numbertext {
+			color: #f2f2f2;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+		}
 
-    .threedots {
-        margin-left: 50%;
-    }
+		.dot {
+			cursor: pointer;
+			height: 15px;
+			width: 15px;
+			margin: 0 2px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+			transition: background-color 0.6s ease;
+		}
 
-    a {
-        cursor: pointer;
-    }
+		.threedots {
+			margin-left: 50%;
+		}
 
-    .active,
-    .dot:hover {
-        background-color: #717171;
-    }
+		a {
+			cursor: pointer;
+		}
 
-    .k-fades {
-        -webkit-animation-name: k-fades;
-        -webkit-animation-duration: 1s;
-        animation-name: k-fades;
-        animation-duration: 1s;
-    }
-    .add-display{
-        display:block;
-    }
-    .remove-display{
-        display:none;
-    }
-    @-webkit-keyframes k-fades {
-        from {
-            opacity: .4;
-        }
+		.active,
+		.dot:hover {
+			background-color: #717171;
+		}
 
-        to {
-            opacity: 1;
-        }
-    }
+		.k-fades {
+			-webkit-animation-name: k-fades;
+			-webkit-animation-duration: 1s;
+			animation-name: k-fades;
+			animation-duration: 1s;
+		}
 
-    @keyframes k-fades {
-        from {
-            opacity: .4
-        }
+		.add-display {
+			display: block;
+		}
 
-        to {
-            opacity: 1;
-        }
-    }
-    @media screen and (min-width:1200px) {
-        .threedots{
-            margin-top:-33px;
-        }
-    }
-</style>
-<script src='./g.js'></script>
+		.remove-display {
+			display: none;
+		}
+
+		.learn-btn {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			position: absolute;
+			width: 11vw;
+			height: 3.472vw;
+			font-family: "Poppins";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 1.181vw;
+			padding-left: 2vw;
+			color: #FFFFFF;
+			background: #4E0668;
+			border-radius: 6px;
+			z-index: 20;
+			top: 34.5vw;
+			left: 46vw;
+			border: none;
+			cursor: pointer;
+		}
+
+		.discover-btn {
+			padding-left: 1vw;
+		}
+
+		.learn-btn-arrow {
+			height: 8px;
+			width: 5px;
+		}
+
+		.right-arrow-svg {
+			margin-left: 8px;
+			width: 12px;
+			height: 12px;
+		}
+
+		@media all and (max-width: 1000px) {
+			.learn-btn {
+				font-size: 1.1vw;
+			}
+		}
+
+		@media all and (max-width: 950px) {
+			.learn-btn {
+				font-size: 1vw;
+			}
+
+			.learn-btn-arrow {
+				margin-left: 1.2vw;
+				height: 1vw;
+				width: 0.625vw;
+			}
+
+			.right-arrow-svg {
+				width: 8px;
+				height: 8px;
+				padding-bottom: 0.5px;
+			}
+		}
+
+		@media all and (max-width: 700px) {
+			.learn-btn {
+				font-size: 1vw;
+				padding-right: 4px;
+			}
+
+			.right-arrow-svg {
+				width: 6.5px;
+				height: 6.5px;
+				padding-bottom: 1.1px;
+				margin-left: 1vw;
+			}
+		}
+
+		@media all and (max-width: 550px) {
+			.learn-btn {
+				font-size: 1vw;
+				padding-right: 2px;
+				padding-left: 7.5px;
+			}
+
+			.right-arrow-svg {
+				width: 6px;
+				height: 6px;
+				padding-bottom: 0.8px;
+			}
+		}
+
+		@-webkit-keyframes k-fades {
+			from {
+				opacity: .4;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes k-fades {
+			from {
+				opacity: .4
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@media screen and (min-width:1200px) {
+			.threedots {
+				margin-top: -33px;
+			}
+		}
+	</style>
+	<script src='./g.js'></script>
 </head>
-<body >
+
+<body>
 	<div class='slideshow-container-wrapper'>
-		<img src='lp/desktop/images/Background_Desktop.png'
-			style="width:100%">
+		<img src='lp/desktop/images/Background_Desktop.png' style="width:100%">
 		<div class="slideshow-container">
 
 			<!-- Full-width images with number and caption text -->
 			<div class="mySlides k-fades">
+				<button class="learn-btn" onclick=clickLearnButton()>
+					Learn Now
+					<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
+						<path fill="#FFFFFF"
+							d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+					</svg>
+				</button>
 				<div class="numbertext"></div>
 				<a onclick="plusSlides(-1)"><img class='left-card'
 						src="lp/desktop/images/Invest_Desktop_Small.png" /></a>
-				<img class='main-card'
-					src="lp/desktop/images/Learn_Desktop.png" />
+				<img class='main-card' src="lp/desktop/images/Learn_Desktop.png" />
 				<a onclick="plusSlides(1) "><img class='right-card'
 						src="lp/desktop/images/Discover_Desktop_Small.png"></a>
 			</div>
 
 			<div class="mySlides k-fades">
-				<div class="numbertext"></div>
+				<button class="learn-btn discover-btn" onclick=clickDiscoverButton()>
+					Discover Now
+					<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
+						<path fill="#FFFFFF"
+							d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+					</svg>
+				</button>
 				<a onclick="plusSlides(-1)"><img class='left-card'
 						src="lp/desktop/images/Learn_Desktop_Small.png" /></a>
-				<img class='main-card'
-					src="lp/desktop/images/Discover_Desktop.png" />
+				<img class='main-card' src="lp/desktop/images/Discover_Desktop.png" />
 				<a onclick="plusSlides(1)"><img class='right-card'
 						src="lp/desktop/images/Invest_Desktop_Small.png" /></a>
 			</div>
 
 			<div class="mySlides k-fades">
-				<div class="numbertext"></div>
+				<button class="learn-btn" onclick=clickInvestButton()>
+					Invest Now
+					<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
+						<path fill="#FFFFFF"
+							d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+					</svg> </button>
 				<a onclick="plusSlides(-1)"><img class='left-card'
 						src="lp/desktop/images/Discover_Desktop_Small.png" /></a>
-				<img class='main-card'
-					src="lp/desktop/images/Invest_Desktop.png" />
+				<img class='main-card' src="lp/desktop/images/Invest_Desktop.png" />
 				<a onclick="plusSlides(1)"><img class='right-card'
 						src="lp/desktop/images/Learn_Desktop_Small.png" /></a>
 			</div>
@@ -217,13 +327,13 @@
 		<a class="prev" onclick="plusSlides(-1)"><span class="prev-arrow">&#10094;</span></a>
 		<a class="next" onclick="plusSlides(1)"><span class="next-arrow">&#10095;</span></a>
 		<br>
-        <div class='threedots'>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
+		<div class='threedots'>
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+		</div>
 	</div>
-	
+
 </body>
 
 </html>
