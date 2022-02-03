@@ -7,10 +7,14 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
+		html,
 		body {
 			overflow-x: hidden;
 		}
 
+		#container {
+			padding-left: 20px;
+		}
 		#rei-header {
 			font-family: Poppins;
 			font-style: normal;
@@ -49,6 +53,7 @@
 			font-style: normal;
 			font-weight: normal;
 			font-size: 14px;
+			color: #2F363F;
 			line-height: 18px;
 			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
 			background-repeat: no-repeat;
@@ -202,37 +207,40 @@
 </head>
 
 <body>
-	<div id="rei-header">Learn Various Indices</div>
-	<div id="rei-tagline">Similar to stock indices a real estate index is indicative of the price per square foot for a
-		real estate asset.</div>
-	<div id="rei-container">
-		<div id="rei-selector">
-			<select name="rei-dropdown" id="rei-dropdown">
-				<option value="India_KA_Bangalore" class="rei-dropdown-option">Bangalore</option>
-				<option value="India_MP_Indore" class="rei-dropdown-option">Indore</option>
-				<option value="India_MH_Mumbai" class="rei-dropdown-option">Mumbai</option>
-			</select>
-			<div id="rei-price-cagr">
-				<div id="rei-price-cagr-value"> </div>
+	<div id="container">
+		<div id="rei-header">Learn Various Indices</div>
+		<div id="rei-tagline">Similar to stock indices a real estate index is indicative of the price per square foot
+			for a
+			real estate asset.</div>
+		<div id="rei-container">
+			<div id="rei-selector">
+				<select name="rei-dropdown" id="rei-dropdown">
+					<option value="India_KA_Bangalore" class="rei-dropdown-option">Bangalore</option>
+					<option value="India_MP_Indore" class="rei-dropdown-option">Indore</option>
+					<option value="India_MH_Mumbai" class="rei-dropdown-option">Mumbai</option>
+				</select>
+				<div id="rei-price-cagr">
+					<div id="rei-price-cagr-value"> </div>
+				</div>
 			</div>
-		</div>
-		<div id="rei-time-range">
-			<span class="rei-time-range-value">3M</span>
-			&nbsp;|&nbsp;
-			<span class="rei-time-range-value">6M</span>
-			&nbsp;|&nbsp;
-			<span class="rei-time-range-value">1Y</span>
-			&nbsp;|&nbsp;
-			<span class="rei-time-range-value">All-Time</span>
-		</div>
-		<div class="custom-spinner-container">
-			<div id="loader"></div>
-		</div>
-		<div id="rei-chart-container">
+			<div id="rei-time-range">
+				<span class="rei-time-range-value">3M</span>
+				&nbsp;|&nbsp;
+				<span class="rei-time-range-value">6M</span>
+				&nbsp;|&nbsp;
+				<span class="rei-time-range-value">1Y</span>
+				&nbsp;|&nbsp;
+				<span class="rei-time-range-value">All-Time</span>
+			</div>
+			<div class="custom-spinner-container">
+				<div id="loader"></div>
+			</div>
+			<div id="rei-chart-container">
 
-			<canvas id="rei-chart"></canvas>
-		</div>
+				<canvas id="rei-chart"></canvas>
+			</div>
 
+		</div>
 	</div>
 	<div id="rei-button-container">
 		<button id="rei-button" onclick="postMessage('signUpLearn')">

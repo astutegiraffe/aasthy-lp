@@ -182,7 +182,7 @@ let hideTooltip = () => {
 let populateREI = (reiIndexName, timeRange) => {
     showLoadingScreen();
     let token = getToken();
-    fetch(`https://reimon.in/api2/getRealEstateIndices/?reiIndexName=${reiIndexName}`, {
+    fetch(`/api2/getRealEstateIndices/?reiIndexName=${reiIndexName}`, {
         method: "GET",
         headers: { token: token },
     })

@@ -20,6 +20,11 @@
 			border: 1px solid #7E7E7E;
 		}
 
+		/* 
+		mySlides {
+			display: none;
+		} */
+
 		input[type=radio]:checked {
 			color: #7E7E7E;
 			background-color: #7E7E7E;
@@ -41,7 +46,7 @@
 			width: 100%;
 			background: url('lp/mobile/images/Background_Mobile.png') no-repeat 50% 50%;
 			background-size: cover;
-			height:96vw;
+			height: 96vw;
 			transform-style: preserve-3d;
 			display: flex;
 			justify-content: center;
@@ -88,20 +93,20 @@
 
 		#card1 {
 			position: absolute;
-			margin-top: 81%;
-			left:45%;
+			top: 87.5%;
+			left: 45%;
 		}
 
 		#card2 {
 			position: absolute;
-			margin-top: 81%;
-			left:50%;
+			top: 87.5%;
+			left: 50%;
 		}
 
 		#card3 {
 			position: absolute;
-			margin-top:81%;
-			left:55%;
+			top: 87.5%;
+			left: 55%;
 		}
 
 		.learn-btn {
@@ -130,33 +135,32 @@
 	</style>
 </head>
 
-<body >
+<body>
 	<div class="main-container" ontouchstart='startTouch(event)' ontouchmove='drag(event)' ontouchend='endTouch(event)'>
-		<input class="input-check" type="radio" name="slider" value='card1' id="card1" checked/>
-		<input class="input-check" type="radio" name="slider" value='card2' id="card2"/>
-		<input class="input-check" type="radio" name="slider" value='card3' id="card3"/>
+		<input class="input-check" type="radio" name="slider" value='card1' id="card1" checked />
+		<input class="input-check" type="radio" name="slider" value='card2' id="card2" />
+		<input class="input-check" type="radio" name="slider" value='card3' id="card3" />
 		<div class="cards">
 			<label class="card-g" for="card1" id="card-1">
 				<button class="learn-btn" onclick=clickLearnButton()>
 					Learn Now
 					<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
 				</button>
-				<img  class='card-img-g' src="lp/mobile/images/Learn_Mobile_New.png" alt="card"/>
+				<img class='card-img-g' src="lp/mobile/images/Learn_Mobile_New.png" alt="card" />
 			</label>
-
 			<label class="card-g" for="card2" id="card-2">
-				<button class="learn-btn" onclick=clickDiscoverButton()>
-				Discover Now
-				<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
-				</button>
+				<!-- <button class="learn-btn" onclick=clickDiscoverButton()>
+					Discover Now
+					<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
+				</button> -->
 				<img class='card-img-g' src="lp/mobile/images/Discover_Mobile_New.png" alt="card">
 			</label>
 			<label class="card-g" for="card3" id="card-3">
-				<button class="learn-btn"	onclick=clickInvestButton()>
-				Invest Now
-				<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
+				<button class="learn-btn" onclick=clickInvestButton()>
+					Invest Now
+					<img class="right-arrow" src="lp/mobile/images/Right_Arrow.png" alt="arrow">
 				</button>
-				<img class='card-img-g' src="lp/mobile/images/Invest_Mobile_New.png" alt="card"/>
+				<img class='card-img-g' src="lp/mobile/images/Invest_Mobile_New.png" alt="card" />
 			</label>
 		</div>
 	</div>
