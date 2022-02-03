@@ -82,49 +82,49 @@ addAssetCards = (asset, index) => {
 	let html = `
 <div class="condensed-asset-card-j-component" id=asset-${index} onclick=clickAssetCard(${asset.id})>
 <div class="condensed-asset-card-j-left-component">
-	<div class="condensed-asset-card-j-image">
-		<img class="condensed-asset-card-j-property-image" src="./images/property.jpg" alt='text'>
-	</div>
-	<div class="condensed-asset-card-j-image-source-icon">
-		<p id="condensed-asset-card-j-source-text">${asset.source}</p>
-	</div>
+    <div class="condensed-asset-card-j-image">
+        <img class="condensed-asset-card-j-property-image" src="lp/mobile/images/property.jpg" alt='text'>
+    </div>
+    <div class="condensed-asset-card-j-image-source-icon">
+        <p id="condensed-asset-card-j-source-text">${asset.source}</p>
+    </div>
 </div>
 <div class="condensed-asset-card-j-details">
-	<div id="condensed-asset-card-j-title">${getAssetTitle(asset)}</div>
-	<div class="condensed-asset-card-j-location-component">
-		${asset.areaLocation},${asset.city}
-	</div>
-	<div class="condensed-asset-card-j-price-component">
-		&#8377; ${getPriceAsText(asset.price)}
-	</div>
-	<div class="condensed-asset-card-j-details-container">
-		<div class="condensed-asset-card-j-details-title">
-			Area(sq.ft)
-		</div>
-		<div class="condensed-asset-card-j-details-content">
-			${asset.propertyArea.toLocaleString('en')}
-		</div>
-	</div>
-	<div class="condensed-asset-card-j-details-container">
-		<div class="condensed-asset-card-j-details-title">
-			Price/sq.ft
-		</div>
-		<div class="condensed-asset-card-j-details-content">
-		&#8377;${parseInt(asset.price / asset.propertyArea).toLocaleString('en')}
-		</div>
-	</div>
-	<div class="condensed-asset-card-j-details-container">
-		<div class="condensed-asset-card-j-details-title">
-			Return
-			<i class="condensed-asset-card-j-tooltip-builder fa fa-exclamation-circle"
-			style="margin-left: '5.56px';">
-			<span class='condensed-asset-card-j-tooltip-builder-text'>${getReturnYieldAppreciation(asset.yield, asset.appreciation)['yieldAppreciationText']}</span>
-		 </i>
-		</div>
-		<div class="condensed-asset-card-j-details-content">
-			${getReturnYieldAppreciation(asset.yield, asset.appreciation)['returnValue']}
-		</div>
-	</div>
+    <div id="condensed-asset-card-j-title">${getAssetTitle(asset)}</div>
+    <div class="condensed-asset-card-j-location-component">
+        ${asset.areaLocation},${asset.city}
+    </div>
+    <div class="condensed-asset-card-j-price-component">
+        &#8377; ${getPriceAsText(asset.price)}
+    </div>
+    <div class="condensed-asset-card-j-details-container">
+        <div class="condensed-asset-card-j-details-title">
+            Area(sq.ft)
+        </div>
+        <div class="condensed-asset-card-j-details-content">
+            ${asset.propertyArea.toLocaleString('en')}
+        </div>
+    </div>
+    <div class="condensed-asset-card-j-details-container">
+        <div class="condensed-asset-card-j-details-title">
+            Price/sq.ft
+        </div>
+        <div class="condensed-asset-card-j-details-content">
+        &#8377;${parseInt(asset.price / asset.propertyArea).toLocaleString('en')}
+        </div>
+    </div>
+    <div class="condensed-asset-card-j-details-container">
+        <div class="condensed-asset-card-j-details-title">
+            Return
+            <i class="condensed-asset-card-j-tooltip-builder fa fa-exclamation-circle"
+            style="margin-left: '5.56px';">
+            <span class='condensed-asset-card-j-tooltip-builder-text'>${getReturnYieldAppreciation(asset.yield, asset.appreciation)['yieldAppreciationText']}</span>
+         </i>
+        </div>
+        <div class="condensed-asset-card-j-details-content">
+            ${getReturnYieldAppreciation(asset.yield, asset.appreciation)['returnValue']}
+        </div>
+    </div>
 </div>
 </div>`;
 	document.getElementById('condensed-asset-card-j-container').insertAdjacentHTML('beforeend', html);
@@ -136,7 +136,7 @@ scrollToElm = (container, duration, left) => {
 }
 
 getRelativePos = (container, left) => {
-	let width = parseInt(window.getComputedStyle(document.querySelector('.condensed-asset-card-j-component')).width);
+	let width = parseInt(window.getComputedStyle(document.querySelector('.condensed-asset-card-j-component')).width) + 10;
 	let index = parseInt(container.scrollLeft / width);
 	let cardInView = left === 1 ? 0.99 : 0.01;
 	let focusEl = container.scrollLeft % width > cardInView * width ? index + 1 : index;
@@ -170,13 +170,13 @@ scrollTo = (element, change, duration, left) => {
 }
 
 easeInOutQuad = (t) => { return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t };
-loadingEvent = async () => {
+discoverLoadingEvent = async () => {
 	var opt = document.createElement("option");
 	opt.value = "ResidentialPlot";
 	opt.text = "Residential Plot";
 	var select = document.getElementById("propertyType");
 	select.add(opt)
-	let url = 'http://localhost:9001/api/getAssetsFromConfig?';
+	let url = '/api/getAssetsFromConfig?';
 	let city = 'Bangalore';
 	let propertyType = 'Apartment';
 	let returnOnInvestment = 'Appreciation';
@@ -213,7 +213,7 @@ loadingEvent = async () => {
 }
 
 getAssets = async () => {
-	let url = 'http://localhost:9001/api/getAssetsFromConfig?';
+	let url = '/api/getAssetsFromConfig?';
 	let city = document.getElementById('city').value
 	let propertyType = document.getElementById('propertyType').value
 	let returnOnInvestment = document.getElementById('roi').value
@@ -301,11 +301,5 @@ changeROI = () => {
 		getAssets()
 	}
 }
-signUp = () => {
-	window.postMessage('showLoginModal')
-	window.postMessage("event_DiscoverAssets_Signup")
-}
-window.onload = function () {
-	loadingEvent()
-}
+discoverLoadingEvent()
 window.urls = [];

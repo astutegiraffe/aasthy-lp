@@ -46,7 +46,7 @@ let getChartConfig = (xValues, yValues) => {
                     type: 'time',
                     display: true,
                     time: {
-                        tooltipFormat: 'dd MMM, yyyy',
+                        tooltipFormat: 'DD MMM, yyyy',
                         unit: 'month'
                     },
                     ticks: {
@@ -200,13 +200,11 @@ let populateREI = (reiIndexName, timeRange) => {
             populateGraph(xValues, yValues, timeRange);
         })
         .catch(error => {
-            console.error("error", error);
-            document.body.innerHTML = "";
+            console.error("REI failed to load with error", error);
         })
 }
 
 window.onload = function () {
-    console.log('hey')
     let selectedREIIndexName = document.getElementById("rei-dropdown");
     let timeRangeElements = document.getElementsByClassName("rei-time-range-value");
     let selectedTimeRange = "6M";
@@ -215,6 +213,7 @@ window.onload = function () {
     selectedREIIndexName.addEventListener("change", (event) => {
         populateREI(event.target.value, selectedTimeRange);
     });
+
     for (let element of timeRangeElements) {
         element.addEventListener("click", (event) => {
             selectedTimeRange = element.innerHTML;
@@ -226,10 +225,18 @@ window.onload = function () {
             hideTooltip();
         }
     });
+
+    window.addEventListener("scroll", () => {
+        hideTooltip();
+    });
+
+    document.addEventListener("touchmove", () => {
+        hideTooltip();
+    })
 }
 
 window.urls = [
-    "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js",
-    "https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.js",
-    "https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"
+    "https://cdn.jsdelivr.net/npm/chart.js@^3",
+    "https://cdn.jsdelivr.net/npm/moment@^2",
+    "https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"
 ];
