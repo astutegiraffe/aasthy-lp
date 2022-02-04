@@ -2,9 +2,9 @@
 <html>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
@@ -17,6 +17,8 @@
 		max-width: 1440px;
 		margin-left: auto;
 		margin-right: auto;
+		margin-top: auto;
+		margin-bottom: auto;
 	}
 
 	#rei-header {
@@ -80,7 +82,7 @@
 		font-size: 1.25vw;
 		line-height: 150%;
 		letter-spacing: 0.02em;
-		color: #9ABED9;
+		color: #EBA1D7;
 		cursor: pointer;
 	}
 
@@ -177,12 +179,10 @@
 
 		#rei-header {
 			font-size: 64px;
-			line-height: 64px;
 		}
 
 		#rei-tagline {
 			font-size: 24px;
-			line-height: 30px;
 		}
 
 		#rei-dropdown {
@@ -278,6 +278,18 @@
 			font-size: 6vw;
 		}
 
+		.rei-metrics-text {
+			font-size: 1.75vw;
+		}
+
+		#rei-time-range {
+			font-size: 1.75vw;
+		}
+
+		.rei-time-range-value {
+			font-size: 1.75vw;
+		}
+
 		#rei-dropdown {
 			font-size: 1.66vw;
 			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
@@ -341,7 +353,8 @@
 	}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<body>
+
+<body onresize="resize()">
 	<div id="container">
 		<div id="rei-header">Learn Various Indices</div>
 		<div id="rei-tagline">
@@ -395,8 +408,7 @@
 		<div id="rei-button-container">
 			<button id="rei-button" onclick="window.parent.postMessage('signUpLearn')">
 				Sign In to see detailed indices
-				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" 
-					viewBox="0 0 24 24">
+				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
 					<path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
 				</svg>
 			</button>
@@ -456,7 +468,7 @@
 		let yAxisMin = Math.floor((Math.min(...yValues) / 500) - 1) * 500;
 		let yAxisMax = Math.ceil((Math.max(...yValues) / 500 + 1)) * 500;
 		let stepSize = Math.ceil((yAxisMax - yAxisMin) / 4);
-		let xAxisTicks = (document.body.scrollWidth > 700) ? 6 : 5;
+		let xAxisTicks = (document.body.scrollWidth > 700) ? 6 : 4;
 		return {
 			type: "line",
 			data: {
@@ -499,7 +511,7 @@
 						type: 'time',
 						display: true,
 						time: {
-							tooltipFormat: 'DD MMM, YYYY',
+							tooltipFormat: 'dd MMM, yyyy',
 							unit: 'month'
 						},
 						ticks: {
@@ -662,6 +674,32 @@
 			selectedTimeRange = element.innerHTML;
 			populateGraph(xValues, yValues, selectedTimeRange);
 		})
+	}
+
+	let prevWidth;
+
+	let resize = () => {
+		let width = window.outerWidth;
+		if (prevWidth > 700 && width < 700) {
+			chart.options.scales.x.ticks.maxTicksLimit = 4;
+		}
+		if (prevWidth < 700 && width > 700) {
+			chart.options.scales.x.ticks.maxTicksLimit = 6;
+		}
+		let viewPort;
+		if (width > 1440) viewPort = 0.58;
+		else if (width > 1200) viewPort = 0.65;
+		else if (width > 900) viewPort = 0.66;
+		else if (width > 700) viewPort = 0.67;
+		else viewPort = 0.71;
+		let resizeObj = {
+			outerHeight: window.outerHeight,
+			outerWidth: window.outerWidth,
+			iframe: "desktop/i",
+			viewPort: viewPort
+		}
+		prevWidth = width;
+		window.parent.postMessage("resize-" + JSON.stringify(resizeObj));
 	}
 
 	document.addEventListener('click', (event) => {
