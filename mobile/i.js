@@ -1,8 +1,8 @@
-let xValues = [];
-let chart = {};
-let yValues = [];
+xValues = [];
+chart = {};
+yValues = [];
 
-let getChartConfig = (xValues, yValues) => {
+getChartConfig = (xValues, yValues) => {
     let yAxisMin = Math.floor((Math.min(...yValues) / 500) - 1) * 500;
     let yAxisMax = Math.ceil((Math.max(...yValues) / 500 + 1)) * 500;
     let stepSize = Math.ceil((yAxisMax - yAxisMin) / 4); return {
@@ -90,19 +90,19 @@ let getChartConfig = (xValues, yValues) => {
     }
 }
 
-let getPercentage = (currentValue, startValue) => {
+getPercentage = (currentValue, startValue) => {
     let percentage = (100 * (currentValue - startValue) / startValue).toFixed(2);
     return ((percentage >= 0) ? ` (<span style = "color: green;">${percentage} %</span>)`
         : ` (<span style = "color:red;">${percentage} %</span>)`)
 }
 
-let populatePricePercentage = (xValues, yValues) => {
+populatePricePercentage = (xValues, yValues) => {
     let startValue = yValues[0];
     let currentValue = yValues[yValues.length - 1];
     document.getElementById("rei-price-cagr-value").innerHTML = "<b>₹ " + currentValue.toFixed(0) + "</b>" + getPercentage(currentValue, startValue);
 }
 
-let timeRangeFilter = (xValues, yValues, timeRange) => {
+timeRangeFilter = (xValues, yValues, timeRange) => {
     let months;
     let filteredxValues = [];
     let filteredyValues = [];
@@ -130,7 +130,7 @@ let timeRangeFilter = (xValues, yValues, timeRange) => {
     return { filteredxValues, filteredyValues };
 }
 
-let highlightTimeRange = (timeRange) => {
+highlightTimeRange = (timeRange) => {
     let timeRangeElements = document.querySelectorAll(".rei-time-range-value");
     for (let timeRangeElement of timeRangeElements) {
         timeRangeElement.style.fontWeight = (timeRangeElement.textContent === timeRange) ? "bold" : "normal";
@@ -138,7 +138,7 @@ let highlightTimeRange = (timeRange) => {
     }
 }
 
-let populateGraph = (xValues, yValues, timeRange) => {
+populateGraph = (xValues, yValues, timeRange) => {
     let chartContainer = document.getElementById("rei-chart-container");
     let canvas = document.createElement("canvas");
     chartContainer.removeChild(document.getElementById("rei-chart"));
@@ -154,32 +154,32 @@ let populateGraph = (xValues, yValues, timeRange) => {
     chart = new Chart(ctx, getChartConfig(filteredxValues, filteredyValues));
 }
 
-let showLoadingScreen = () => {
+showLoadingScreen = () => {
     let loader = document.querySelector("#loader");
     loader.classList.add("display");
     document.querySelector("#rei-chart-container").style.opacity = 0.2;
 }
 
-let hideLoadingScreen = () => {
+hideLoadingScreen = () => {
     let loader = document.querySelector("#loader");
     loader.classList.remove("display");
     document.querySelector("#rei-chart-container").style.opacity = 1;
 }
 
-let getToken = () => {
+getToken = () => {
     const SECRET = 'noM13Reff@riGetutsAyhts@A';
     const epochTime = new Date().getTime();
     return window.btoa(unescape(encodeURIComponent(SECRET + epochTime)));
 }
 
-let hideTooltip = () => {
+hideTooltip = () => {
     if (chart && chart.tooltip) {
         chart.tooltip.setActiveElements([], { x: 0, y: 0 });
         chart.update();
     }
 }
 
-let populateREI = (reiIndexName, timeRange) => {
+populateREI = (reiIndexName, timeRange) => {
     showLoadingScreen();
     let token = getToken();
     fetch(`/api2/getRealEstateIndices/?reiIndexName=${reiIndexName}`, {
@@ -204,7 +204,7 @@ let populateREI = (reiIndexName, timeRange) => {
         })
 }
 
-window.onload = function () {
+loadREI = () => {
     let selectedREIIndexName = document.getElementById("rei-dropdown");
     let timeRangeElements = document.getElementsByClassName("rei-time-range-value");
     let selectedTimeRange = "6M";
@@ -233,6 +233,14 @@ window.onload = function () {
     document.addEventListener("touchmove", () => {
         hideTooltip();
     })
+}
+
+window.onload = () => {
+    loadREI();
+}
+
+if (typeof Chart === 'function') {
+    loadREI();
 }
 
 window.urls = [
