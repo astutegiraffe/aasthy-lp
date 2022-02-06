@@ -241,6 +241,7 @@
 					datasets: [{
 						fill: false,
 						borderColor: "#4E0668",
+						backgroundColor: "#4E0668",
 						borderJoinStyle: 'miter',
 						pointStyle: 'none',
 						tension: 0.5,
@@ -397,8 +398,11 @@
 
 		let getToken = () => {
 			const SECRET = 'noM13Reff@riGetutsAyhts@A';
-			const epochTime = new Date().getTime();
-			return window.btoa(unescape(encodeURIComponent(SECRET + epochTime)));
+			const msFromUTCtoIST = 5.5 * 60 * 60 * 1000;
+			let currentTimestamp = new Date();
+			let epochTimeUTC = new Date(currentTimestamp.getUTCFullYear(), currentTimestamp.getUTCMonth(), currentTimestamp.getUTCDate(), currentTimestamp.getUTCHours(), currentTimestamp.getUTCMinutes(), currentTimestamp.getUTCSeconds()).getTime();
+			let epochTimeIST = epochTimeUTC + msFromUTCtoIST;
+			return window.btoa(unescape(encodeURIComponent(SECRET + epochTimeIST)));
 		}
 
 		let hideTooltip = () => {
@@ -430,7 +434,7 @@
 				})
 				.catch(error => {
 					console.error("error", error);
-					document.body.innerHTML = "";
+					// document.body.innerHTML = "";
 				})
 		}
 
