@@ -6,19 +6,19 @@
     <style>
 		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
         body {
-            height: 26vw;
+            height:32vw;
             overflow: hidden;
         }
 
         @media all and (max-width: 1440px) {
             body {
-                height: 36vw;
+                height: 38vw;
             }
         }
 
         @media all and (max-width: 1200px) {
             body {
-                height: 43vw;
+                height: 40vw;
             }
         }
 
@@ -29,17 +29,17 @@
         }
         @media all and (max-width: 880px) {
             body {
-                height: 52vw;
+                height: 48vw;
             }
         }
         @media all and (max-width: 800px) {
             body {
-                height: 45vw;
+                height: 60vw;
             }
         }
         @media all and (max-width: 700px) {
             body {
-                height: 50vw;
+                height: 68vw;
             }
         }
 
@@ -105,7 +105,7 @@
             font-weight: 600;
             font-size: 14px;
             line-height: 150%;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.25em;
             color: #3B3B3B;
         }
 
@@ -535,7 +535,7 @@
             opt.text = "Residential Plot";
             var select = document.getElementById("propertyType");
             select.add(opt)
-            let url = '/api2/getAssetsFromConfig?';
+            let url = 'http://localhost:9001/api2/getAssetsFromConfig?';
             let city = 'Bangalore';
             let propertyType = 'Apartment';
             let returnOnInvestment = 'Appreciation';
@@ -668,11 +668,14 @@
             window.parent.postMessage('showLoginModal')
             window.parent.postMessage("event_DiscoverAssets_Signup")
         }
-
+        window.onload=function(){
+            discoverLoadingEvent()
+        }
     </script>
 </head>
 
-<body onload='discoverLoadingEvent()'>
+<body >
+    <div>
     <div style='margin-left:3%;margin-top:10px'>
         <h1 id='discover-heading-j'>Discover Assets</h1>
         <select name="city" id="city" onchange="changeCity()">
@@ -712,7 +715,7 @@
         <!-- <img alt="right arrow" style="margin-left: 8px;" src="lp/desktop/images/Arrow.png"
             id="alert-card-kyc-btn-img"></img> -->
     </button>
-
+</div>
 </body>
 
 </html>

@@ -1,10 +1,44 @@
-<html>
 
+<!DOCTYPE html>
+<html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-
+        body{
+            overflow:hidden;
+            height:92vw;
+        }
+        @media all and (max-width: 800px) {
+            body {
+                height: 90vw;
+            }
+        }
+        @media all and (max-width: 700px) {
+            body {
+                height: 100vw;
+            }
+        }
+        @media all and (max-width: 550px) {
+            body {
+                height: 105vw;
+            }
+        }
+        @media all and (max-width: 500px) {
+            body {
+                height: 120vw;
+            }
+        }
+        @media all and (max-width: 450px) {
+            body {
+                height: 140vw;
+            }
+        }
+        @media all and (max-width: 380px) {
+            body {
+                height: 160vw;
+            }
+        }
         .discover-heading-j {
             font-family: Poppins;
             font-style: normal;
@@ -380,7 +414,7 @@
 <div class="condensed-asset-card-j-component" id=asset-${index} onclick=clickAssetCard(${asset.id})>
 <div class="condensed-asset-card-j-left-component">
     <div class="condensed-asset-card-j-image">
-        <img class="condensed-asset-card-j-property-image" src="./images/property.jpg" alt='text'>
+        <img class="condensed-asset-card-j-property-image" src="${asset.assetImageUrl &&asset.assetImageUrl!==''?asset.assetImageUrl:'./images/default-asset-img.png'}"  onerror="this.onerror=null;this.src='./images/default-asset-img.png';" alt='text'>
     </div>
     <div class="condensed-asset-card-j-image-source-icon">
         <p id="condensed-asset-card-j-source-text">${asset.source}</p>
@@ -473,7 +507,7 @@
             opt.text = "Residential Plot";
             var select = document.getElementById("propertyType");
             select.add(opt)
-            let url = '/api2/getAssetsFromConfig?';
+            let url = 'http://localhost:9001/api2/getAssetsFromConfig?';
             let city = 'Bangalore';
             let propertyType = 'Apartment';
             let returnOnInvestment = 'Appreciation';
@@ -605,10 +639,14 @@
             const epochTime = new Date().getTime();
             return window.btoa(unescape(encodeURIComponent(SECRET + epochTime)));
         } 
+        window.onload=function(){
+            discoverLoadingEvent()
+        }
     </script>
 </head>
 
-<body onload="discoverLoadingEvent()">
+<body >
+    <div>
     <div style='margin-left:2%;margin-top:10px'>
         <h1 class='discover-heading-j'>Discover Assets</h1>
         <select name="city" id="city" onchange="changeCity()">
@@ -643,6 +681,7 @@
     <button id="sign-in-j" style='margin-bottom:10px' onclick="window.parent.postMessage('showLoginModal')">Sign In to
         see more<img alt="right arrow" style="margin-left: 8px;" src="./images/Arrow.png"
             id="alert-card-kyc-btn-img"></img></button>
+        </div>
 </body>
 
 </html>
