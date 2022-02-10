@@ -598,7 +598,7 @@
 				});
 			}
 
-			let onChangeOfCitySelectHandler = (e) => {
+			function onChangeOfCitySelectHandler(e) {
 				city = e.value;
 				if (yieldRelatedFlag) {
 					let opt = document.createElement("option");
@@ -642,13 +642,13 @@
 
 				window.parent.postMessage("event_DiscoverAssets_PropertyType");
 
-				if (city && propertyType && roi) {
+				if (city && propertyType && roiType) {
 					//need to pass that submit of data fetch?
 					getAssets(city, propertyType, roiType);
 				}
 			}
 
-			let onChangeOfROITypeSelectHandler = (e) => {
+			function onChangeOfROITypeSelectHandler(e) {
 				let roiType = e.value;
 				if (roiType === "Yield") {
 					document.getElementById("propertyType-selector-j").remove(2);
