@@ -1,725 +1,716 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+			body {
+				height: 30vw;
+				overflow: hidden;
+			}
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-        body {
-            height:30vw;
-            overflow: hidden;
-        }
-        #container-j{
-            max-width:1440px;
-            margin-left:auto;
-            margin-right:auto;
-            position:relative;
-        }
-        @media all and (max-width: 1440px) {
-            body {
-                height: 38vw;
-            }
-        }
+			#container-j {
+				max-width: 1440px;
+				margin-left: auto;
+				margin-right: auto;
+				position: relative;
+			}
 
-        @media all and (max-width: 1200px) {
-            body {
-                height: 40vw;
-            }
-        }
+			#discover-heading-j {
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: bold;
+				font-size: 64px;
+				line-height: 120%;
+				color: #2F363F;
+			}
 
-        @media all and (max-width: 900px) {
-            body {
-                height: 46vw;
-            }
-        }
-        @media all and (max-width: 880px) {
-            body {
-                height: 48vw;
-            }
-        }
-        @media all and (max-width: 800px) {
-            body {
-                height: 60vw;
-            }
-        }
-        @media all and (max-width: 700px) {
-            body {
-                height: 68vw;
-            }
-        }
+			#condensed-asset-card-j-container {
+				width: 97%;
+				margin-left: 30px;
+				height: 170px;
+				display: flex;
+				overflow-y: hidden;
+				overflow-x: scroll;
+				-ms-overflow-style: none;
+				scrollbar-width: none;
+				z-index: 0;
+			}
 
-        #discover-heading-j {
-            font-family: "Poppins";
-            font-style: normal;
-            font-weight: bold;
-            font-size: 64px;
-            line-height: 120%;
-            color: #2F363F;
-        }
+			#condensed-asset-card-j-container::-webkit-scrollbar {
+				display: none;
+			}
 
-        #condensed-asset-card-j-container {
-            width: 97%;
-            margin-left: 30px;
-            height: 170px;
-            display: flex;
-            overflow-y: hidden;
-            overflow-x: scroll;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            z-index: 0;
-        }
+			.condensed-asset-card-j-component {
+				width: calc(100% - 40px);
+				min-width: 372px;
+				max-width: 372px;
+				height: 142px;
+				position: relative;
+				margin-right: 10px;
+				/* margin-right: 15px; */
+				margin-top: 10px;
+				background: #FFFFFF;
+				box-shadow: 0px 0px 0.885714px rgba(12, 26, 75, 0.24), 0px 2.65714px 7.08571px -0.885714px rgba(50, 50, 71, 0.05);
+				border-radius: 16px;
+				cursor: pointer;
+			}
 
-        #condensed-asset-card-j-container::-webkit-scrollbar {
-            display: none;
-        }
+			#condensed-asset-card-j-title {
+				max-width: 310px;
+				width: 80%;
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 150%;
+				letter-spacing: 0.01em;
+				color: #27272E;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 
-        .condensed-asset-card-j-component {
-            width: calc(100%-40px);
-            min-width: 372px;
-            max-width: 372px;
-            height: 142px;
-            position: relative;
-            margin-right: 10px;
-            /* margin-right: 15px; */
-            margin-top: 10px;
-            background: #FFFFFF;
-            box-shadow: 0px 0px 0.885714px rgba(12, 26, 75, 0.24), 0px 2.65714px 7.08571px -0.885714px rgba(50, 50, 71, 0.05);
-            border-radius: 16px;
-            cursor: pointer;
-        }
+			.condensed-asset-card-j-price-component {
+				margin-bottom: 8px;
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 150%;
+				letter-spacing: 0.25em;
+				color: #3B3B3B;
+			}
 
-        #condensed-asset-card-j-title {
-            max-width: 310px;
-            width: 80%;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 150%;
-            letter-spacing: 0.01em;
-            color: #27272E;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+			.condensed-asset-card-j-left-component {
+				position: absolute;
+				top: 9px;
+				left: 10.16px;
+			}
 
-        .condensed-asset-card-j-price-component {
-            margin-bottom: 8px;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 150%;
-            letter-spacing: 0.25em;
-            color: #3B3B3B;
-        }
+			.condensed-asset-card-j-image {
+				height: 96px;
+				width: 96px;
+			}
 
-        .condensed-asset-card-j-left-component {
-            position: absolute;
-            top: 9px;
-            left: 10.16px;
-        }
+			.condensed-asset-card-j-property-image {
+				width: 100%;
+				height: 100%;
+				border-radius: 14.1714px;
+				object-fit: cover;
+			}
 
-        .condensed-asset-card-j-image {
-            height: 96px;
-            width: 96px;
-        }
+			.condensed-asset-card-j-details {
+				position: absolute;
+				left: 121px;
+				top: 13px;
+				height: 100%;
+			}
 
-        .condensed-asset-card-j-property-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 14.1714px;
-            object-fit: cover;
-        }
+			.condensed-asset-card-j-details-title {
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: normal;
+				font-size: 10px;
+				line-height: 170%;
+				letter-spacing: 0.05em;
+				color: #835494;
+			}
 
-        .condensed-asset-card-j-details {
-            position: absolute;
-            left: 121px;
-            top: 13px;
-            height: 100%;
-        }
+			.condensed-asset-card-j-details-content {
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: normal;
+				font-size: 12px;
+				line-height: 150%;
+				letter-spacing: 0.01em;
+				color: #2F363F;
+			}
 
-        .condensed-asset-card-j-details-title {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 10px;
-            line-height: 170%;
-            letter-spacing: 0.05em;
-            color: #835494;
-        }
+			.condensed-asset-card-j-image-source-icon {
+				position: absolute;
+				top: 78px;
+				width: 96px;
+				height: 18.69px;
+				background: #F7F7F7;
+				border-radius: 100px;
+			}
 
-        .condensed-asset-card-j-details-content {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 12px;
-            line-height: 150%;
-            letter-spacing: 0.01em;
-            color: #2F363F;
-        }
+			#condensed-asset-card-j-source-text {
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: 600;
+				font-size: 10px;
+				margin-top: 2px;
+				line-height: 130%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				letter-spacing: 0.01em;
+				text-transform: capitalize;
+				color: #24003D;
+				flex: none;
+				order: 0;
+				flex-grow: 1;
+			}
 
-        .condensed-asset-card-j-image-source-icon {
-            position: absolute;
-            top: 78px;
-            width: 96px;
-            height: 18.69px;
-            background: #F7F7F7;
-            border-radius: 100px;
-        }
+			#condensed-asset-card-j-source-photo {
+				position: absolute;
+				margin-left: 3.5px;
+			}
 
-        #condensed-asset-card-j-source-text {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 10px;
-            margin-top: 2px;
-            line-height: 130%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            letter-spacing: 0.01em;
-            text-transform: capitalize;
-            color: #24003D;
-            flex: none;
-            order: 0;
-            flex-grow: 1;
-        }
+			.condensed-asset-card-j-location-component {
+				max-width: 239px;
+				width: 75%;
+				height: 17px;
+				margin-bottom: 8px;
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: normal;
+				font-size: 10px;
+				line-height: 170%;
+				letter-spacing: 0.05em;
+				color: #3B3B3B;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 
-        #condensed-asset-card-j-source-photo {
-            position: absolute;
-            margin-left: 3.5px;
-        }
+			.condensed-asset-card-j-details-container {
+				max-width: 69px;
+				height: 35px;
+				float: left;
+				margin-right: 20px;
+			}
 
-        .condensed-asset-card-j-location-component {
-            max-width: 239px;
-            width: 75%;
-            height: 17px;
-            margin-bottom: 8px;
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 10px;
-            line-height: 170%;
-            letter-spacing: 0.05em;
-            color: #3B3B3B;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+			.new-tool-tip {
+				width: calc(100% - 40px);
+				max-width: 370px;
+				height: 66px;
+				background: #000000;
+				border-radius: 10px;
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: normal;
+				font-size: 12px;
+				line-height: 160%;
+				letter-spacing: 0.01em;
+				color: #FFFFFF;
+			}
 
-        .condensed-asset-card-j-details-container {
-            max-width: 69px;
-            height: 35px;
-            float: left;
-            margin-right: 20px;
-        }
+			.arrow-keys-j {
+				position: absolute;
+				margin-top: -100px;
+				width: 25px;
+				height: 23px;
+				box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+				border-radius: 100px;
+				border-color: #000000;
+				flex-wrap: nowrap;
+				display: flex;
+				z-index: 2000;
+				opacity: 1;
+				background: #FFFFFF;
+			}
 
-        .new-tool-tip {
-            width: calc(100%-40px);
-            max-width: 370px;
-            height: 66px;
-            background: #000000;
-            border-radius: 10px;
-            font-family: "Poppins";
-            font-style: normal;
-            font-weight: normal;
-            font-size: 12px;
-            line-height: 160%;
-            letter-spacing: 0.01em;
-            color: #FFFFFF;
-        }
+			#next-btn-j {
+				position: absolute;
+				right: 0%;
+			}
 
-        .arrow-keys {
-            position: absolute;
-            margin-top: -100px;
-            width: 25px;
-            height: 23px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-            border-radius: 100px;
-            border-color: #000000;
-            flex-wrap: nowrap;
-            display: flex;
-            z-index: 2000;
-            opacity: 1;
-            background: #FFFFFF;
-        }
+			#prev-btn-j {
+				position: absolute;
+				left: 1%;
+			}
 
-        #next-btn {
-            position: absolute;
-            right: 0%;
-        }
+			.btn-img {
+				margin: auto;
+			}
 
-        #prev-btn {
-            position: absolute;
-            left: 1%;
-        }
+			.discover-asset-selector {
+				width: 275px;
+				height: 41px;
+				outline: none;
+				background: #FFFFFF;
+				border: 1px solid #EEEEEE;
+				border-radius: 4px;
+				color: #444444;
+				margin-bottom: 5px;
+				margin-top: 5px;
+				/* -webkit-appearance: none; */
+				padding-left: 8px;
+				outline: none;
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
 
-        .btn-img {
-            margin: auto;
-        }
+			#sign-in-j {
+				display: flex;
+				cursor: pointer;
+				flex-direction: row;
+				justify-content: center;
+				font-family: "Poppins";
+				align-items: center;
+				padding: 6px 10px;
+				background: #4E0668;
+				border: 1px solid #4E0668;
+				box-sizing: border-box;
+				box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+				border-radius: 6px;
+				margin-left: auto;
+				margin-right: 20px;
+				color: #FFFFFF;
+				font-style: normal;
+				font-weight: 600;
+				white-space: nowrap;
+				font-size: 16px;
+			}
 
-        select {
-            width: 275px;
-            height: 41px;
-            outline: none;
-            background: #FFFFFF;
-            border: 1px solid #EEEEEE;
-            border-radius: 4px;
-            color: #444444;
-            margin-bottom: 5px;
-            margin-top: 5px;
-            /* -webkit-appearance: none; */
-            padding-left: 8px;
+			.condensed-asset-card-j-tooltip-builder {
+				position: relative;
+			}
 
-            outline: none;
-        }
+			.condensed-asset-card-j-tooltip-builder-text {
+				visibility: hidden;
+				background: #222;
+				border: 1px transparent;
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: normal;
+				font-size: 12px;
+				line-height: 100% !important;
+				letter-spacing: 0.01em;
+				color: #FFFFFF;
+				text-overflow: ellipsis;
+				padding: 5px;
+				padding-left: 20px;
+				position: absolute;
+				z-index: 1;
+				width: 270px;
+				word-wrap: break-word;
+				white-space: normal;
+				opacity: 0.9;
+				top: 100%;
+				left: 50%;
+				margin-left: -290px;
+			}
 
-        #sign-in-j {
-            display: flex;
-            cursor: pointer;
-            flex-direction: row;
-            justify-content: center;
-            font-family: 'Poppins';
-            align-items: center;
-            padding: 6px 10px;
-            background: #4E0668;
-            border: 1px solid #4E0668;
-            box-sizing: border-box;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-            margin-left: auto;
-            margin-right: 20px;
-            color: #FFFFFF;
-            font-family: Poppins;
-            font-style: normal;
-            font-weight: 600;
-            white-space: nowrap;
-            font-size: 16px;
-        }
+			.condensed-asset-card-j-tooltip-builder:hover .condensed-asset-card-j-tooltip-builder-text {
+				visibility: visible;
+			}
 
-        .condensed-asset-card-j-tooltip-builder {
-            position: relative;
-        }
+			.right-arrow-svg {
+				width: 12px;
+				height: 12px;
+				padding-left: 2px;
+			}
 
-        .condensed-asset-card-j-tooltip-builder-text {
-            visibility: hidden;
-            background: #222;
-            border: 1px transparent;
-            font-family: "Poppins";
-            font-style: normal;
-            font-weight: normal;
-            font-size: 12px;
-            line-height: 100% !important;
-            letter-spacing: 0.01em;
-            color: #FFFFFF;
-            text-overflow: ellipsis;
-            padding: 5px;
-            padding-left: 20px;
-            position: absolute;
-            z-index: 1;
-            width: 270px;
-            word-wrap: break-word;
-            white-space: normal;
-            opacity: 0.9;
-            top: 100%;
-            left: 50%;
-            margin-left: -290px;
-        }
+			@media all and (max-width: 1440px) {
+				body {
+					height: 38vw;
+				}
+			}
 
-        .condensed-asset-card-j-tooltip-builder:hover .condensed-asset-card-j-tooltip-builder-text {
-            visibility: visible;
-        }
+			@media all and (max-width: 1200px) {
+				body {
+					height: 40vw;
+				}
 
-        #propertyType,
-        #city,
-        #roi {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+				#sign-in-j {
+					font-size: 1.66vw;
+				}
 
-        .right-arrow-svg {
-            width: 12px;
-            height: 12px;
-            padding-left: 2px;
-        }
+				#discover-heading-j {
+					font-size: 4.44vw;
+				}
+			}
 
-        @media (max-width: 1200px) {
-            #sign-in-j {
-                font-size: 1.66vw;
-            }
+			@media all and (max-width: 900px) {
+				body {
+					height: 46vw;
+				}
+			}
 
-            #discover-heading-j {
-                font-size: 4.44vw;
-            }
-        }
-    </style>
-    <!-- <script src='./j.js'></script> -->
-    <script>
+			@media all and (max-width: 880px) {
+				body {
+					height: 48vw;
+				}
+			}
+			@media all and (max-width: 800px) {
+				body {
+					height: 60vw;
+				}
+			}
 
-        var assets = []
-        var yieldRelatedFlag = false;
-        var residentialRelatedFlag = false;
-        let getAssetTitle = (assetData) => {
-            PropertyTypeTextFormat = {
-                'residentialplot': 'Residential Plot',
-                'apartment': 'Apartment',
-                'apartment.penthouse': 'Apartment Penthouse',
-                'apartment.multistorey': 'Apartment Multistorey',
-                'apartment.studio': 'Apartment Studio',
-                'apartment.service': 'Apartment Service',
-                'independentfloor': 'Independent Floor',
-                'independenthouse': 'Independent House',
-                'villa': 'Villa',
-                'farmhouse': 'Farmhouse',
-                'agriculturalplot': 'Agricultural Plot',
-                'commercialplot': 'Commercial Plot',
-                'commercial.office': 'Commercial Office',
-                'commercial.shop': 'Commercial Shop',
-                'commercial.showroom': 'Commercial Showroom',
-                'commercial.warehouse': 'Commercial Warehouse',
-                'industrialplot': 'Industrial Plot',
-                'industrial.building': 'Industrial Building',
-                'industrial.depot': 'Industrial Depot',
-                'warehouse': 'Warehouse',
-                'generic_unknown': ''
-            };
-            let assetTitle = null;
-            if (assetData.propertyArea && assetData.bhkInfo && assetData.bhkInfo !== "" && !assetData.bhkInfo.includes("0") && !assetData.bhkInfo.includes("N/A") && assetData.propertyType && assetData.projectName && assetData.projectName !== "") {
-                assetTitle = assetData.bhkInfo + " " + PropertyTypeTextFormat[assetData.propertyType] + " of area " + assetData.propertyArea.toLocaleString('en') + " sq. ft. in " + assetData.projectName;
-            } else if (assetData.propertyArea && assetData.propertyType && assetData.projectName && assetData.projectName !== "") {
-                assetTitle = assetData.propertyArea.toLocaleString('en') + " sq. ft. " + PropertyTypeTextFormat[assetData.propertyType] + " in " + assetData.projectName;
-            } else if (assetData.propertyType && assetData.propertyArea && assetData.projectBuilder && assetData.projectBuilder !== "") {
-                assetTitle = assetData.propertyArea.toLocaleString('en') + " sq. ft. " + PropertyTypeTextFormat[assetData.propertyType] + " by " + assetData.projectBuilder;
-            } else {
-                assetTitle = assetData.propertyArea.toLocaleString('en') + " sq. ft. " + PropertyTypeTextFormat[assetData.propertyType] + " in " + assetData.areaLocation;
-            }
-            return assetTitle;
-        }
+			@media all and (max-width: 700px) {
+				body {
+					height: 68vw;
+				}
+			}
+		</style>
 
-        let getReturnYieldAppreciation = (yieldValue, appreciation) => {
-            let returnValue = null;
-            const appreciationText = appreciation ? appreciation.toFixed(2) + '%' : '-';
-            const yieldText = yieldValue ? yieldValue.toFixed(2) + '%' : '-';
-            if (yieldValue && appreciation) {
-                returnValue = parseInt(yieldValue.toFixed(2)) + parseInt(appreciation.toFixed(2)) + '%';
-            }
-            else if (yieldValue) {
-                returnValue = yieldValue.toFixed(2) + '%';
-            }
-            else if (appreciation) {
-                returnValue = appreciation.toFixed(2) + '%';
-            }
-            else {
-                returnValue = '-';
-            }
-            const yieldAppreciationText = "ROI is calculated by Appreciation and Yield. Appreciation: " + appreciationText + "  Yield: " + yieldText;
-            let returnYieldAppreciationText = {};
-            returnYieldAppreciationText['returnValue'] = returnValue;
-            returnYieldAppreciationText['yieldAppreciationText'] = yieldAppreciationText;
-            return returnYieldAppreciationText;
-        }
-        let getPriceAsText = (priceValue) => {
-            let symbol = (priceValue < 0 ? '-' : '')
-            priceValue = Math.abs(priceValue);
-            if ((priceValue / 10000000) >= 1) {
-                return symbol + ((priceValue / 10000000).toFixed(2) + " Cr");
-            } else if ((priceValue / 100000) >= 1 && (priceValue / 100000) < 100) {
-                return symbol + ((priceValue / 100000).toFixed(2) + " L");
-            } else if ((priceValue / 1000) >= 1 && (priceValue / 1000) < 100) {
-                return symbol + ((priceValue / 1000).toFixed(2) + " K");
-            } else {
-                return symbol + priceValue.toFixed(2);
-            }
-        }
-        let clickAssetCard = (id) => {
-            window.parent.postMessage('event_AssetCard_CustomLandingPage')
-            window.parent.location.href = '/asset/?id=' + id
-        }
-        let addAssetCards = (asset, index) => {
-            let html = `
-<div class="condensed-asset-card-j-component" id=asset-${index} onclick=clickAssetCard(${asset.id})>
-<div class="condensed-asset-card-j-left-component">
-    <div class="condensed-asset-card-j-image">
-        <img class="condensed-asset-card-j-property-image" src="${asset.assetImageUrl &&asset.assetImageUrl!==''?asset.assetImageUrl:'./images/default-asset-img.png'}"  onerror="this.onerror=null;this.src='./images/default-asset-img.png';" alt='text'>
-    </div>
-    <div class="condensed-asset-card-j-image-source-icon">
-        <p id="condensed-asset-card-j-source-text">${asset.source}</p>
-    </div>
-</div>
-<div class="condensed-asset-card-j-details">
-    <div id="condensed-asset-card-j-title">${getAssetTitle(asset)}</div>
-    <div class="condensed-asset-card-j-location-component">
-        ${asset.areaLocation},${asset.city}
-    </div>
-    <div class="condensed-asset-card-j-price-component">
-     ${'₹ ' + getPriceAsText(asset.price)}
-    </div>
-    <div class="condensed-asset-card-j-details-container">
-        <div class="condensed-asset-card-j-details-title">
-            Area(sq.ft)
-        </div>
-        <div class="condensed-asset-card-j-details-content">
-            ${asset.propertyArea.toLocaleString('en')}
-        </div>
-    </div>
-    <div class="condensed-asset-card-j-details-container">
-        <div class="condensed-asset-card-j-details-title">
-            Price/sq.ft
-        </div>
-        <div class="condensed-asset-card-j-details-content">
-        &#8377;  ${parseInt(asset.price / asset.propertyArea).toLocaleString('en')}
-        </div>
-    </div>
-    <div class="condensed-asset-card-j-details-container">
-        <div class="condensed-asset-card-j-details-title">
-            Return
-            <i class="condensed-asset-card-j-tooltip-builder fa fa-exclamation-circle"
-            style="margin-left: '5.56px';">
-            <span class='condensed-asset-card-j-tooltip-builder-text'>${getReturnYieldAppreciation(asset.yield, asset.appreciation)['yieldAppreciationText']}</span>
-         </i>
-        </div>
-        <div class="condensed-asset-card-j-details-content">
-            ${getReturnYieldAppreciation(asset.yield, asset.appreciation)['returnValue']}
-        </div>
-    </div>
-</div>
-</div>`;
-            document.getElementById('condensed-asset-card-j-container').insertAdjacentHTML('beforeend', html);
-        }
+		<script>
+			let assets = [];
+			let yieldRelatedFlag = false;
+			let residentialRelatedFlag = false;
+			let city = null;
+			let propertyType = null;
+			let roiType = null;
 
-        let scrollToElm = (container, duration, left) => {
-            let change = getRelativePos(container, left);
-            scrollTo(container, change, duration);  // duration in seconds
-        }
+			let getAssetTitle = (assetData) => {
+				let PropertyTypeTextFormat = {
+					'residentialplot': 'Residential Plot',
+					'apartment': 'Apartment',
+					'apartment.penthouse': 'Apartment Penthouse',
+					'apartment.multistorey': 'Apartment Multistorey',
+					'apartment.studio': 'Apartment Studio',
+					'apartment.service': 'Apartment Service',
+					'independentfloor': 'Independent Floor',
+					'independenthouse': 'Independent House',
+					'villa': 'Villa',
+					'farmhouse': 'Farmhouse',
+					'agriculturalplot': 'Agricultural Plot',
+					'commercialplot': 'Commercial Plot',
+					'commercial.office': 'Commercial Office',
+					'commercial.shop': 'Commercial Shop',
+					'commercial.showroom': 'Commercial Showroom',
+					'commercial.warehouse': 'Commercial Warehouse',
+					'industrialplot': 'Industrial Plot',
+					'industrial.building': 'Industrial Building',
+					'industrial.depot': 'Industrial Depot',
+					'warehouse': 'Warehouse',
+					'generic_unknown': ''
+				};
 
-        let getRelativePos = (container, left) => {
-            let width = parseInt(window.getComputedStyle(document.querySelector('.condensed-asset-card-j-component')).width) + 10;
-            let index = parseInt(container.scrollLeft / width);
-            let cardInView = left === 1 ? 0.99 : 0.01;
-            let focusEl = container.scrollLeft % width > cardInView * width ? index + 1 : index;
-            let change;
-            if (focusEl + left >= 0) {
-                if (focusEl + left <= 9) {
-                    change = focusEl + left;
-                } else {
-                    change = 9;
-                }
-            } else {
-                change = 0;
-            }
-            return change * width;
-        }
+				let assetTitle = null;
+				if (assetData.propertyArea && assetData.bhkInfo && assetData.bhkInfo !== "" && !assetData.bhkInfo.includes("0") && !assetData.bhkInfo.includes("N/A") && assetData.propertyType && assetData.projectName && assetData.projectName !== "") {
+					assetTitle = assetData.bhkInfo + " " + PropertyTypeTextFormat[assetData.propertyType] + " of area " + assetData.propertyArea.toLocaleString('en') + " sq. ft. in " + assetData.projectName;
+				} else if (assetData.propertyArea && assetData.propertyType && assetData.projectName && assetData.projectName !== "") {
+					assetTitle = assetData.propertyArea.toLocaleString('en') + " sq. ft. " + PropertyTypeTextFormat[assetData.propertyType] + " in " + assetData.projectName;
+				} else if (assetData.propertyType && assetData.propertyArea && assetData.projectBuilder && assetData.projectBuilder !== "") {
+					assetTitle = assetData.propertyArea.toLocaleString('en') + " sq. ft. " + PropertyTypeTextFormat[assetData.propertyType] + " by " + assetData.projectBuilder;
+				} else {
+					assetTitle = assetData.propertyArea.toLocaleString('en') + " sq. ft. " + PropertyTypeTextFormat[assetData.propertyType] + " in " + assetData.areaLocation;
+				}
 
-        let scrollTo = (element, change, duration, left) => {
-            let start = element.scrollLeft;
-            let startTime = performance.now();
-            let val, now, elapsed, t;
+				return assetTitle;
+			}
 
-            function animateScroll() {
-                now = performance.now();
-                elapsed = (now - startTime) / 1000;
-                t = (elapsed / duration);
-                element.scrollLeft = start + ((change - start) * easeInOutQuad(t));
-                if (t < 1)
-                    window.requestAnimationFrame(animateScroll);
-            };
-            animateScroll();
-        }
+			let getROITextDetails = (yieldValue, appreciation) => {
+				let roiText = null;
+				let appreciationText = appreciation ? appreciation.toFixed(2) + '%' : '-';
+				let yieldText = yieldValue ? yieldValue.toFixed(2) + '%' : '-';
 
-        let easeInOutQuad = (t) => { return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t };
-        let getToken = () => {
-            const SECRET = 'noM13Reff@riGetutsAyhts@A';
-            const epochTime = new Date().getTime();
-            return window.btoa(unescape(encodeURIComponent(SECRET + epochTime)));
-        }
-        let discoverLoadingEvent = async () => {
-            console.log('Scrollable Height For Discover:', document.body.scrollHeight);
-            var opt = document.createElement("option");
-            opt.value = "ResidentialPlot";
-            opt.text = "Residential Plot";
-            var select = document.getElementById("propertyType");
-            select.add(opt)
-            let url = '/api2/getAssetsFromConfig?';
-            let city = 'Bangalore';
-            let propertyType = 'Apartment';
-            let returnOnInvestment = 'Appreciation';
-            let token = getToken()
-            url += '&city=' + city + '&propertyType=' + propertyType + '&returnOnInvestment=' + returnOnInvestment;
-            await fetch(url, { method: "GET", headers: { token: token } })
-                .then((savedDataResponse) => {
-                    switch (savedDataResponse.status) {
-                        case (200):
-                        case (304):
-                            savedDataResponse.json().then((savedData) => {
-                                // console.log(savedData)
-                                assets = savedData.assets
-                                document.getElementById('condensed-asset-card-j-container').innerHTML = null;
-                                assets.forEach((asset, index, assets) => { addAssetCards(asset, index) });
-                            }).catch((err) => {
-                                console.error("ERROR: ", err);
-                            });
-                            break;
-                        default:
-                            break;
-                    }
-                }).catch((err) => {
-                    console.error("ERROR: ", err);
-                });
-            let el = document.getElementById('condensed-asset-card-j-container')
-            document.getElementById('next-btn').addEventListener('click', () => {
-                window.parent.postMessage('event_DiscoverAssets_RightCursor')
-                scrollToElm(el, 0.4, 1);
-            });
+				if (yieldValue && appreciation) {
+					roiText = parseInt(yieldValue.toFixed(2)) + parseInt(appreciation.toFixed(2)) + '%';
+				} else if (yieldValue) {
+					roiText = yieldValue.toFixed(2) + '%';
+				} else if (appreciation) {
+					roiText = appreciation.toFixed(2) + '%';
+				} else {
+					roiText = '-';
+				}
 
-            document.getElementById('prev-btn').addEventListener('click', () => {
-                window.parent.postMessage('event_DiscoverAssets_LeftCursor')
-                scrollToElm(el, 0.4, -1);
-            });
-        }
+				let yieldAppreciationText = "ROI is calculated by Appreciation and Yield. Appreciation: " + appreciationText + "  Yield: " + yieldText;
+				let roiTextDetails = {};
+				roiTextDetails['roiText'] = roiText;
+				roiTextDetails['yieldAppreciationText'] = yieldAppreciationText;
+				return roiTextDetails;
+			}
 
-        let getAssets = async () => {
-            let url = '/api2/getAssetsFromConfig?';
-            let city = document.getElementById('city').value
-            let propertyType = document.getElementById('propertyType').value
-            let returnOnInvestment = document.getElementById('roi').value
-            assetData = []
-            let token = getToken()
-            url += '&city=' + city + '&propertyType=' + propertyType + '&returnOnInvestment=' + returnOnInvestment;
-            await fetch(url, { method: "GET", headers: { token: token } })
-                .then((savedDataResponse) => {
-                    switch (savedDataResponse.status) {
-                        case (200):
-                        case (304):
-                            savedDataResponse.json().then((savedData) => {
-                                // console.log(savedData)
-                                assets = savedData.assets
-                                document.getElementById('condensed-asset-card-j-container').innerHTML = null;
-                                assets.forEach((asset, index, assets) => { addAssetCards(asset, index) });
-                            }).catch((err) => {
-                                console.error("ERROR: ", err);
-                            });
-                            break;
-                        default:
-                            break;
-                    }
-                }).catch((err) => {
-                    console.error("ERROR: ", err);
-                });
-        }
+			let getPriceAsText = (priceValue) => {
+				let symbol = (priceValue < 0 ? '-' : '');
+				priceValue = Math.abs(priceValue);
 
+				if ((priceValue / 10000000) >= 1) {
+					return symbol + ((priceValue / 10000000).toFixed(2) + " Cr");
+				} else if ((priceValue / 100000) >= 1 && (priceValue / 100000) < 100) {
+					return symbol + ((priceValue / 100000).toFixed(2) + " L");
+				} else if ((priceValue / 1000) >= 1 && (priceValue / 1000) < 100) {
+					return symbol + ((priceValue / 1000).toFixed(2) + " K");
+				} else {
+					return symbol + priceValue.toFixed(2);
+				}
+			}
 
-        let city = null;
-        let propertyType = null;
-        let roi = null;
-        let changeCity = () => {
-            city = document.getElementById('city').value
-            window.parent.postMessage("event_DiscoverAssets_City")
-            if (yieldRelatedFlag) {
-                let opt = document.createElement("option");
-                opt.value = "ResidentialPlot";
-                opt.text = "Residential Plot";
-                let select = document.getElementById("propertyType");
-                select.add(opt)
-                yieldRelatedFlag = false
-            }
-            if (residentialRelatedFlag) {
-                let opt = document.createElement("option");
-                opt.value = "Yield";
-                opt.text = "Yield >7%";
-                let select = document.getElementById("roi");
-                select.add(opt, 2)
-                residentialRelatedFlag = false
-            }
-            if (city && propertyType && roi) {
-                getAssets()
-            }
-        }
-        let changePropertyType = () => {
-            propertyType = document.getElementById('propertyType').value
-            window.parent.postMessage("event_DiscoverAssets_PropertyType")
-            if (propertyType == 'ResidentialPlot') {
-                var select = document.getElementById("roi");
-                select.remove(2);
-                residentialRelatedFlag = true;
-            }
-            if (propertyType == 'Apartment') {
-                if (residentialRelatedFlag) {
-                    let opt = document.createElement("option");
-                    opt.value = "Yield";
-                    opt.text = "Yield >7%";
-                    let select = document.getElementById("roi");
-                    select.add(opt, 2)
-                    residentialRelatedFlag = false
-                }
-            }
-            if (city && propertyType && roi) {
-                getAssets()
-            }
-        }
-        let changeROI = () => {
-            roi = document.getElementById('roi').value
-            if (roi == 'Yield') {
-                var select = document.getElementById("propertyType");
-                select.remove(2);
-                yieldRelatedFlag = true;
-            }
-            window.parent.postMessage("event_DiscoverAssets_ROI")
-            if (city && propertyType && roi) {
-                getAssets()
-            }
-        }
-        let signUp = () => {
-            window.parent.postMessage('showLoginModal')
-            window.parent.postMessage("event_DiscoverAssets_Signup")
-        }
-        window.onload=function(){
-            discoverLoadingEvent()
-        }
-    </script>
-</head>
+			let onClickOfAssetCardHandler = (id) => {
+				window.parent.postMessage('event_AssetCard_CustomLandingPage');
+				window.parent.location.href = "/asset/?id=" + id; //Is this required as per spec?
+			}
 
-<body >
-    <div id='container-j'>
-    <div style='margin-left:3%;margin-top:10px'>
-        <h1 id='discover-heading-j'>Discover Assets</h1>
-        <select name="city" id="city" onchange="changeCity()">
-            <option value="none" selected disabled hidden>City</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="NonMetroHotspots">Non Metro Hotspots</option>
-        </select>
-        <select name="propertyType" id='propertyType' onchange="changePropertyType()">
-            <option value="none" selected disabled hidden>Property Type</option>
-            <option value="Apartment">Apartment</option>
-        </select>
-        <select name="roi" id='roi' onchange="changeROI()">
-            <option value="none" selected disabled hidden>Return on Investment %</option>
-            <option value="Appreciation">Appreciation >20%</option>
-            <option value="Yield">Yield >7%</option>
-            <option value="AppreciationAndYield">Appreciation >20% And Yield >7%</option>
-        </select>
-    </div>
-    <div style='margin-top: 20px;margin-left:0.6%'>
-        <div id='condensed-asset-card-j-container'>
+			let addAssetCardComponent = (asset, index) => {
+				let assetHtmlCardTemplate = `
+				<div class="condensed-asset-card-j-component" id=asset-${index} onclick=onClickOfAssetCardHandler(${asset.id})>
+				<div class="condensed-asset-card-j-left-component">
+					<div class="condensed-asset-card-j-image">
+						<img class="condensed-asset-card-j-property-image" src="${(asset.assetImageUrl && asset.assetImageUrl !== '') ? asset.assetImageUrl : './images/default-asset-img.png'}"  onerror="this.onerror=null;this.src='./images/default-asset-img.png';" alt='text'>
+					</div>
+					<div class="condensed-asset-card-j-image-source-icon">
+						<p id="condensed-asset-card-j-source-text">${asset.source}</p>
+					</div>
+				</div>
+				<div class="condensed-asset-card-j-details">
+					<div id="condensed-asset-card-j-title">${getAssetTitle(asset)}</div>
+					<div class="condensed-asset-card-j-location-component">
+						${asset.areaLocation}, ${asset.city}
+					</div>
+					<div class="condensed-asset-card-j-price-component">
+					 ${'₹ ' + getPriceAsText(asset.price)}
+					</div>
+					<div class="condensed-asset-card-j-details-container">
+						<div class="condensed-asset-card-j-details-title">
+							Area(sq.ft)
+						</div>
+						<div class="condensed-asset-card-j-details-content">
+							${asset.propertyArea.toLocaleString('en')}
+						</div>
+					</div>
+					<div class="condensed-asset-card-j-details-container">
+						<div class="condensed-asset-card-j-details-title">
+							Price/sq.ft
+						</div>
+						<div class="condensed-asset-card-j-details-content">
+						&#8377;  ${parseInt(asset.price / asset.propertyArea).toLocaleString('en')}
+						</div>
+					</div>
+					<div class="condensed-asset-card-j-details-container">
+						<div class="condensed-asset-card-j-details-title">
+							Return
+							<i class="condensed-asset-card-j-tooltip-builder fa fa-exclamation-circle"
+							style="margin-left: '5.56px';">
+							<span class='condensed-asset-card-j-tooltip-builder-text'>${getROITextDetails(asset.yield, asset.appreciation)['yieldAppreciationText']} </span>
+						 </i>
+						</div>
+						<div class="condensed-asset-card-j-details-content">
+							${getROITextDetails(asset.yield, asset.appreciation)['roiText']}
+						</div>
+					</div>
+				</div>
+				</div>`;
 
-        </div>
-    </div>
-    <div class="arrow-keys" id="prev-btn">
-        <img class="btn-img" src="./images/Prev.png" alt="Arrow">
-    </div>
-    <div class="arrow-keys" id="next-btn">
-        <img class="btn-img" src="./images/Next.png" alt="Arrow">
-    </div>
-    <button id="sign-in-j" style="margin-bottom:20px" onclick="signUp()">Sign In to see more
-        <svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
-            <path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
-        </svg>
-        <!-- <img alt="right arrow" style="margin-left: 8px;" src="lp/desktop/images/Arrow.png"
-            id="alert-card-kyc-btn-img"></img> -->
-    </button>
-</div>
-</body>
+				document.getElementById('condensed-asset-card-j-container').insertAdjacentHTML('beforeend', assetHtmlCardTemplate);
+			}
 
+			let getRelativePos = (container, left) => {
+				let width = parseInt(window.getComputedStyle(document.querySelector('.condensed-asset-card-j-component')).width) + 10;
+				let index = parseInt(container.scrollLeft / width);
+				let cardInView = left === 1 ? 0.99 : 0.01;
+				let focusEl = container.scrollLeft % width > cardInView * width ? index + 1 : index;
+				let change;
+				if (focusEl + left >= 0) {
+					if (focusEl + left <= 9) {
+						change = focusEl + left;
+					} else {
+						change = 9;
+					}
+				} else {
+					change = 0;
+				}
+				return change * width;
+			}
+
+			let scrollToElm = (container, duration, left) => {
+				let change = getRelativePos(container, left);
+				scrollTo(container, change, duration);  // duration in seconds
+			}
+
+			let scrollTo = (element, change, duration, left) => {
+				let start = element.scrollLeft;
+				let startTime = performance.now();
+				let val, now, elapsed, t;
+
+				function animateScroll() {
+					now = performance.now();
+					elapsed = (now - startTime) / 1000;
+					t = (elapsed / duration);
+					element.scrollLeft = start + ((change - start) * (t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t));
+					if (t < 1) window.requestAnimationFrame(animateScroll);
+				};
+
+				animateScroll();
+			}
+
+			let getToken = () => {
+				const SECRET = 'noM13Reff@riGetutsAyhts@A';
+				const msFromUTCtoIST = 5.5 * 60 * 60 * 1000;
+				let currentTimestamp = new Date();
+				let epochTimeUTC = new Date(currentTimestamp.getUTCFullYear(), currentTimestamp.getUTCMonth(), currentTimestamp.getUTCDate(), currentTimestamp.getUTCHours(), currentTimestamp.getUTCMinutes(), currentTimestamp.getUTCSeconds()).getTime();
+				let epochTimeIST = epochTimeUTC + msFromUTCtoIST;
+				return window.btoa(unescape(encodeURIComponent(SECRET + epochTimeIST)));
+			}
+
+			let populateDiscoverAssetsOnLoad = () => {
+				let opt = document.createElement("option");
+				opt.value = "Residential Plot";
+				opt.text = "Residential Plot";
+				document.getElementById("propertyType-selector-j").add(opt);
+				let city = 'Bangalore';
+				let propertyType = 'Apartment';
+				let roiType = 'Appreciation';
+
+				//Fetching assets based on the above default values.
+				getAssets(city, propertyType, roiType);
+
+				let discoverAssetsContainerElement = document.getElementById('condensed-asset-card-j-container');
+
+				document.getElementById('next-btn-j').addEventListener('click', () => {
+					window.parent.postMessage('event_DiscoverAssets_RightCursor')
+					scrollToElm(discoverAssetsContainerElement, 0.4, 1);
+				});
+
+				document.getElementById('prev-btn-j').addEventListener('click', () => {
+					window.parent.postMessage('event_DiscoverAssets_LeftCursor')
+					scrollToElm(discoverAssetsContainerElement, 0.4, -1);
+				});
+			}
+
+			let getAssets = (city, propertyType, roiType) => {
+				let url = '/api2/discoverAssets?city=' + city + '&propertyType=' + propertyType + '&roiType=' + roiType;
+				let urlOptions = {
+					method: "GET",
+					headers: {
+						token: getToken()
+					}
+				};
+
+				fetch(url, urlOptions).then((response) => {
+					switch (response.status) {
+						case 200:
+						case 304:
+							response.json().then((discoverAssetsResponse) => {
+								assets = discoverAssetsResponse.assets
+								document.getElementById('condensed-asset-card-j-container').innerHTML = null;
+								assets.forEach((asset, index) => { 
+									addAssetCardComponent(asset, index);
+								});
+							}).catch((err) => {
+								console.error("ERROR: ", err);
+							});
+							break;
+						case 404:
+							//TBD when any config is not found, if first time on load, then the section should not even show up.
+							break;
+						default:
+							break;
+					}
+				}).catch((err) => {
+					console.error("ERROR: ", err);
+				});
+			}
+
+			let onChangeOfCitySelectHandler = (e) => {
+				city = e.value;
+				if (yieldRelatedFlag) {
+					let opt = document.createElement("option");
+					opt.value = "Residential Plot";
+					opt.text = "Residential Plot";
+					let propertyTypeSelector = document.getElementById("propertyType-selector-j");
+					propertyTypeSelector.add(opt);
+					yieldRelatedFlag = false;
+				}
+
+				if (residentialRelatedFlag) {
+					let opt = document.createElement("option");
+					opt.value = "Yield";
+					opt.text = "Yield >7%";
+					let roiTypeSelector = document.getElementById("roiType-selector-j");
+					roiTypeSelector.add(opt, 2);
+					residentialRelatedFlag = false
+				}
+
+				window.parent.postMessage("event_DiscoverAssets_City");
+
+				if (city && propertyType && roiType) {
+					//need to pass that submit of data fetch?
+					getAssets(city, propertyType, roiType);
+				}
+			}
+
+			function onChangeOfPropertyTypeSelectHandler(e) {
+				propertyType = e.value;
+				let roiTypeSelector = document.getElementById("roiType-selector-j");
+				if (propertyType === "ResidentialPlot") {
+					roiTypeSelector.remove(2);
+					residentialRelatedFlag = true;
+				} else if(propertyType === "Apartment" && residentialRelatedFlag) {
+					let opt = document.createElement("option");
+					opt.value = "Yield";
+					opt.text = "Yield >7%";
+					roiTypeSelector.add(opt, 2);
+					residentialRelatedFlag = false;
+				}
+
+				window.parent.postMessage("event_DiscoverAssets_PropertyType");
+
+				if (city && propertyType && roi) {
+					//need to pass that submit of data fetch?
+					getAssets(city, propertyType, roiType);
+				}
+			}
+
+			let onChangeOfROITypeSelectHandler = (e) => {
+				let roiType = e.value;
+				if (roiType === "Yield") {
+					document.getElementById("propertyType-selector-j").remove(2);
+					yieldRelatedFlag = true;
+				}
+
+				window.parent.postMessage("event_DiscoverAssets_ROI");
+
+				if (city && propertyType && roiType) {
+					//need to pass that submit of data fetch?
+					getAssets(city, propertyType, roiType);
+				}
+			}
+
+			let signUp = () => {
+				window.parent.postMessage('showLoginModal');
+				window.parent.postMessage("event_DiscoverAssets_Signup");
+			}
+
+			window.onload = function() {
+				populateDiscoverAssetsOnLoad();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="container-j">
+			<div style="margin-left: 3%; margin-top: 10x;">
+				<h1 id="discover-heading-j">Discover Assets</h1>
+				<select class="discover-asset-selector" name="city" id="city-selector-j" onchange="onChangeOfCitySelectHandler(this)">
+					<option value="none" selected disabled hidden>City</option>
+					<option value="Bangalore">Bangalore</option>
+					<option value="Chennai">Chennai</option>
+					<option value="Mumbai">Mumbai</option>
+					<option value="Non Metro Hotspots">Non Metro Hotspots</option>
+				</select>
+				<select class="discover-asset-selector" name="propertyType" id="propertyType-selector-j" onchange="onChangeOfPropertyTypeSelectHandler(this)">
+					<option value="none" selected disabled hidden>Property Type</option>
+					<option value="Apartment">Apartment</option>
+				</select>
+				<select class="discover-asset-selector" name="roi" id='roiType-selector-j' onchange="onChangeOfROITypeSelectHandler(this)">
+					<option value="none" selected disabled hidden>Return on Investment %</option>
+					<option value="Appreciation">Appreciation >20%</option>
+					<option value="Yield">Yield >7%</option>
+					<option value="Appreciation And Yield">Appreciation >20% And Yield >7%</option>
+				</select>
+			</div>
+			<div style="margin-top: 20px; margin-left: 0.6%;">
+				<div id="condensed-asset-card-j-container"></div>
+			</div>
+			<div class="arrow-keys-j" id="prev-btn-j">
+				<img class="btn-img" src="./images/Prev.png" alt="Prev Arrow" />
+			</div>
+			<div class="arrow-keys-j" id="next-btn-j">
+				<img class="btn-img" src="./images/Next.png" alt="Next Arrow" />
+			</div>
+			<button id="sign-in-j" style="margin-bottom: 20px;" onclick="signUp()">Sign In to see more
+				<svg xmlns="http://www.w3.org/2000/svg" class="right-arrow-svg" viewBox="0 0 24 24">
+					<path fill="#FFFFFF" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" />
+				</svg>
+				<!-- <img alt="right arrow" style="margin-left: 8px;" src="lp/desktop/images/Arrow.png"
+					id="alert-card-kyc-btn-img"></img> -->
+			</button>
+		</div>
+	</body>
 </html>
