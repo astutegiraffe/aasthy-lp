@@ -177,14 +177,6 @@
 			height: 64vw;
 		}
 
-		#rei-header {
-			font-size: 64px;
-		}
-
-		#rei-tagline {
-			font-size: 24px;
-		}
-
 		#rei-dropdown {
 			font-size: 24px;
 		}
@@ -204,14 +196,6 @@
 			height: 67vw;
 		}
 
-		#rei-header {
-			font-size: 4.44vw;
-		}
-
-		#rei-tagline {
-			font-size: 1.66vw;
-		}
-
 		#rei-dropdown {
 			font-size: 1.66vw;
 		}
@@ -228,14 +212,6 @@
 	@media all and (max-width: 900px) {
 		body {
 			height: 65vw;
-		}
-
-		#rei-header {
-			font-size: 6.04vw;
-		}
-
-		#rei-tagline {
-			font-size: 1.66vw;
 		}
 
 		#rei-dropdown {
@@ -272,10 +248,6 @@
 	@media all and (max-width: 700px) {
 		body {
 			height: 71vw;
-		}
-
-		#rei-header {
-			font-size: 6vw;
 		}
 
 		.rei-metrics-text {
@@ -327,6 +299,30 @@
 		z-index: 10;
 		visibility: hidden;
 	}
+
+	@media all and (max-width: 767px) {
+			#rei-header {
+				font-size: 6.04vw;
+				line-height: 7.24vw;
+			}
+
+			#rei-tagline {
+				font-size: 3.86vw;
+				line-height: 5.80vw;
+			}
+		}
+
+		@media all and (min-width: 1440px) {
+			#rei-header {
+				font-size: 64px;
+				line-height: 64px;
+			}
+
+			#rei-tagline {
+				font-size: 24px;
+				line-height: 24px;
+			}
+		}
 
 	#loader.display {
 		visibility: visible;
@@ -414,7 +410,7 @@
 			</button>
 		</div>
 		<div id="rei-hr">
-			<hr class="line-mobile" style="margin: 0px auto; border-color: rgb(0, 0, 0); width: 90.5%;" />
+			<hr class="line-mobile" style="margin: 0px auto; border-color: rgb(0, 0, 0); width: 92.5%;" />
 		</div>
 	</div>
 
@@ -689,20 +685,20 @@
 		if (prevWidth < 700 && width > 700) {
 			chart.options.scales.x.ticks.maxTicksLimit = 6;
 		}
-		let viewPort;
-		if (width > 1440) viewPort = 0.58;
-		else if (width > 1200) viewPort = 0.65;
-		else if (width > 900) viewPort = 0.66;
-		else if (width > 700) viewPort = 0.67;
-		else viewPort = 0.71;
-		let resizeObj = {
-			outerHeight: window.outerHeight,
-			outerWidth: window.outerWidth,
-			iframe: "desktop/i",
-			viewPort: viewPort
-		}
+		// let viewPort;
+		// if (width > 1440) viewPort = 0.58;
+		// else if (width > 1200) viewPort = 0.65;
+		// else if (width > 900) viewPort = 0.66;
+		// else if (width > 700) viewPort = 0.67;
+		// else viewPort = 0.71;
+		// let resizeObj = {
+		// 	outerHeight: window.outerHeight,
+		// 	outerWidth: window.outerWidth,
+		// 	iframe: "desktop/i",
+		// 	viewPort: viewPort
+		// }
 		prevWidth = width;
-		window.parent.postMessage("resize-" + JSON.stringify(resizeObj));
+		// window.parent.postMessage("resize-" + JSON.stringify(resizeObj));
 	}
 
 	document.addEventListener('click', (event) => {
