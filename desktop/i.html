@@ -6,11 +6,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.js"></script>
 <script	src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 	body {
 		overflow: hidden;
-		height: 55vw;
+		height: 860px;
+		padding-left: 4.83%;
 	}
 
 	#container {
@@ -22,13 +23,12 @@
 	}
 
 	#rei-header {
-		font-family: "Poppins";
-		font-style: normal;
-		font-weight: bold;
-		font-size: 4.44vw;
+		font-family: 'Poppins', sans-serif;
+		font-size: 36px;
+		font-weight: 500;
+		margin-bottom: 16px;
 		line-height: 120%;
 		color: #2F363F;
-		margin-left: 3%;
 		margin-top: 2%;
 	}
 
@@ -36,21 +36,21 @@
 		font-family: "Poppins";
 		font-style: normal;
 		font-weight: normal;
-		font-size: 1.66vw;
+		font-size: 24px;
 		line-height: 125%;
 		color: #2F363F;
-		margin-left: 3%;
 		margin-top: 0.5%;
 	}
 
 	#rei-container {
 		display: flex;
-		padding: 3%;
+		padding: 1.5%;
+		padding-left: 0%;
 	}
 
 	#rei-content {
 		display: block;
-		width: 70%;
+		width: 67.5%;
 	}
 
 	#rei-selector {
@@ -109,7 +109,7 @@
 	#rei-chart-container {
 		position: relative;
 		margin: auto;
-		padding-top: 5%;
+		padding-top: 2%;
 		width: 100%;
 	}
 
@@ -156,7 +156,7 @@
 		border: 0px;
 		font-size: 16px;
 		font-family: "Poppins";
-		font-weight: 600;
+		font-weight: 500;
 		color: #FFFFFF;
 		white-space: nowrap;
 		padding: 0.7% 1.5%;
@@ -170,7 +170,7 @@
 
 	@media all and (max-width: 1440px) {
 		body {
-			height: 64vw;
+			height: 56vw;
 		}
 
 		#rei-dropdown {
@@ -189,7 +189,7 @@
 
 	@media all and (max-width: 1200px) {
 		body {
-			height: 67vw;
+			height: 59vw;
 		}
 
 		#rei-dropdown {
@@ -207,7 +207,7 @@
 
 	@media all and (max-width: 900px) {
 		body {
-			height: 65vw;
+			height: 64vw;
 		}
 
 		#rei-dropdown {
@@ -231,7 +231,7 @@
 			font-size: 1.66vw;
 			font-style: normal;
 			font-family: "Poppins";
-			font-weight: 600;
+			font-weight: 500;
 		}
 
 		.right-arrow-svg {
@@ -243,7 +243,7 @@
 
 	@media all and (max-width: 700px) {
 		body {
-			height: 71vw;
+			height: 69vw;
 		}
 
 		.rei-metrics-text {
@@ -310,13 +310,15 @@
 
 	@media all and (min-width: 1440px) {
 		#rei-header {
-			font-size: 64px;
-			line-height: 64px;
+			font-size: 36px;
 		}
 
 		#rei-tagline {
 			font-size: 24px;
-			line-height: 24px;
+		}
+
+		#rei-dropdown {
+			font-size: 22px;
 		}
 	}
 
@@ -443,7 +445,7 @@
 		let currentMonth = month[currentDate.getMonth()];;
 		let currentYear = currentDate.getFullYear();
 
-		document.getElementById('rei-current-price').innerHTML = "<b>₹ " + currentValue.toFixed(0) + getPercentage(currentValue, startValue) + "</b>";
+		document.getElementById('rei-current-price').innerHTML = "<span style='font-weight: 600'>₹ " + currentValue.toFixed(0) + getPercentage(currentValue, startValue) + "</b>";
 		document.getElementById('rei-current-date').innerHTML = [currentDay, currentMonth, currentYear].join(" ");
 
 		document.getElementById('rei-time-range-max-value').innerHTML = "₹ " + maxValue.toFixed(0);
@@ -575,7 +577,7 @@
 	let highlightTimeRange = (timeRange) => {
 		let timeRangeElements = document.querySelectorAll(".rei-time-range-value");
 		for (let timeRangeElement of timeRangeElements) {
-			timeRangeElement.style.fontWeight = (timeRangeElement.textContent === timeRange) ? "bold" : "normal";
+			timeRangeElement.style.fontWeight = (timeRangeElement.textContent === timeRange) ? "500" : "normal";
 			timeRangeElement.style.color = (timeRangeElement.textContent === timeRange) ? "#4E0668" : "#EBA1D7";
 		}
 	}
@@ -620,7 +622,7 @@
 	}
 
 	let hideTooltip = () => {
-		if (chart) {
+		if (chart && chart.tooltip) {
 			chart.tooltip.setActiveElements([], { x: 0, y: 0 });
 			chart.update();
 		}
