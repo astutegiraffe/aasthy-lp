@@ -631,7 +631,7 @@
 	let populateREI = (reiIndexName, timeRange) => {
 		showLoadingScreen();
 		let token = getToken();
-		fetch(`/api2/getRealEstateIndices/?reiIndexName=${reiIndexName}`, {
+		fetch(`/api2/search/REI/?reiIndexName=${reiIndexName}`, {
 			method: "GET",
 			headers: { token: token },
 		})
